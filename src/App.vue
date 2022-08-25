@@ -1,18 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <h2>Hi SCSS</h2>
+    <Navtop/>
+    <div class="container">
+
+    </div>
+    <Footer/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Navtop from './components/Navtop'
+import Footer from './components/Footer'
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Navtop,
+    Footer,
   }
 }
 </script>
