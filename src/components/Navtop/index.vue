@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    Hi It's Nav
   </div>
 </template>
 

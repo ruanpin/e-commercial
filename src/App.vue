@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <Navtop/>
+    <div class="nav-contain">
+      <Navtop id="nav"/>
+    </div>
     <div class="container">
 
     </div>
@@ -23,15 +25,37 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-  h2 {
-    color:red;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+$max-width:1400px;
+
+  * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
   }
-}
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    width: 100%;
+      #app {
+        .nav-contain {
+          background-color: skyblue;
+          #nav {
+            max-width: $max-width;
+            width:85%;
+            margin:0px auto;
+          }
+        }
+        
+        #container {
+          max-width: $max-width;
+          width:85%;
+          margin:0px auto;
+        }
+      }
+  }
+
+
 </style>
