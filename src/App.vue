@@ -4,7 +4,6 @@
       <Navtop id="nav"/>
     </div>
     <div id="container">
-      1
       <router-view></router-view>
     </div>
     <div id="footer-container">
@@ -30,7 +29,8 @@ export default {
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-$max-width:1400px;
+$max-show-width:1400px;
+$show-width:85%;
 
   * {
     margin: 0px;
@@ -46,15 +46,15 @@ $max-width:1400px;
         #nav-container {
           // background-color: skyblue;
           #nav {
-            max-width: $max-width;
-            width:85%;
+            max-width: $max-show-width;
+            width:$show-width;
             margin:0px auto;
           }
         }
         
         #container {
-          max-width: $max-width;
-          width:85%;
+          max-width: $max-show-width;
+          width:$show-width;
           margin:1em auto;
 
         }
@@ -62,8 +62,8 @@ $max-width:1400px;
         #footer-container {
           background-color: rgb(151, 196, 214);
           #footer {
-            max-width: $max-width;
-            width:85%;
+            max-width: $max-show-width;
+            width:$show-width;
             margin:1em auto;
           }
         }
