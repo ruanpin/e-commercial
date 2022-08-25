@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     Hi it's Footer
   </div>
 </template>
@@ -11,5 +11,10 @@
 </script>
 
 <style lang="scss" scoped>
-
+  .container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+  }
 </style>

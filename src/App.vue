@@ -1,12 +1,15 @@
 <template>
   <div id="app">
-    <div class="nav-contain">
+    <div id="nav-container">
       <Navtop id="nav"/>
     </div>
-    <div class="container">
+    <div id="container">
+      1
       <router-view></router-view>
     </div>
-    <Footer/>
+    <div id="footer-container">
+      <Footer id="footer"/>
+    </div>
   </div>
 </template>
 
@@ -40,8 +43,8 @@ $max-width:1400px;
     position: relative;
     width: 100%;
       #app {
-        .nav-contain {
-          background-color: skyblue;
+        #nav-container {
+          // background-color: skyblue;
           #nav {
             max-width: $max-width;
             width:85%;
@@ -52,7 +55,17 @@ $max-width:1400px;
         #container {
           max-width: $max-width;
           width:85%;
-          margin:0px auto;
+          margin:1em auto;
+
+        }
+
+        #footer-container {
+          background-color: rgb(151, 196, 214);
+          #footer {
+            max-width: $max-width;
+            width:85%;
+            margin:1em auto;
+          }
         }
       }
   }

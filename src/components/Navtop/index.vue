@@ -6,13 +6,20 @@
       <li><router-link to="/products">Products</router-link></li>
       <li><router-link to="/about">About</router-link></li>
     </ul>
-    <div class="member"><i class="fa-solid fa-user-gear"></i></div>
+    <div class="member"><i class="fa-solid fa-user-gear" @click="toggle"></i></div>
   </div>
 </template>
 
 <script>
     export default {
         name:'Navtop',
+        methods:{
+          toggle(){
+            this.$router.push({
+              path:'/member',
+            })
+          }
+        }
     }
 </script>
 
@@ -35,10 +42,12 @@
         color:black;
         font-weight: 700;
         font-size: 1.5em;
+        border-bottom: 2px transparent solid;
       }
       .router-link-active{
         color:rgb(117, 177, 6);
-        border-bottom: 1px rgb(117, 177, 6) solid;
+        border-bottom: 2px rgb(117, 177, 6) solid;
+        transition: 1s ease-in;
       }
       
     }
