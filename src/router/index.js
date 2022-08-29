@@ -29,6 +29,7 @@ export default new VueRouter({
             component:Member,
         },
         {
+            // Landing page設為Home component
             path:'/',
             redirect:Home
         }
