@@ -2,10 +2,13 @@
   <div>
     <input type="text" placeholder="搜尋..." name="q" v-model="keyword">
     <button >搜尋</button>
+
   </div>
 </template>
 
 <script>
+import {mapState} from 'vuex'
+
 export default {
     name:'Products',
     data(){
@@ -18,8 +21,10 @@ export default {
       //   this.$router.push({})
       // }
     },
-    mounted(){
-      this.$store.dispatch("Search/getProducts")
+    computed:{
+      ...mapState({
+        productsList : state => state.Search.productsList,
+      })
     }
 }
 </script>

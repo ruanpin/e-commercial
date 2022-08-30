@@ -22,7 +22,11 @@ export default {
   components: {
     Navtop,
     Footer,
-  }
+  },
+  // 一上來取得mock的products data
+  mounted(){
+    this.$store.dispatch("Search/getProducts")
+  },
 }
 </script>
 
