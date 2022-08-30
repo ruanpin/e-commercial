@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 
 import Search from './Search'
 
+
 Vue.use(Vuex)
 
 

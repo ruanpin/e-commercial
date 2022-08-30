@@ -17,6 +17,9 @@ export default {
       // sendKeyword(){
       //   this.$router.push({})
       // }
+    },
+    mounted(){
+      this.$store.dispatch("Search/getProducts")
     }
 }
 </script>
