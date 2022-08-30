@@ -10,10 +10,10 @@
         <div class="img-container">
           <img :src="item.imgUrl">
         </div>
-        
-        <div class="text">
-          <p>{{item.name}}</p>
-          <p>{{item.info}}</p>
+        <div class="text-container">
+          <p class="title">{{item.name}}</p>
+          <p class="info">{{item.info}}</p>
+          
         </div>
       </li>
     </ul>
@@ -77,16 +77,27 @@ export default {
       flex-wrap: wrap;
       align-items: center;
       .card-container {
-        max-width: 25%;
+        max-width: 23%;
+        min-height: 13em;
         display: flex;
         align-items: center;
         flex-direction: column;
+        justify-content: center;
+        border:2px solid rgb(168, 206, 119);
+        border-radius: 2em;
+        margin:0em 1%;
         .img-container {
           width: 90%;
-          height: 90%;
+          height: 60%;
           margin:1.5em;
           img {
             width: 100%;
+          }
+        }
+        .text-container {
+          .title {
+            font-weight: 700;
+            font-size: 1.3em;
           }
         }
       }
