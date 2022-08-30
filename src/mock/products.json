@@ -1,18 +1,26 @@
 [
   {
     "id": "1",
-    "imgUrl": "/images/product1.jpg"
+    "imgUrl": "/images/product1.jpg",
+    "name": "name",
+    "info": "info"
   },
   {
     "id": "2",
-    "imgUrl": "/images/product2.jpg"
+    "imgUrl": "/images/product2.jpg",
+    "name": "name",
+    "info": "info"
   },
   {
     "id": "3",
-    "imgUrl": "/images/product3.jpg"
+    "imgUrl": "/images/product3.jpg",
+    "name": "name",
+    "info": "info"
   },
   {
     "id": "4",
-    "imgUrl": "/images/product4.jpg"
+    "imgUrl": "/images/product4.jpg",
+    "name": "name",
+    "info": "info"
   }
 ]

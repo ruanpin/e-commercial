@@ -6,9 +6,15 @@
     </div>
     
     <ul class="showArea-container">
-      <li class="img-container" v-for="item in productsList" :key="item.id">
-        <img :src="item.imgUrl">
+      <li class="card-container" v-for="item in productsList" :key="item.id">
+        <div class="img-container">
+          <img :src="item.imgUrl">
+        </div>
         
+        <div class="text">
+          <p>{{item.name}}</p>
+          <p>{{item.info}}</p>
+        </div>
       </li>
     </ul>
 
@@ -69,14 +75,22 @@ export default {
     .showArea-container {
       display: flex;
       flex-wrap: wrap;
-      .img-container {
-        max-width: 20%;
-        max-height: 20%;
-        margin:1.5em;
-        img {
-          width: 100%;
+      align-items: center;
+      .card-container {
+        max-width: 25%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .img-container {
+          width: 90%;
+          height: 90%;
+          margin:1.5em;
+          img {
+            width: 100%;
+          }
         }
       }
+      
     }
   }
 </style>
