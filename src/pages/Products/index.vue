@@ -2,7 +2,7 @@
   <div class="product-container">
     <div class="search-container">
       <input type="text" placeholder="搜尋..." name="q" v-model="keyword">
-      <button>搜尋</button>
+      <button @click="handleSearch">搜尋</button>
     </div>
     
     <ul class="showArea-container">
@@ -32,9 +32,14 @@ export default {
       }
     },
     methods:{
-      // sendKeyword(){
-      //   this.$router.push({})
-      // }
+      handleSearch(){
+        this.$router.push({
+          name:'Products',
+          query:{
+            title:this.keyword
+          }
+        })
+      }
     },
     computed:{
       ...mapState({
