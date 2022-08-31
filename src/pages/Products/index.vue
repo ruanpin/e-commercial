@@ -36,7 +36,7 @@ export default {
         this.$router.push({
           name:'Products',
           query:{
-            title:this.keyword
+            keyword:this.keyword
           }
         }).catch(err => {})
         // console.log(this.$route.query)
