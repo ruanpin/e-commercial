@@ -38,7 +38,9 @@ export default {
           query:{
             title:this.keyword
           }
-        })
+        }).catch(err => {})
+        // console.log(this.$route.query)
+        this.$store.dispatch("Search/postProducts",this.$route.query)
       }
     },
     computed:{

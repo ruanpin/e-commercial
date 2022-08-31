@@ -1,4 +1,4 @@
-import {reqGetProducts} from '../api'
+import {reqGetProducts, reqPostProducts} from '../api'
 
 export default {
     namespaced:true,
@@ -10,6 +10,12 @@ export default {
                 commit('GETPRODUCTS', result.data)
             }
         },
+        async postProducts({commit},keyword) {
+            let result = await reqPostProducts(keyword)
+            if (result.code === 200) {
+                commit('GETPRODUCTS', result.data)
+            }
+        }
     },
     
     mutations : {
