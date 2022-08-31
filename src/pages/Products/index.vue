@@ -42,9 +42,11 @@ export default {
       }
     },
     computed:{
-      ...mapState({
-        productsList : state => state.Search.productsList,
-      })
+        // productsList : state => state.Search.productsList, //與下方相同
+        //...mapState('Search',{ //與下方相同
+        //productsList : 'productsList'
+        //}),
+      ...mapState('Search',['productsList'])
     }
 }
 </script>
