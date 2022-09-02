@@ -4,7 +4,8 @@ import 'nprogress/nprogress.css'
 
 const requests = axios.create({
     baseURL:'/mock',
-    timeout:5000,   
+    timeout:5000,
+    // headers: { 'Content-Type': 'application/json' },  
 })
 
 requests.interceptors.request.use((config)=>{

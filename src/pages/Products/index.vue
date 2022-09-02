@@ -1,9 +1,10 @@
 <template>
   <div class="product-container">
     <div class="search-container">
-      <input type="text" placeholder="搜尋..." name="q" v-model="keyword">
+      <input type="text" placeholder="搜尋..." name="q" v-model="searchInfo.keyword" ref="keywordInput">
       <button @click="handleSearch">搜尋</button>
     </div>
+
     
     <ul class="showArea-container">
       <li class="card-container" v-for="item in productsList" :key="item.id">
@@ -18,7 +19,7 @@
       </li>
     </ul>
 
-    <div class="tips" v-show="!productsList.length">
+    <div class="result-tips" v-show="!productsList.length">
       <p class="icon"><i class="fa-solid fa-magnifying-glass"></i></p>
       <p>找不到此類商品</p>
     </div>
@@ -33,7 +34,9 @@ export default {
     name:'Products',
     data(){
       return{
-        keyword:'',
+        searchInfo:{
+          keyword:'',
+        },
       }
     },
     methods:{
@@ -41,11 +44,10 @@ export default {
         this.$router.push({
           name:'Products',
           query:{
-            keyword:this.keyword?this.keyword:undefined,
+            searchInfo:this.searchInfo,
           }
         }).catch(err => {})
-        // console.log(this.$route.query)
-        this.$store.dispatch("Search/postProducts",this.$route.query)
+        this.$store.dispatch("Search/postProducts",this.searchInfo)
       }
     },
     computed:{
@@ -117,7 +119,7 @@ export default {
       }
       
     }
-    .tips {
+    .result-tips {
       .icon {
         i {
           font-size: 30px;
