@@ -11,7 +11,6 @@ export default {
             }
         },
         async postProducts({commit},searchInfo) {
-            console.log(searchInfo)
             let result = await reqPostProducts(searchInfo)
             if (result.code === 200) {
                 commit('GETPRODUCTS', result.data)

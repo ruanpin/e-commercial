@@ -40,14 +40,17 @@ export default {
       }
     },
     methods:{
+      requestData(){
+        this.$store.dispatch("Search/postProducts",this.searchInfo)
+      },
       handleSearch(){
         this.$router.push({
           name:'Products',
           query:{
             searchInfo:this.searchInfo,
           }
-        }).catch(err => {})
-        this.$store.dispatch("Search/postProducts",this.searchInfo)
+        }).catch(err => {});
+        this.requestData();
       }
     },
     computed:{
