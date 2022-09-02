@@ -18,6 +18,11 @@
       </li>
     </ul>
 
+    <div class="tips" v-show="!productsList.length">
+      <p class="icon"><i class="fa-solid fa-magnifying-glass"></i></p>
+      <p>找不到此類商品</p>
+    </div>
+
   </div>
 </template>
 
@@ -111,6 +116,19 @@ export default {
         }
       }
       
+    }
+    .tips {
+      .icon {
+        i {
+          font-size: 30px;
+          color:black;
+          opacity: 0.7;
+          line-height: 1.3em;
+        }
+      }
+      p {
+        text-align: center;
+      }
     }
   }
 </style>

@@ -4,7 +4,9 @@
       <Navtop id="nav"/>
     </div>
     <div id="container">
-      <router-view></router-view>
+      <keep-alive name="Products">
+        <router-view></router-view>
+      </keep-alive>
     </div>
     <div id="footer-container">
       <Footer id="footer"/>
