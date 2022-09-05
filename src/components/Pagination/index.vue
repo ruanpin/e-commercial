@@ -1,28 +1,20 @@
 <template>
-  <div>
-      <!-- 上 -->
-    <button>
-      上一頁
-    </button>
-    <button >
-      1
-    </button>
-    <button >···</button>
-    <!-- 中間 -->
-    <button  v-for="(page,index) in optNumAroundPageNow.end" :key="index" v-show="page>=optNumAroundPageNow.start">
-      {{page}}
-    </button>
+  <div class="pagination-container">
+        <!-- 上 -->
+        <button v-show="!(pageNow == 1)">上一頁</button>
+        <button v-show="optNumAroundPageNow.start > 1">1</button>
+        <button v-show="optNumAroundPageNow.start > 2">···</button>
+        <!-- 中間 -->
+        <button  v-for="(page,index) in optNumAroundPageNow.end" :key="index" v-show="page>=optNumAroundPageNow.start">
+        {{page}}
+        </button>
 
-    <!-- 下 -->
-    <button >···</button>
-    <button >
-      {{pageTotal}}
-    </button>
-    <button >
-      下一頁
-    </button>
+        <!-- 下 -->
+        <button v-show="optNumAroundPageNow.end < pageTotal - 1">···</button>
+        <button v-show="optNumAroundPageNow.end < pageTotal">{{pageTotal}}</button>
+        <button v-show="!(pageNow == pageTotal)">下一頁</button>
 
-    <button style="margin-left: 30px">共{{pageTotal}}頁</button>
+        <button style="margin-left: 30px">共{{pageTotal}}頁</button>
   </div>
 </template>
 
@@ -64,5 +56,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+    .pagination-container {
+        text-align: center;
+    }
 </style>
