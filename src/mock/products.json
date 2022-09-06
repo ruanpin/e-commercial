@@ -22,5 +22,41 @@
     "imgUrl": "/images/product4.jpg",
     "name": "黃鐵礦",
     "info": "info"
+  },
+  {
+    "id": "5",
+    "imgUrl": "/images/product1.jpg",
+    "name": "白水晶礦",
+    "info": "info"
+  },
+  {
+    "id": "6",
+    "imgUrl": "/images/product2.jpg",
+    "name": "桃水晶礦",
+    "info": "info"
+  },
+  {
+    "id": "7",
+    "imgUrl": "/images/product3.jpg",
+    "name": "紫水晶礦",
+    "info": "info"
+  },
+  {
+    "id": "8",
+    "imgUrl": "/images/product1.jpg",
+    "name": "白水晶礦",
+    "info": "info"
+  },
+  {
+    "id": "9",
+    "imgUrl": "/images/product2.jpg",
+    "name": "桃水晶礦",
+    "info": "info"
+  },
+  {
+    "id": "10",
+    "imgUrl": "/images/product3.jpg",
+    "name": "紫水晶礦",
+    "info": "info"
   }
 ]

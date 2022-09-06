@@ -26,7 +26,7 @@
 
     <!-- pageNow:目前頁面, productsTotal:一共多少產品, productsShowNumInOnePage:一頁展示多少產品,
     optionalPage:當前頁面前後可跳轉頁面數量(含當前頁面) -->
-    <Pagination :pageNow="4" :productsTotal="31" :productsShowNumInOnePage="2" :optionalPage="5"/>
+    <Pagination :pageNow="searchInfo.pageNow" :productsTotal="31" :productsShowNumInOnePage="2" :optionalPage="5"/>
   </div>
 </template>
 
@@ -39,6 +39,9 @@ export default {
       return{
         searchInfo:{
           keyword:'',
+          pageNow:1,
+          productsShowNumInOnePage:2,
+
         },
       }
     },

@@ -1,7 +1,7 @@
 <template>
   <div class="pagination-container">
         <!-- 上 -->
-        <button v-show="!(pageNow == 1)">上一頁</button>
+        <button v-show="!(pageNow == 1)" >上一頁</button>
         <button v-show="optNumAroundPageNow.start > 1">1</button>
         <button v-show="optNumAroundPageNow.start > 2">···</button>
         <!-- 中間 -->
@@ -50,7 +50,8 @@ export default {
             }
             return {start, end}
 
-        }
+        },
+        
     }
 }
 </script>
