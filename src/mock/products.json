@@ -3,60 +3,60 @@
     "id": "1",
     "imgUrl": "/images/product1.jpg",
     "name": "白水晶礦",
-    "info": "info"
+    "info": "info1"
   },
   {
     "id": "2",
     "imgUrl": "/images/product2.jpg",
     "name": "桃水晶礦",
-    "info": "info"
+    "info": "info2"
   },
   {
     "id": "3",
     "imgUrl": "/images/product3.jpg",
     "name": "紫水晶礦",
-    "info": "info"
+    "info": "info3"
   },
   {
     "id": "4",
     "imgUrl": "/images/product4.jpg",
     "name": "黃鐵礦",
-    "info": "info"
+    "info": "info4"
   },
   {
     "id": "5",
     "imgUrl": "/images/product1.jpg",
     "name": "白水晶礦",
-    "info": "info"
+    "info": "info5"
   },
   {
     "id": "6",
     "imgUrl": "/images/product2.jpg",
     "name": "桃水晶礦",
-    "info": "info"
+    "info": "info6"
   },
   {
     "id": "7",
     "imgUrl": "/images/product3.jpg",
     "name": "紫水晶礦",
-    "info": "info"
+    "info": "info7"
   },
   {
     "id": "8",
     "imgUrl": "/images/product1.jpg",
     "name": "白水晶礦",
-    "info": "info"
+    "info": "info8"
   },
   {
     "id": "9",
     "imgUrl": "/images/product2.jpg",
     "name": "桃水晶礦",
-    "info": "info"
+    "info": "info9"
   },
   {
     "id": "10",
     "imgUrl": "/images/product3.jpg",
     "name": "紫水晶礦",
-    "info": "info"
+    "info": "info10"
   }
 ]

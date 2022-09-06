@@ -26,7 +26,7 @@
 
     <!-- pageNow:目前頁面, productsTotal:一共多少產品, productsShowNumInOnePage:一頁展示多少產品,
     optionalPage:當前頁面前後可跳轉頁面數量(含當前頁面) -->
-    <Pagination :pageNow="searchInfo.pageNow" :productsTotal="31" :productsShowNumInOnePage="2" :optionalPage="5" @updatingPageNow="updatingPageNow"/>
+    <Pagination :pageNow="searchInfo.pageNow" :productsTotal="totalAmount" :productsShowNumInOnePage="searchInfo.productsShowNumInOnePage" :optionalPage="5" @updatingPageNow="updatingPageNow"/>
   </div>
 </template>
 
@@ -69,7 +69,7 @@ export default {
         //...mapState('Search',{ //與下方相同
         //productsList : 'productsList'
         //}),
-      ...mapState('Search',['productsList'])
+      ...mapState('Search',['productsList','totalAmount'])
     }
 }
 </script>
