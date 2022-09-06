@@ -13,6 +13,7 @@
         <button v-show="optNumAroundPageNow.end < pageTotal - 1">···</button>
         <button v-show="optNumAroundPageNow.end < pageTotal">{{pageTotal}}</button>
         <button v-show="!(pageNow == pageTotal)" @click="$emit('updatingPageNow', pageNow + 1)">下一頁</button>
+        <!-- <p>一開始 pageTotal:{{pageTotal}}</p> -->
 
         <button style="margin-left: 30px">共{{pageTotal}}頁</button>
   </div>

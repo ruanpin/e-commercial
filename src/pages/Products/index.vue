@@ -40,7 +40,7 @@ export default {
         searchInfo:{
           keyword:'',
           pageNow:1,
-          productsShowNumInOnePage:2,
+          productsShowNumInOnePage:4,
 
         },
       }
