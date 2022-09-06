@@ -1,7 +1,7 @@
 <template>
   <div class="product-container">
     <div class="search-container">
-      <input type="text" placeholder="搜尋..." name="q" v-model="searchInfo.keyword" ref="keywordInput">
+      <input type="text" placeholder="搜尋..." name="q" v-model="searchInfo.keyword" ref="keywordInput" @keyup.enter="handleSearch">
       <button @click="handleSearch">搜尋</button>
     </div>
 
