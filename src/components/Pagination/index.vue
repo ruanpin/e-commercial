@@ -1,7 +1,7 @@
 <template>
   <div class="pagination-container">
         <!-- 上 -->
-        <button v-show="!(pageNow == 1)" >上一頁</button>
+        <button v-show="!(pageNow == 1)" @click="$emit('updatingPageNow', pageNow - 1)">上一頁</button>
         <button v-show="optNumAroundPageNow.start > 1">1</button>
         <button v-show="optNumAroundPageNow.start > 2">···</button>
         <!-- 中間 -->
@@ -12,7 +12,7 @@
         <!-- 下 -->
         <button v-show="optNumAroundPageNow.end < pageTotal - 1">···</button>
         <button v-show="optNumAroundPageNow.end < pageTotal">{{pageTotal}}</button>
-        <button v-show="!(pageNow == pageTotal)">下一頁</button>
+        <button v-show="!(pageNow == pageTotal)" @click="$emit('updatingPageNow', pageNow + 1)">下一頁</button>
 
         <button style="margin-left: 30px">共{{pageTotal}}頁</button>
   </div>
@@ -51,7 +51,7 @@ export default {
             return {start, end}
 
         },
-        
+
     }
 }
 </script>
