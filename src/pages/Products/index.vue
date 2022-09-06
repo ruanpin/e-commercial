@@ -56,11 +56,16 @@ export default {
             searchInfo:this.searchInfo,
           }
         }).catch(err => {});
+
+        //修復bug---(發出請求後回來的數據頁面與分頁器當前頁面可能不一致)
+        if (this.searchInfo.pageNow !=1) {
+          this.searchInfo.pageNow = 1
+        }
         this.requestData();
       },
       updatingPageNow(resPage){
+        if (this.searchInfo.pageNow == resPage) return //若點擊當前頁面按鈕則不會發請求
         this.searchInfo.pageNow = resPage
-        // console.log(this.searchInfo.pageNow)
         this.requestData();
       }
     },
