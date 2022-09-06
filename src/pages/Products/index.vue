@@ -37,7 +37,9 @@ export default {
     name:'Products',
     data(){
       return{
-        searchInfo:{
+        searchInfo:{ 
+          //keyword:查詢關鍵字
+          //pageNow:當前頁面,  productsShowNumInOnePage:一頁顯示多少商品, 
           keyword:'',
           pageNow:1,
           productsShowNumInOnePage:4,
