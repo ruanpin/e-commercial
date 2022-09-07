@@ -23,7 +23,7 @@
         >
             {{pageTotal}}
         </button>
-        <button v-show="!(pageNow == pageTotal)" @click="$emit('updatingPageNow', pageNow + 1)">下一頁</button>
+        <button v-show="!(pageNow == pageTotal)&&productsList.length" @click="$emit('updatingPageNow', pageNow + 1)">下一頁</button>
         <!-- <p>一開始 pageTotal:{{pageTotal}}</p> -->
 
         <button style="margin-left: 30px">共{{pageTotal}}頁</button>
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import {mapState} from "vuex"
 export default {
     name:"Pagination",
     //pageNow:目前頁面, productsTotal:一共多少產品, productsShowNumInOnePage:一頁展示多少產品,
@@ -63,6 +64,7 @@ export default {
             return {start, end}
 
         },
+        ...mapState('Search',['productsList'])
 
     }
 }
