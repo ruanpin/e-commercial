@@ -30,7 +30,14 @@
 
     <!-- pageNow:目前頁面, productsTotal:一共多少產品, productsShowNumInOnePage:一頁展示多少產品,
     optionalPage:當前頁面前後可跳轉頁面數量(含當前頁面) -->
-    <Pagination :pageNow="searchInfo.pageNow" :productsTotal="totalAmount" :productsShowNumInOnePage="searchInfo.productsShowNumInOnePage" :optionalPage="5" @updatingPageNow="updatingPageNow"/>
+    <!-- v-show配置:點擊單一產品進入商品介紹頁後此showArea-container消失 -->
+    <Pagination :pageNow="searchInfo.pageNow" 
+      :productsTotal="totalAmount" 
+      :productsShowNumInOnePage="searchInfo.productsShowNumInOnePage" 
+      :optionalPage="5" 
+      @updatingPageNow="updatingPageNow"
+      v-show="$route.path == '/products'"
+    />
   </div>
 </template>
 
