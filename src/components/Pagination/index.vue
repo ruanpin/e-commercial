@@ -1,32 +1,45 @@
 <template>
   <div class="pagination-container">
-        <!-- 上 -->
-        <button v-show="!(pageNow == 1)" @click="$emit('updatingPageNow', pageNow - 1)">上一頁</button>
-        <button v-show="optNumAroundPageNow.start > 1" @click="$emit('updatingPageNow', 1)" :class="{active:pageNow == 1}">1</button>
-        <button v-show="optNumAroundPageNow.start > 2">···</button>
-        <!-- 中間 -->
-        <button  v-for="(page,index) in optNumAroundPageNow.end" 
-            :key="index" 
-            v-show="page>=optNumAroundPageNow.start"
-            @click="$emit('updatingPageNow', page)"
-            :class="{active:pageNow == page}"
-        >
-        {{page}}
-        </button>
-
-        <!-- 下 -->
-        <button v-show="optNumAroundPageNow.end < pageTotal - 1">···</button>
-        <button 
-            v-show="optNumAroundPageNow.end < pageTotal" 
-            @click="$emit('updatingPageNow', pageTotal)" 
-            :class="{active:pageNow == pageTotal}"
-        >
-            {{pageTotal}}
-        </button>
-        <button v-show="!(pageNow == pageTotal)&&productsList.length" @click="$emit('updatingPageNow', pageNow + 1)">下一頁</button>
-        <!-- <p>一開始 pageTotal:{{pageTotal}}</p> -->
-
-        <button style="margin-left: 30px">共{{pageTotal}}頁</button>
+    <div class="set-middle-container">
+        <div class="back">
+            <!-- 上 -->
+            <button v-show="!(pageNow == 1)" @click="$emit('updatingPageNow', pageNow - 1)">上一頁</button>
+            <button v-show="optNumAroundPageNow.start > 1" @click="$emit('updatingPageNow', 1)" :class="{active:pageNow == 1}">1</button>
+            <button v-show="optNumAroundPageNow.start > 2">···</button>
+        </div>
+        <div class="middle">
+            <!-- 中間 -->
+            <button  v-for="(page,index) in optNumAroundPageNow.end" 
+                :key="index" 
+                v-show="page>=optNumAroundPageNow.start"
+                @click="$emit('updatingPageNow', page)"
+                :class="{active:pageNow == page}"
+            >
+            {{page}}
+            </button>
+        </div>
+        
+        <div class="next">
+            <!-- 下 -->
+            <button v-show="optNumAroundPageNow.end < pageTotal - 1">···</button>
+            <button 
+                id="lastPage"
+                v-show="optNumAroundPageNow.end < pageTotal" 
+                @click="$emit('updatingPageNow', pageTotal)" 
+                :class="{active:pageNow == pageTotal}"
+            >
+                {{pageTotal}}
+            </button>
+            <button id="nextPage" v-show="!(pageNow == pageTotal)&&productsList.length" @click="$emit('updatingPageNow', pageNow + 1)">下一頁</button>
+        </div>
+    </div>
+    <button 
+        class="totalPages" 
+        style="margin-left: 30px"
+        :class="{noResults:!productsList.length}"
+    >
+        共{{pageTotal}}頁
+    </button>
   </div>
 </template>
 
@@ -72,12 +85,53 @@ export default {
 
 <style lang="scss" scoped>
     .pagination-container {
-        text-align: center;
+        margin-top:4em;
+        margin-bottom:4em;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        // 以下通用CSS--------------------
         .active {
             background-color: skyblue;
         }
-        // button {
+        button {
+            margin-right:1em;
+            min-width:2em;
+            height:2em;
+            border: 0;
+        }
+        // 以上通用CSS--------------------
+        .set-middle-container {
+            display:flex;
+            min-width: 60%;
+            .back {
+                display:flex;
+                min-width: 33%;
+            }
+            .middle {
+                display:flex;
+                min-width: 33%;
+                justify-content: center;  
+            }
+            .next {
+                display:flex;
+                flex-direction:row-reverse;
 
-        // }
+                min-width: 33%;
+                #lastPage {
+                    order:-1;
+                }
+                #nextPage {
+                    order:-2;
+                }
+            }
+        }
+        .totalPages {
+            position:absolute;
+            transform: translateX(1000%);
+        }
+        .noResults {
+            transform: translateX(0%);
+        }
     }
 </style>
