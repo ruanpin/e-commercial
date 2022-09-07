@@ -3,7 +3,7 @@
     <div class="logo">logo</div> 
     <ul class="pages-btn">
       <li><router-link to="/home">Home</router-link></li>
-      <li><router-link to="/products">Products</router-link></li>
+      <li @click="getAllProducts"><router-link to="/products">Products</router-link></li>
       <li><router-link to="/about">About</router-link></li>
     </ul>
     <div class="member"><i class="fa-solid fa-user-gear" @click="toggle"></i></div>
@@ -18,8 +18,15 @@
             this.$router.push({
               path:'/member',
             })
+          },
+          getAllProducts(){
+            this.$store.dispatch("Search/postProducts",{
+              keyword:'',
+              pageNow:1,
+              productsShowNumInOnePage:4,
+            })
           }
-        }
+        },
     }
 </script>
 

@@ -25,14 +25,13 @@ export default {
     Navtop,
     Footer,
   },
-  // 一上來取得mock的products data
   mounted(){
     this.$store.dispatch("Search/postProducts",{
-          keyword:'',
-          pageNow:1,
-          productsShowNumInOnePage:4,
-        })
-  },
+      keyword:'',
+      pageNow:1,
+      productsShowNumInOnePage:4,
+    })
+  }
 }
 </script>
 
