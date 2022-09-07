@@ -7,7 +7,7 @@ import products from './products.json'
 // Mock.mock('/mock/products','get',{code:200, data:products, amount:products.length})
 
 
-// 以下為POST---------------------------------------------------
+// 以關鍵字撈數據，只返回符合條件的---------------------------------------------------
 Mock.mock('/mock/products','post',function(options){
     // 將傳過來的params抓出來
     let reqParams = JSON.parse(options.body).data
@@ -52,4 +52,18 @@ Mock.mock('/mock/products','post',function(options){
     //(data:要被呈現的資料(不包含全部))
     //(amount:關鍵字查詢後總共的數據量)
     return {code:200, data:slicedData, amount:filterData.length}
+})
+
+// 以ID撈數據，只返回指定ID的數據
+Mock.mock('/mock/productDetail','post',function(options){
+    // 將傳過來的params抓出來
+    let reqParams = JSON.parse(options.body).data
+    
+    //參數ID與數據ID進行比對，只拿出指定ID的產品
+    let filterData = products.filter((data)=>{
+        return data.id == reqParams
+    });
+
+    //回傳Data
+    return {code:200, data:filterData}
 })

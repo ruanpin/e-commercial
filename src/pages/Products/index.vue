@@ -6,10 +6,10 @@
     </div>
 
     
-    <ul class="showArea-container">
+    <ul class="showArea-container" v-show="!isDetailShow">
       <li class="card-container" v-for="item in productsList" :key="item.id">
         <div class="img-container">
-          <img :src="item.imgUrl">
+          <img :src="item.imgUrl" @click="showProductDetail(item.id)">
         </div>
         <div class="text-container">
           <p class="title">{{item.name}}</p>
@@ -22,6 +22,10 @@
     <div class="result-tips" v-show="!productsList.length">
       <p class="icon"><i class="fa-solid fa-magnifying-glass"></i></p>
       <p>找不到此類商品</p>
+    </div>
+
+    <div class="product-detail" >
+      <router-view></router-view>
     </div>
 
     <!-- pageNow:目前頁面, productsTotal:一共多少產品, productsShowNumInOnePage:一頁展示多少產品,
@@ -45,6 +49,7 @@ export default {
           productsShowNumInOnePage:4,
 
         },
+        isDetailShow:false,
       }
     },
     methods:{
@@ -69,6 +74,16 @@ export default {
         if (this.searchInfo.pageNow == resPage) return //若點擊當前頁面按鈕則不會發請求
         this.searchInfo.pageNow = resPage
         this.requestData();
+      },
+      showProductDetail(productID){
+        this.$router.push({
+          name:'ProductDetail',
+          params:{
+            productID
+          }
+        }).catch(err => {});
+        this.$store.dispatch("ProductDetail/postProductDetail",productID)
+        console.log(this.router)
       }
     },
     computed:{
@@ -129,6 +144,7 @@ export default {
           margin:1.5em;
           img {
             width: 100%;
+            cursor: pointer;
           }
         }
         .text-container {
