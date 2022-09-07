@@ -99,11 +99,12 @@ export default {
             min-width:2em;
             height:2em;
             border: 0;
+            // background-color: rgba(150, 156, 138, 0.712);
         }
         // 以上通用CSS--------------------
         .set-middle-container {
             display:flex;
-            min-width: 60%;
+            min-width: 50%;
             .back {
                 display:flex;
                 min-width: 33%;
@@ -128,7 +129,7 @@ export default {
         }
         .totalPages {
             position:absolute;
-            transform: translateX(1000%);
+            transform: translateX(850%);
         }
         .noResults {
             transform: translateX(0%);
