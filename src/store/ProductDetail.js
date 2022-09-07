@@ -6,7 +6,6 @@ export default {
     actions : {
         async postProductDetail({commit},productID) {
             let result = await reqPostProductDetail(productID)
-            console.log(result)
             if (result.code === 200) {
                 commit('GETPRODUCTDETAIL', result)
             }

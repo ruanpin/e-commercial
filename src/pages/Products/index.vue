@@ -5,8 +5,8 @@
       <button @click="handleSearch">搜尋</button>
     </div>
 
-    
-    <ul class="showArea-container" v-show="!isDetailShow">
+    <!-- v-show配置:點擊單一產品進入商品介紹頁後此showArea-container消失 -->
+    <ul class="showArea-container" v-show="$route.path == '/products'">
       <li class="card-container" v-for="item in productsList" :key="item.id">
         <div class="img-container">
           <img :src="item.imgUrl" @click="showProductDetail(item.id)">
@@ -47,9 +47,7 @@ export default {
           keyword:'',
           pageNow:1,
           productsShowNumInOnePage:4,
-
         },
-        isDetailShow:false,
       }
     },
     methods:{
@@ -83,7 +81,6 @@ export default {
           }
         }).catch(err => {});
         this.$store.dispatch("ProductDetail/postProductDetail",productID)
-        console.log(this.router)
       }
     },
     computed:{
