@@ -13,6 +13,10 @@
                         <button class="plus"><i class="fa-solid fa-plus"></i></button>
                     </div>
                 </div>
+                <div class="cta-button">
+                    <button><i class="fa-solid fa-cart-shopping"></i></button>
+                    <button></button>
+                </div>
             </div>
         </div>
     </div>
