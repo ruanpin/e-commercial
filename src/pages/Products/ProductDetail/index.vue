@@ -101,9 +101,9 @@ import { mapState } from 'vuex'
                         background-color: rgba(0, 0, 0, 0.6); 
                         border-radius: 30px;
                     }
-                    &::-webkit-scrollbar-button {
-                        // background-color: #000000;
-                    }
+                    // &::-webkit-scrollbar-button {
+                    //      background-color: #000000;
+                    // }
                     &::-webkit-scrollbar-corner {
                         background-color: black;
                     }

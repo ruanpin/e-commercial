@@ -12,8 +12,9 @@
           <img :src="item.imgUrl" @click="showProductDetail(item.id)">
         </div>
         <div class="text-container">
-          <p class="title">{{item.name}}</p>
-          <p class="info">{{item.info}}</p>
+          <div class="title brief-info">{{item.name}}</div>
+          <div class="price brief-info">$ {{item.price}}</div>
+          <div class="info brief-info">{{item.info}}</div>
           
         </div>
       </li>
@@ -142,6 +143,8 @@ export default {
         border:2px solid rgb(168, 206, 119);
         border-radius: 2em;
         margin:0em 1%;
+        // overflow: hidden;
+        
         .img-container {
           width: 90%;
           height: 60%;
@@ -152,9 +155,24 @@ export default {
           }
         }
         .text-container {
+          display:flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 90%;
+          margin-bottom:2em;
+          .brief-info {
+            margin-bottom:0.3em;
+          }
           .title {
             font-weight: 700;
+            font-size: 1.4em;
+          }
+          .price {
+            color:rgb(208,1,27);
             font-size: 1.3em;
+          }
+          .info {
+            color:rgb(53, 53, 53);
           }
         }
       }
