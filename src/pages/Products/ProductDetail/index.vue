@@ -21,9 +21,9 @@
                 <div class="spe-choose-area">
                     <div class="amount">數量</div>
                     <div class="amount-choose">
-                        <button class="minus"><i class="fa-solid fa-minus"></i></button>
-                        <input class="buyNum-input" type="text" value="1">
-                        <button class="plus"><i class="fa-solid fa-plus"></i></button>
+                        <button class="minus" @click="changeBuyNum('minus')"><i class="fa-solid fa-minus" ></i></button>
+                        <input class="buyNum-input" type="text" v-model="buyNum" >
+                        <button class="plus" @click="changeBuyNum('plus')"><i class="fa-solid fa-plus"></i></button>
                     </div>
                     <div class="remaining">剩餘{{1}}件</div>
                 </div>
@@ -40,13 +40,25 @@
 import { mapState } from 'vuex'
     export default {
         name:'ProductDetail',
-        mounted(){
-
+        data(){
+            return {
+                buyNum:1,
+            }
+        },
+        methods:{
+            changeBuyNum(caltype){
+                if(caltype=='plus') {
+                    this.buyNum += 1
+                } else {
+                    if(this.buyNum == 1) return
+                    this.buyNum -= 1
+                }
+            }
         },
         computed:{
             ...mapState('ProductDetail',['productDetail']),
             product(){
-                return this.productDetail[0]
+                return this.productDetail[0]||{}
             }
         }
     }
