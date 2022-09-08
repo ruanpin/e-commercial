@@ -3,150 +3,175 @@
     "id": "1",
     "imgUrl": "/images/product1.jpg",
     "name": "白水晶礦",
-    "info": "info1"
+    "info": "info1",
+    "price": "3,600"
   },
   {
     "id": "2",
     "imgUrl": "/images/product2.jpg",
     "name": "桃水晶礦",
-    "info": "info2"
+    "info": "info2",
+    "price": "3,600"
   },
   {
     "id": "3",
     "imgUrl": "/images/product3.jpg",
     "name": "紫水晶礦",
-    "info": "info3"
+    "info": "info3",
+    "price": "3,600"
   },
   {
     "id": "4",
     "imgUrl": "/images/product4.jpg",
     "name": "黃鐵礦",
-    "info": "info4"
+    "info": "info4",
+    "price": "3,600"
   },
   {
     "id": "5",
     "imgUrl": "/images/product1.jpg",
     "name": "白水晶礦",
-    "info": "info5"
+    "info": "info5",
+    "price": "3,600"
   },
   {
     "id": "6",
     "imgUrl": "/images/product2.jpg",
     "name": "桃水晶礦",
-    "info": "info6"
+    "info": "info6",
+    "price": "3,600"
   },
   {
     "id": "7",
     "imgUrl": "/images/product3.jpg",
     "name": "紫水晶礦",
-    "info": "info7"
+    "info": "info7",
+    "price": "3,600"
   },
   {
     "id": "8",
     "imgUrl": "/images/product1.jpg",
     "name": "白水晶礦",
-    "info": "info8"
+    "info": "info8",
+    "price": "3,600"
   },
   {
     "id": "9",
     "imgUrl": "/images/product2.jpg",
     "name": "桃水晶礦",
-    "info": "info9"
+    "info": "info9",
+    "price": "3,600"
   },
   {
     "id": "10",
     "imgUrl": "/images/product3.jpg",
     "name": "紫水晶礦",
-    "info": "info10"
+    "info": "info10",
+    "price": "3,600"
   },
   {
     "id": "11",
     "imgUrl": "/images/product2.jpg",
     "name": "桃水晶礦",
-    "info": "info11"
+    "info": "info11",
+    "price": "3,600"
   },
   {
     "id": "12",
     "imgUrl": "/images/product3.jpg",
     "name": "紫水晶礦",
-    "info": "info12"
+    "info": "info12",
+    "price": "3,600"
   },
   {
     "id": "13",
     "imgUrl": "/images/product1.jpg",
     "name": "白水晶礦",
-    "info": "info13"
+    "info": "info13",
+    "price": "3,600"
   },
   {
     "id": "14",
     "imgUrl": "/images/product2.jpg",
     "name": "桃水晶礦",
-    "info": "info14"
+    "info": "info14",
+    "price": "3,600"
   },
   {
     "id": "15",
     "imgUrl": "/images/product3.jpg",
     "name": "紫水晶礦",
-    "info": "info15"
+    "info": "info15",
+    "price": "3,600"
   },
   {
     "id": "16",
     "imgUrl": "/images/product2.jpg",
     "name": "桃水晶礦",
-    "info": "info16"
+    "info": "info16",
+    "price": "3,600"
   },
   {
     "id": "17",
     "imgUrl": "/images/product3.jpg",
     "name": "紫水晶礦",
-    "info": "info17"
+    "info": "info17",
+    "price": "3,600"
   },
   {
     "id": "18",
     "imgUrl": "/images/product1.jpg",
     "name": "白水晶礦",
-    "info": "info18"
+    "info": "info18",
+    "price": "3,600"
   },
   {
     "id": "19",
     "imgUrl": "/images/product2.jpg",
     "name": "桃水晶礦",
-    "info": "info19"
+    "info": "info19",
+    "price": "3,600"
   },
   {
     "id": "20",
     "imgUrl": "/images/product3.jpg",
     "name": "紫水晶礦",
-    "info": "info20"
+    "info": "info20",
+    "price": "3,600"
   },
   {
     "id": "21",
     "imgUrl": "/images/product3.jpg",
     "name": "紫水晶礦",
-    "info": "info21"
+    "info": "info21",
+    "price": "3,600"
   },
   {
     "id": "22",
     "imgUrl": "/images/product1.jpg",
     "name": "白水晶礦",
-    "info": "info22"
+    "info": "info22",
+    "price": "3,600"
   },
   {
     "id": "23",
     "imgUrl": "/images/product2.jpg",
     "name": "桃水晶礦",
-    "info": "info23"
+    "info": "info23",
+    "price": "3,600"
   },
   {
     "id": "24",
     "imgUrl": "/images/product3.jpg",
     "name": "紫水晶礦",
-    "info": "info24"
+    "info": "info24",
+    "price": "3,600"
   },
   {
     "id": "25",
     "imgUrl": "/images/product2.jpg",
     "name": "桃水晶礦",
-    "info": "info25"
+    "info": "info25",
+    "price": "3,600"
   }
 ]
