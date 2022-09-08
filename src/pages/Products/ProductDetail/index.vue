@@ -9,6 +9,8 @@
                     <div class="imgList">
                         <img :src="product.imgUrl" alt="Images of product">
                         <img :src="product.imgUrl" alt="Images of product">
+                        <img :src="product.imgUrl" alt="Images of product">
+                        <img :src="product.imgUrl" alt="Images of product">
                     </div>
                 </div>
                 
@@ -87,6 +89,24 @@ import { mapState } from 'vuex'
                 }
                 .product-img-group {
                     width: 90%;
+                    white-space: nowrap;
+                    overflow-x: auto;
+                    &::-webkit-scrollbar {
+                        height: 7px;
+                    }
+                    &::-webkit-scrollbar-track {
+                        background-color: #aaaaaa;
+                    }
+                    &::-webkit-scrollbar-thumb {
+                        background-color: rgba(0, 0, 0, 0.6); 
+                        border-radius: 30px;
+                    }
+                    &::-webkit-scrollbar-button {
+                        // background-color: #000000;
+                    }
+                    &::-webkit-scrollbar-corner {
+                        background-color: black;
+                    }
                     .imgList {
                         display:flex;
                         width: 30%;
