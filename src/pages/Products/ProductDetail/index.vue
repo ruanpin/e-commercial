@@ -138,11 +138,15 @@ import { mapState } from 'vuex'
                         height:4em;
                         padding:0em 2em;
                         margin-right:2em;
+                        background-color: rgb(250,250,250);
+                        border-radius: 0.5em;
                     }
                     .buyNow { 
                         height: 4em; 
                         padding:1em 2em;
-                        
+                        background-color: rgb(250,250,250);
+                        border-radius: 0.5em;
+
                     }
 
                 }
