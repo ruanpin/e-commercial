@@ -9,7 +9,6 @@
                     <div class="imgList">
                         <img :src="product.imgUrl" alt="Images of product">
                         <img :src="product.imgUrl" alt="Images of product">
-
                     </div>
                 </div>
                 
@@ -107,30 +106,33 @@ import { mapState } from 'vuex'
                     margin-top:0.5em;
                 }
                 .price {
+                    padding:0.3em 0em;
+                    width: 90%;
                     font-size:1.8em;
                     margin-top:0.5em;
                     color:rgb(208,1,27);
+                    background-color: rgb(250,250,250);
                 }
                 .spe-choose-area {
                     display:flex;
                     align-items: center;  
                     margin-top:2em;
+                    min-height: 10em;
                     .amount {
                         width: 20%;
                         color:rgb(53, 53, 53);
                     }
                     .amount-choose {
-                        width: 30%;
+                        width: 20%;
                         display:flex;
                     }
                     .remaining {
-                        width: 50%;
                         color:rgb(53, 53, 53);
                     }
                 }
                 .cta-button {
                     display:flex;
-                    margin-top:5em;
+                    margin-top:3em;
                     margin-bottom:3em;
                     .cart {
                         height:4em;
