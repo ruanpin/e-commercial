@@ -96,8 +96,8 @@ export default {
         }
         button {
             margin-right:1em;
-            min-width:2em;
-            height:2em;
+            min-width:2.5em;
+            height:2.5em;
             border: 0;
             cursor:pointer;
             // background-color: rgba(150, 156, 138, 0.712);
