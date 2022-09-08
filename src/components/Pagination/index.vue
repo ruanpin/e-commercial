@@ -5,7 +5,7 @@
             <!-- 上 -->
             <button v-show="!(pageNow == 1)" @click="$emit('updatingPageNow', pageNow - 1)">上一頁</button>
             <button v-show="optNumAroundPageNow.start > 1" @click="$emit('updatingPageNow', 1)" :class="{active:pageNow == 1}">1</button>
-            <button v-show="optNumAroundPageNow.start > 2">···</button>
+            <button class="point-sign" v-show="optNumAroundPageNow.start > 2">···</button>
         </div>
         <div class="middle">
             <!-- 中間 -->
@@ -21,7 +21,7 @@
         
         <div class="next">
             <!-- 下 -->
-            <button v-show="optNumAroundPageNow.end < pageTotal - 1">···</button>
+            <button class="point-sign" v-show="optNumAroundPageNow.end < pageTotal - 1">···</button>
             <button 
                 id="lastPage"
                 v-show="optNumAroundPageNow.end < pageTotal" 
@@ -99,7 +99,11 @@ export default {
             min-width:2em;
             height:2em;
             border: 0;
+            cursor:pointer;
             // background-color: rgba(150, 156, 138, 0.712);
+        }
+        .point-sign {
+            cursor:default;
         }
         // 以上通用CSS--------------------
         .set-middle-container {
@@ -128,6 +132,7 @@ export default {
             }
         }
         .totalPages {
+            cursor:default;
             position:absolute;
             transform: translateX(850%);
         }
