@@ -67,7 +67,7 @@ import { mapState } from 'vuex'
 
     .product-detail-container {
         min-width: 100%;
-        background-color: rgb(138, 204, 138);
+        // background-color: rgb(138, 204, 138);
         display:flex;
         flex-direction: column;
         .brief-intro {
@@ -135,17 +135,20 @@ import { mapState } from 'vuex'
                     margin-top:3em;
                     margin-bottom:3em;
                     button {
-                        height: 4em; 
-                        padding:0em 2em;
+                        height: 4rem; 
+                        padding:0rem 2rem;
                         background-color: rgb(250,250,250);
-                        border-radius: 0.5em;
-                        margin-right:2em;
+                        border-radius: 0.5rem;
+                        margin-right:2rem;
+                        font-size:1.2em;
                     }
                     .cart {
                         border : 2px solid rgb(101,122,141);
+                        color:rgb(101,122,141);
                     }
                     .buyNow {
                         background-color: rgb(101,122,141);
+                        color:#fff;
                     }
                 }
             }
