@@ -134,21 +134,19 @@ import { mapState } from 'vuex'
                     display:flex;
                     margin-top:3em;
                     margin-bottom:3em;
-                    .cart {
-                        height:4em;
-                        padding:0em 2em;
-                        margin-right:2em;
-                        background-color: rgb(250,250,250);
-                        border-radius: 0.5em;
-                    }
-                    .buyNow { 
+                    button {
                         height: 4em; 
-                        padding:1em 2em;
+                        padding:0em 2em;
                         background-color: rgb(250,250,250);
                         border-radius: 0.5em;
-
+                        margin-right:2em;
                     }
-
+                    .cart {
+                        border : 2px solid rgb(101,122,141);
+                    }
+                    .buyNow {
+                        background-color: rgb(101,122,141);
+                    }
                 }
             }
         }
