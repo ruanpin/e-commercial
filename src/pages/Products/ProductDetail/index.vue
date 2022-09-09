@@ -57,9 +57,12 @@ import { mapState } from 'vuex'
             },
             changeBuyNumInput(event){
                 if (event.target.value > this.product.remaining) {
-                    event.target.value = this.product.remaining
                     this.buyNum = this.product.remaining
-                };
+                } else if(event.target.value < 1) {
+                    this.buyNum = 1
+                } else if( isNaN(new Number(event.target.value)) ){
+                    this.buyNum = 1
+                }
             }
         },
         computed:{
