@@ -21,11 +21,11 @@
                 <div class="spe-choose-area">
                     <div class="amount">數量</div>
                     <div class="amount-choose">
-                        <button class="minus" @click="changeBuyNum('minus')"><i class="fa-solid fa-minus" ></i></button>
-                        <input class="buyNum-input" type="text" v-model="buyNum" >
-                        <button class="plus" @click="changeBuyNum('plus')"><i class="fa-solid fa-plus"></i></button>
+                        <button class="minus" @click="changeBuyNumBtn('minus')"><i class="fa-solid fa-minus" ></i></button>
+                        <input class="buyNum-input" type="text" v-model="buyNum" @change="changeBuyNumInput">
+                        <button class="plus" @click="changeBuyNumBtn('plus')"><i class="fa-solid fa-plus"></i></button>
                     </div>
-                    <div class="remaining">剩餘{{1}}件</div>
+                    <div class="remaining">剩餘{{product.remaining}}件</div>
                 </div>
                 <div class="cta-button">
                     <button class="cart"><i class="fa-solid fa-cart-shopping"></i>加入購物車</button>
@@ -46,13 +46,20 @@ import { mapState } from 'vuex'
             }
         },
         methods:{
-            changeBuyNum(caltype){
+            changeBuyNumBtn(caltype){
                 if(caltype=='plus') {
+                    if (this.buyNum >= this.product.remaining) return
                     this.buyNum += 1
                 } else {
                     if(this.buyNum == 1) return
                     this.buyNum -= 1
                 }
+            },
+            changeBuyNumInput(event){
+                if (event.target.value > this.product.remaining) {
+                    event.target.value = this.product.remaining
+                    this.buyNum = this.product.remaining
+                };
             }
         },
         computed:{
