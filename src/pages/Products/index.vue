@@ -13,9 +13,11 @@
         </div>
         <div class="text-container">
           <div class="title brief-info">{{item.name}}</div>
-          <div class="price brief-info">$ {{item.price}}</div>
+          <div class="priceRemainingArea">
+            <div class="price brief-info">$ {{item.price}}</div>
+            <div class="remaining brief-info">剩餘{{item.remaining}}件</div>
+          </div>
           <div class="info brief-info">{{item.info}}</div>
-          
         </div>
       </li>
     </ul>
@@ -159,7 +161,7 @@ export default {
           flex-direction: column;
           align-items: flex-start;
           width: 90%;
-          margin-bottom:2em;
+          margin-bottom:1.2em;
           .brief-info {
             margin-bottom:0.3em;
           }
@@ -167,12 +169,22 @@ export default {
             font-weight: 700;
             font-size: 1.4em;
           }
-          .price {
-            color:rgb(208,1,27);
-            font-size: 1.3em;
+          .priceRemainingArea {
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            .price {
+              color:rgb(208,1,27);
+              font-size: 1.3em;
+            }
+            .remaining {
+              color:rgb(53, 53, 53);
+            }
           }
           .info {
             color:rgb(53, 53, 53);
+            margin-top:0.6em;
           }
         }
       }
