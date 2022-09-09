@@ -5,7 +5,7 @@
     "name": "白水晶礦",
     "info": "info1",
     "price": "3,680",
-    "remaining": "1"
+    "remaining": "3"
   },
   {
     "id": "2",
@@ -37,7 +37,7 @@
     "name": "白水晶礦",
     "info": "info5",
     "price": "3,280",
-    "remaining": "1"
+    "remaining": "3"
   },
   {
     "id": "6",
@@ -69,7 +69,7 @@
     "name": "桃水晶礦",
     "info": "info9",
     "price": "6,880",
-    "remaining": "1"
+    "remaining": "3"
   },
   {
     "id": "10",
@@ -93,7 +93,7 @@
     "name": "紫水晶礦",
     "info": "info12",
     "price": "1,200",
-    "remaining": "2"
+    "remaining": "3"
   },
   {
     "id": "13",
@@ -133,7 +133,7 @@
     "name": "紫水晶礦",
     "info": "info17",
     "price": "1,200",
-    "remaining": "1"
+    "remaining": "3"
   },
   {
     "id": "18",
@@ -197,6 +197,6 @@
     "name": "桃水晶礦",
     "info": "info25",
     "price": "6,680",
-    "remaining": "1"
+    "remaining": "3"
   }
 ]
