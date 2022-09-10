@@ -90,7 +90,7 @@ export default {
             productID
           }
         }).catch(err => {});
-        this.$store.dispatch("ProductDetail/postProductDetail",productID)
+        //此處不發請求，只傳遞productID到$route屬性中，再交由ProductDetail component掛載完成後發請求(為解決重新整理後數據清空問題)
       }
     },
     computed:{

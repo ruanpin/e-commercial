@@ -70,6 +70,10 @@ import { mapState } from 'vuex'
             product(){
                 return this.productDetail[0]||{}
             }
+        },
+        mounted(){
+            //解決重新整理後數據被清空問題
+            this.$store.dispatch("ProductDetail/postProductDetail",this.$route.params.productID)
         }
     }
 </script>

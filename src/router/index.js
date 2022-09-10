@@ -25,7 +25,6 @@ export default new VueRouter({
                     name:'ProductDetail',
                     path:'productDetail/:productID',
                     component:ProductDetail,
-
                 }
             ]
         },
