@@ -12,7 +12,11 @@
         </div>
         <div class="product-intro-detail">
             <div class="product-info-title">商品詳情</div>
-
+            <div class="remider">
+                <p>【溫馨提醒】</p>
+                <p>◆ 退換貨須知：<br>商品到貨隔日享10天鑑賞(猶豫)期之權益【鑑賞(猶豫)期非試用期】，辦理退貨商品及贈品必須是全新狀態且包裝完整，否則將會影響退貨權益。</p>
+                <p>◆ 商品會因為使用不同的品牌螢幕以及解析度不同，造成圖片顏色呈現略有不同，請以實品顏色為準。</p>
+            </div>
         </div>
     </div>
 </template>
@@ -27,9 +31,6 @@ import {mapState} from 'vuex'
                 return this.productDetail[0].detailInfo||[]
             },
         },
-        mounted(){
-            console.log(this.product)
-        }
     }
 </script>
 
@@ -39,6 +40,7 @@ import {mapState} from 'vuex'
         padding:1rem;
         background-color: rgb(250,250,250);
         font-size:1.3rem;
+        margin-bottom:1rem;
     }
 // 以上通用-----------------------------
 
@@ -60,6 +62,10 @@ import {mapState} from 'vuex'
                     }
                 }
             }
+        }
+        .product-intro-detail {
+            line-height: 2rem;
+            font-size: 1.15rem; 
         }
     }
 </style>
