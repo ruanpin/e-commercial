@@ -49,6 +49,7 @@ import {mapState} from 'vuex'
         .product-intro-brief {
             .product-list {
                 padding:1rem;
+                margin-bottom:2rem;
                 .list-container {
                     display: flex;
                     margin-top: 1rem;
