@@ -3,7 +3,7 @@
         <div class="brief-intro">
             <div class="pic">
                 <div class="product-img">
-                    <img :src="product.imgUrl" alt="Image of product">
+                    <img :src="product.imgList[currentIndex]" alt="Image of product">
                 </div>
                 <div class="product-img-group">
                     <div class="imgList">
@@ -142,10 +142,10 @@ import { mapState } from 'vuex'
                             width: 100%;
                             cursor:pointer;
                             margin-right:0.5em;
-                            border:2px solid transparent;
+                            border:3px solid transparent;
                         }
                         .active {
-                            border:2px solid rgb(255, 75, 75);
+                            border:3px solid rgb(255, 75, 75);
                         }
                     }
                 }
