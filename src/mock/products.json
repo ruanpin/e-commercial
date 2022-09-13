@@ -11,6 +11,10 @@
       "/images/product1.jpg",
       "/images/product1.jpg",
       "/images/product1.jpg"
+    ],
+    "detailInfo":[
+      {"info": "產地:義大利"},
+      {"info": "重量:305g"}
     ]
   },
   {

@@ -215,7 +215,7 @@ import Info from './Info'
         }
         .info {
             margin-top:1em;
-            background-color: rgb(180, 84, 84);
+            // background-color: rgb(180, 84, 84);
         }
     }
 </style>

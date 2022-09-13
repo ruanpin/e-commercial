@@ -2,9 +2,12 @@
     <div class="info-container">
         <div class="product-intro-brief">
             <div class="product-info-title">商品規格</div>
-            <ul class="product-list">
-                <li>產地:義大利</li>
-            </ul>
+            <div class="product-list">
+                <div class="list-container" v-for="(detail,index) in product" :key="index">
+                    <div class="info-title">{{detail.info.split(":")[0]}}</div>
+                    <div class="info-detail">{{detail.info.split(":")[1]}}</div>
+                </div>
+            </div>
             
         </div>
         <div class="product-intro-detail">
@@ -20,7 +23,12 @@ import {mapState} from 'vuex'
         name:'Info',
         computed:{
             ...mapState('ProductDetail',['productDetail']),
-
+            product(){
+                return this.productDetail[0].detailInfo||[]
+            },
+        },
+        mounted(){
+            console.log(this.product)
         }
     }
 </script>
@@ -39,6 +47,18 @@ import {mapState} from 'vuex'
         .product-intro-brief {
             .product-list {
                 padding:1rem;
+                .list-container {
+                    display: flex;
+                    margin-top: 1rem;
+                    .info-title {
+                        color:rgb(153,153,153);
+                        width: 6rem;
+                        font-size:1.15rem;
+                    }
+                    .info-detail {
+                        font-size:1.15rem;
+                    }
+                }
             }
         }
     }
