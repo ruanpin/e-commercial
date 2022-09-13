@@ -119,7 +119,7 @@ import { mapState } from 'vuex'
                     white-space: nowrap;
                     overflow-x: auto;
                     &::-webkit-scrollbar {
-                        height: 7px;
+                        height: 10px;
                     }
                     &::-webkit-scrollbar-track {
                         background-color: #aaaaaa;
@@ -142,6 +142,7 @@ import { mapState } from 'vuex'
                             width: 100%;
                             cursor:pointer;
                             margin-right:0.5em;
+                            margin-bottom:0.5em;
                             border:3px solid transparent;
                         }
                         .active {
