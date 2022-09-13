@@ -30,11 +30,15 @@
                 </div>
             </div>
         </div>
+        <div class="info">
+            <Info />
+        </div>
     </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import Info from './Info'
     export default {
         name:'ProductDetail',
         data(){
@@ -42,6 +46,9 @@ import { mapState } from 'vuex'
                 buyNum:1,
                 currentIndex:0,
             }
+        },
+        components:{
+            Info
         },
         methods:{
             changeBuyNumBtn(caltype){
@@ -101,6 +108,7 @@ import { mapState } from 'vuex'
         flex-direction: column;
         .brief-intro {
             display:flex;
+            background-color: rgb(138, 204, 138);
             .pic {
                 margin-top: 0.5em;
                 width: 50%;
@@ -204,6 +212,10 @@ import { mapState } from 'vuex'
                     }
                 }
             }
+        }
+        .info {
+            margin-top:1em;
+            background-color: rgb(180, 84, 84);
         }
     }
 </style>
