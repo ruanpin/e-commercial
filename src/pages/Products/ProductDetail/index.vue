@@ -7,10 +7,7 @@
                 </div>
                 <div class="product-img-group">
                     <div class="imgList">
-                        <img :src="product.imgUrl" alt="Images of product">
-                        <img :src="product.imgUrl" alt="Images of product">
-                        <img :src="product.imgUrl" alt="Images of product">
-                        <img :src="product.imgUrl" alt="Images of product">
+                        <img :src="img" alt="Images of product" v-for="(img,index) in product.imgList" :key="index" :class="{active:index == currentIndex}" @click="changeCurIndex(index)">
                     </div>
                 </div>
                 
@@ -43,6 +40,7 @@ import { mapState } from 'vuex'
         data(){
             return {
                 buyNum:1,
+                currentIndex:0,
             }
         },
         methods:{
@@ -63,6 +61,9 @@ import { mapState } from 'vuex'
                 } else if( isNaN(new Number(event.target.value)) ){
                     this.buyNum = 1
                 }
+            },
+            changeCurIndex(clickedIndex){
+                this.currentIndex = clickedIndex;
             }
         },
         computed:{
@@ -141,6 +142,10 @@ import { mapState } from 'vuex'
                             width: 100%;
                             cursor:pointer;
                             margin-right:0.5em;
+                            border:2px solid transparent;
+                        }
+                        .active {
+                            border:2px solid rgb(255, 75, 75);
                         }
                     }
                 }
