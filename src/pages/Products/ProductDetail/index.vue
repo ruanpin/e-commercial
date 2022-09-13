@@ -108,7 +108,7 @@ import Info from './Info'
         flex-direction: column;
         .brief-intro {
             display:flex;
-            background-color: rgb(138, 204, 138);
+            // background-color: rgb(138, 204, 138);
             .pic {
                 margin-top: 0.5em;
                 width: 50%;

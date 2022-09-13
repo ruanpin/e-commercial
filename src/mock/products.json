@@ -12,9 +12,13 @@
       "/images/product1.jpg",
       "/images/product1.jpg"
     ],
-    "detailInfo":[
-      {"info": "產地:義大利"},
-      {"info": "重量:305g"}
+    "detailInfo": [
+      {
+        "info": "產地:義大利"
+      },
+      {
+        "info": "重量:305g"
+      }
     ]
   },
   {
@@ -28,6 +32,14 @@
       "/images/product2.jpg",
       "/images/product2.jpg",
       "/images/product2.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:巴西"
+      },
+      {
+        "info": "重量:1,305g"
+      }
     ]
   },
   {
@@ -41,6 +53,14 @@
       "/images/product3.jpg",
       "/images/product3.jpg",
       "/images/product3.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:英國"
+      },
+      {
+        "info": "重量:680g"
+      }
     ]
   },
   {
@@ -54,6 +74,14 @@
       "/images/product4.jpg",
       "/images/product4.jpg",
       "/images/product4.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:義大利"
+      },
+      {
+        "info": "重量:485g"
+      }
     ]
   },
   {
@@ -67,6 +95,14 @@
       "/images/product1.jpg",
       "/images/product1.jpg",
       "/images/product1.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:智利"
+      },
+      {
+        "info": "重量:260g"
+      }
     ]
   },
   {
@@ -80,6 +116,14 @@
       "/images/product2.jpg",
       "/images/product2.jpg",
       "/images/product2.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:義大利"
+      },
+      {
+        "info": "重量:305g"
+      }
     ]
   },
   {
@@ -93,6 +137,14 @@
       "/images/product3.jpg",
       "/images/product3.jpg",
       "/images/product3.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:南韓"
+      },
+      {
+        "info": "重量:570g"
+      }
     ]
   },
   {
@@ -106,6 +158,14 @@
       "/images/product1.jpg",
       "/images/product1.jpg",
       "/images/product1.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:俄羅斯"
+      },
+      {
+        "info": "重量:790g"
+      }
     ]
   },
   {
@@ -119,6 +179,14 @@
       "/images/product2.jpg",
       "/images/product2.jpg",
       "/images/product2.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:美國"
+      },
+      {
+        "info": "重量:800g"
+      }
     ]
   },
   {
@@ -132,6 +200,14 @@
       "/images/product3.jpg",
       "/images/product3.jpg",
       "/images/product3.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:烏拉圭"
+      },
+      {
+        "info": "重量:1,150g"
+      }
     ]
   },
   {
@@ -145,6 +221,14 @@
       "/images/product2.jpg",
       "/images/product2.jpg",
       "/images/product2.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:日本"
+      },
+      {
+        "info": "重量:650g"
+      }
     ]
   },
   {
@@ -158,6 +242,14 @@
       "/images/product3.jpg",
       "/images/product3.jpg",
       "/images/product3.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:日本"
+      },
+      {
+        "info": "重量:160g"
+      }
     ]
   },
   {
@@ -171,6 +263,14 @@
       "/images/product1.jpg",
       "/images/product1.jpg",
       "/images/product1.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:蒙古"
+      },
+      {
+        "info": "重量:540g"
+      }
     ]
   },
   {
@@ -184,6 +284,14 @@
       "/images/product2.jpg",
       "/images/product2.jpg",
       "/images/product2.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:義大利"
+      },
+      {
+        "info": "重量:380g"
+      }
     ]
   },
   {
@@ -197,6 +305,14 @@
       "/images/product3.jpg",
       "/images/product3.jpg",
       "/images/product3.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:馬達加斯加"
+      },
+      {
+        "info": "重量:320g"
+      }
     ]
   },
   {
@@ -210,6 +326,14 @@
       "/images/product2.jpg",
       "/images/product2.jpg",
       "/images/product2.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:美國"
+      },
+      {
+        "info": "重量:105g"
+      }
     ]
   },
   {
@@ -223,6 +347,14 @@
       "/images/product3.jpg",
       "/images/product3.jpg",
       "/images/product3.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:巴西"
+      },
+      {
+        "info": "重量:50g"
+      }
     ]
   },
   {
@@ -236,6 +368,14 @@
       "/images/product1.jpg",
       "/images/product1.jpg",
       "/images/product1.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:中國"
+      },
+      {
+        "info": "重量:240g"
+      }
     ]
   },
   {
@@ -249,6 +389,14 @@
       "/images/product2.jpg",
       "/images/product2.jpg",
       "/images/product2.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:南非"
+      },
+      {
+        "info": "重量:200g"
+      }
     ]
   },
   {
@@ -262,6 +410,14 @@
       "/images/product3.jpg",
       "/images/product3.jpg",
       "/images/product3.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:烏拉圭"
+      },
+      {
+        "info": "重量:450g"
+      }
     ]
   },
   {
@@ -275,6 +431,14 @@
       "/images/product3.jpg",
       "/images/product3.jpg",
       "/images/product3.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:義大利"
+      },
+      {
+        "info": "重量:685g"
+      }
     ]
   },
   {
@@ -288,6 +452,14 @@
       "/images/product1.jpg",
       "/images/product1.jpg",
       "/images/product1.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:法國"
+      },
+      {
+        "info": "重量:195g"
+      }
     ]
   },
   {
@@ -301,6 +473,14 @@
       "/images/product2.jpg",
       "/images/product2.jpg",
       "/images/product2.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:荷蘭"
+      },
+      {
+        "info": "重量:170g"
+      }
     ]
   },
   {
@@ -314,6 +494,14 @@
       "/images/product3.jpg",
       "/images/product3.jpg",
       "/images/product3.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:南非"
+      },
+      {
+        "info": "重量:610g"
+      }
     ]
   },
   {
@@ -327,6 +515,14 @@
       "/images/product2.jpg",
       "/images/product2.jpg",
       "/images/product2.jpg"
+    ],
+    "detailInfo": [
+      {
+        "info": "產地:巴基斯坦"
+      },
+      {
+        "info": "重量:840g"
+      }
     ]
   }
 ]
