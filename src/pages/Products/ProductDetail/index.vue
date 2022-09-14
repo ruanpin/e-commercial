@@ -3,7 +3,7 @@
         <div class="brief-intro">
             <div class="pic">
                 <div class="product-img">
-                    <img :src="product.imgList[currentIndex]" alt="Image of product">
+                    <img :src="productImgZoomIn[currentIndex]" alt="Image of product">
                 </div>
                 <div class="product-img-group">
                     <div class="imgList">
@@ -77,6 +77,9 @@ import Info from './Info'
             ...mapState('ProductDetail',['productDetail']),
             product(){
                 return this.productDetail[0]||{}
+            },
+            productImgZoomIn(){
+                return this.product.imgList||[]
             }
         },
         mounted(){
