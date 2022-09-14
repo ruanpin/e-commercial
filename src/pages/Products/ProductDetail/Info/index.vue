@@ -3,7 +3,7 @@
         <div class="product-intro-brief">
             <div class="product-info-title">商品規格</div>
             <div class="product-list">
-                <div class="list-container" v-for="(detail,index) in product.productDetail" :key="index">
+                <div class="list-container" v-for="(detail,index) in product.detailInfo" :key="index">
                     <div class="info-title">{{detail.info.split(":")[0]}}</div>
                     <div class="info-detail">{{detail.info.split(":")[1]}}</div>
                 </div>

@@ -3,6 +3,7 @@ import Home from '../pages/Home'
 import Products from '../pages/Products'
 import ProductDetail from '../pages/Products/ProductDetail'
 import About from '../pages/About'
+import Cart from '../pages/Cart'
 import Member from '../pages/Member'
 
 
@@ -32,6 +33,11 @@ export default new VueRouter({
             name:'About',
             path:'/about',
             component:About,
+        },
+        {
+            name:'Cart',
+            path:'/cart',
+            component:Cart,
         },
         {
             name:'Member',
