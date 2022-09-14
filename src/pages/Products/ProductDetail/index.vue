@@ -25,7 +25,7 @@
                     <div class="remaining">剩餘{{product.remaining}}件</div>
                 </div>
                 <div class="cta-button">
-                    <button class="cart"><i class="fa-solid fa-cart-shopping"></i>加入購物車</button>
+                    <button class="cart" @click="addingProducts"><i class="fa-solid fa-cart-shopping"></i>加入購物車</button>
                     <button class="buyNow">直接購買</button>
                 </div>
             </div>
@@ -71,10 +71,21 @@ import Info from './Info'
             },
             changeCurIndex(clickedIndex){
                 this.currentIndex = clickedIndex;
+            },
+            addingProducts(){
+                // let cartProductID = this.$route.params.productID
+                let cartProduct = {
+                    id:this.$route.params.productID,
+                    amount:this.buyNum
+                }
+                this.$store.dispatch("Cart/addingProduct",cartProduct)
+                // localStorage.setItem("todos", JSON.stringify(cartProduct))
             }
         },
         computed:{
             ...mapState('ProductDetail',['productDetail']),
+            ...mapState('Cart',['cartList']),
+            
             product(){
                 return this.productDetail[0]||{}
             },

@@ -75,6 +75,10 @@
                     this.buyNum = 1
                 }
             },
+        },
+        mounted(){
+            // localStorage.setItem("todos", JSON.stringify(value))
+            // JSON.parse(localStorage.getItem('todos')) || []
         }
     }
 </script>
@@ -104,7 +108,6 @@
         cursor: text;
         margin-right:0rem;
         margin-bottom:0.5rem;
-
     }
     .title {
         color:rgb(153,153,153);
