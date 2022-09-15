@@ -26,6 +26,7 @@
                     </div>
                     <div class="product-info">
                         {{eachProduct.name}}
+                        {{eachProduct.id}}
                     </div>
                 </div>
           </div>
@@ -33,9 +34,9 @@
               <div class="title cart-product-infos">$ {{eachProduct.price}}</div>
               <div id="amount-relative" class="title cart-product-infos">
                 <div class="amount-choose">
-                    <button class="minus" @click="changeBuyNumBtn('minus')"><i class="fa-solid fa-minus" ></i></button>
-                    <input id="amount-input" class="buyNum-input" type="text" v-model="buyNum" @change="changeBuyNumInput">
-                    <button class="plus" @click="changeBuyNumBtn('plus')"><i class="fa-solid fa-plus"></i></button>
+                    <button class="minus" @click="changeBuyNumBtn('minus', eachProduct, cartList.find(e=>e.id==eachProduct.id))"><i class="fa-solid fa-minus" ></i></button>
+                    <input id="amount-input" class="buyNum-input" type="text" v-model="cartList.find(e=>e.id==eachProduct.id).amount" @change="changeBuyNumInput">
+                    <button class="plus" @click="changeBuyNumBtn('plus', eachProduct, cartList.find(e=>e.id==eachProduct.id))"><i class="fa-solid fa-plus"></i></button>
                 </div>
                 <div class="remaining">剩餘{{eachProduct.remaining}}件</div>
               </div>
@@ -61,13 +62,16 @@ import {mapState} from 'vuex'
             }
         },
         methods:{
-            changeBuyNumBtn(caltype){
+            //改到這----------------------------------------------------------------
+            changeBuyNumBtn(caltype,eachProduct, speCartProduct){
                 if(caltype=='plus') {
-                    if (this.buyNum >= this.productInfo.remaining) return
-                    this.buyNum += 1
+                    // console.log(speCartProduct.amount)
+                    if (speCartProduct.amount >= eachProduct.remaining) return
+                    this.cartList.find(e=>e.id==eachProduct.id).amount += 1
+                    // console.log(cartList.find(e=>e.id==eachProduct.id))
                 } else {
-                    if(this.buyNum == 1) return
-                    this.buyNum -= 1
+                    if(speCartProduct.amount == 1) return
+                    this.cartList.find(e=>e.id==eachProduct.id).amount -= 1
                 }
             },
             changeBuyNumInput(event){
@@ -85,7 +89,7 @@ import {mapState} from 'vuex'
             price(){
                 return Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])
 
-            }
+            },
         },
         mounted(){
             setTimeout(() => {
