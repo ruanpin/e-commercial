@@ -29,6 +29,7 @@ export default {
       pageNow:1,
       productsShowNumInOnePage:4,
     })
+    // this.$store.dispatch("Cart/gettingProduct",JSON.parse(localStorage.getItem('cartProducts')) || [])
   }
 }
 </script>

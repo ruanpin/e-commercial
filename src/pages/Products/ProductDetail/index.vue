@@ -73,12 +73,22 @@ import Info from './Info'
                 this.currentIndex = clickedIndex;
             },
             addingProducts(){
-                // let cartProductID = this.$route.params.productID
                 let cartProduct = {
                     id:this.$route.params.productID,
                     amount:this.buyNum
                 }
-                this.$store.dispatch("Cart/addingProduct",cartProduct)
+                //避免購物車產品超過庫存量------------------------
+                // 先判斷購物車有沒有同樣產品
+                if (this.cartList.find(e => e.id == cartProduct.id)){
+                    // 如果購物車內同產品數量已>=商品庫存量則return
+                    if (this.cartList.find(e => e.id == cartProduct.id).amount>=this.product.remaining) return
+                    this.$store.dispatch("Cart/addingProduct",cartProduct)
+                } else if(!(this.cartList.find(e => e.id == cartProduct.id))) { 
+                    //若購物車中無同產品則加入
+                    this.$store.dispatch("Cart/addingProduct",cartProduct)
+                }
+                
+
                 // localStorage.setItem("todos", JSON.stringify(cartProduct))
             }
         },
