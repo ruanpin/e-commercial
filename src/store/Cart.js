@@ -51,6 +51,12 @@ export default {
             state.cartList.find(e=>e==speCartProduct).amount -= 1 
             localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
         },
+        DELETECARTPRODUCT(state,speCartProductID){
+            // state.cartList.find(e=>e.id==speCartProductID)
+            state.cartList = state.cartList.filter(element => element.id !== speCartProductID)
+
+            localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
+        }
     },
     
     state : {

@@ -44,7 +44,7 @@
                   $ {{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[5]}}{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[4]}}{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[3]}},{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[2]}}{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[1]}}{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[0]}}
             </div>
               <div class="title cart-product-infos">
-                  <a class="delete">刪除</a>
+                  <a class="delete" @click="deleteCartProduct(eachProduct.id)">刪除</a>
               </div>
           </div>
       </div>
@@ -72,7 +72,7 @@ import {mapState} from 'vuex'
 
                 }
             },
-            //改到這----------------------------------------------------------------
+            //改到這---------------------------------------------------------------(vueX更新後模板不更新)-
             changeBuyNumInput(event){
                 if (event.target.value > this.productInfo.remaining) {
                     this.buyNum = this.productInfo.remaining
@@ -82,6 +82,9 @@ import {mapState} from 'vuex'
                     this.buyNum = 1
                 }
             },
+            deleteCartProduct(productID){
+                this.$store.commit("Cart/DELETECARTPRODUCT",productID)                
+            }
         },
         computed:{
             ...mapState('Cart',['cartList','productInfo']),
