@@ -49,6 +49,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
     export default {
         name:'Cart',
         data(){
@@ -76,9 +77,17 @@
                 }
             },
         },
+        computed:{
+            ...mapState('Cart',['cartList','productInfo']),
+        },
         mounted(){
-            // localStorage.setItem("todos", JSON.stringify(value))
-            // JSON.parse(localStorage.getItem('todos')) || []
+            setTimeout(() => {
+                //撈購物車中產品的資訊(如圖片、庫存量、名稱等)
+                this.cartList.forEach(e => {
+                    this.$store.dispatch("Cart/getCartProductInfo",e.id)
+                })
+            }, 10);
+            console.log(this.productInfo)
         }
     }
 </script>
