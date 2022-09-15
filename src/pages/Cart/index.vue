@@ -15,31 +15,33 @@
                 <div class="title">刪除</div>
             </div>
       </div>
-      <div class="cart-panel">
+      <div class="cart-panel" v-for="eachProduct in productInfo" :key="eachProduct.id">
           <div class="left">
                 <div class="checkbox">
                     <input type="checkbox" id="allChecked">
                 </div>
                 <div class="product">
                     <div class="img">
-                        <img src='/images/product2.jpg' alt="">
+                        <img :src='eachProduct.imgUrl' alt="">
                     </div>
                     <div class="product-info">
-                        XX水晶
+                        {{eachProduct.name}}
                     </div>
                 </div>
           </div>
           <div class="right">
-              <div class="title cart-product-infos">$380</div>
+              <div class="title cart-product-infos">$ {{eachProduct.price}}</div>
               <div id="amount-relative" class="title cart-product-infos">
                 <div class="amount-choose">
                     <button class="minus" @click="changeBuyNumBtn('minus')"><i class="fa-solid fa-minus" ></i></button>
                     <input id="amount-input" class="buyNum-input" type="text" v-model="buyNum" @change="changeBuyNumInput">
                     <button class="plus" @click="changeBuyNumBtn('plus')"><i class="fa-solid fa-plus"></i></button>
                 </div>
-                <div class="remaining">剩餘1件</div>
+                <div class="remaining">剩餘{{eachProduct.remaining}}件</div>
               </div>
-              <div class="title cart-product-infos">$380</div>
+              <div class="title cart-product-infos">
+                  $ {{(buyNum*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[5]}}{{(buyNum*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[4]}}{{(buyNum*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[3]}},{{(buyNum*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[2]}}{{(buyNum*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[1]}}{{(buyNum*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[0]}}
+            </div>
               <div class="title cart-product-infos">
                   <a class="delete">刪除</a>
               </div>
@@ -55,12 +57,13 @@ import {mapState} from 'vuex'
         data(){
             return {
                 buyNum:1,
+                test:2
             }
         },
         methods:{
             changeBuyNumBtn(caltype){
                 if(caltype=='plus') {
-                    if (this.buyNum >= this.product.remaining) return
+                    if (this.buyNum >= this.productInfo.remaining) return
                     this.buyNum += 1
                 } else {
                     if(this.buyNum == 1) return
@@ -68,8 +71,8 @@ import {mapState} from 'vuex'
                 }
             },
             changeBuyNumInput(event){
-                if (event.target.value > this.product.remaining) {
-                    this.buyNum = this.product.remaining
+                if (event.target.value > this.productInfo.remaining) {
+                    this.buyNum = this.productInfo.remaining
                 } else if(event.target.value < 1) {
                     this.buyNum = 1
                 } else if( isNaN(new Number(event.target.value)) ){
@@ -79,6 +82,10 @@ import {mapState} from 'vuex'
         },
         computed:{
             ...mapState('Cart',['cartList','productInfo']),
+            price(){
+                return Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])
+
+            }
         },
         mounted(){
             setTimeout(() => {

@@ -36,10 +36,15 @@ export default {
         GETCARTPRODUCTINFO(state, cartProductInfo) {
             //將資訊存在state.productInfo陣列中
             let { data } = cartProductInfo
+            let cutComma = data[0].price.split(',')[0]+data[0].price.split(',')[1]
             //判斷如已儲存過相同數據到state.productInfo則return
             if (state.productInfo.some(e => e.id == data[0].id)) return
+            // data[0].calPrice = state.cartList.find(e=>e.id==data[0].id).amount * cutComma 
             state.productInfo.push(data[0])
-        }
+        },
+        // CALPRICE(state){
+        //     let 
+        // }
     },
     
     state : {
