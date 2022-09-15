@@ -41,7 +41,7 @@
                 <div class="remaining">剩餘{{eachProduct.remaining}}件</div>
               </div>
               <div class="title cart-product-infos">
-                  $ {{(buyNum*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[5]}}{{(buyNum*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[4]}}{{(buyNum*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[3]}},{{(buyNum*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[2]}}{{(buyNum*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[1]}}{{(buyNum*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[0]}}
+                  $ {{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[5]}}{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[4]}}{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[3]}},{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[2]}}{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[1]}}{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[0]}}
             </div>
               <div class="title cart-product-infos">
                   <a class="delete">刪除</a>
@@ -62,18 +62,17 @@ import {mapState} from 'vuex'
             }
         },
         methods:{
-            //改到這----------------------------------------------------------------
             changeBuyNumBtn(caltype,eachProduct, speCartProduct){
                 if(caltype=='plus') {
-                    // console.log(speCartProduct.amount)
                     if (speCartProduct.amount >= eachProduct.remaining) return
-                    this.cartList.find(e=>e.id==eachProduct.id).amount += 1
-                    // console.log(cartList.find(e=>e.id==eachProduct.id))
+                    this.$store.commit("Cart/CHANGECARTPRONUMPLUS",speCartProduct)
                 } else {
                     if(speCartProduct.amount == 1) return
-                    this.cartList.find(e=>e.id==eachProduct.id).amount -= 1
+                    this.$store.commit("Cart/CHANGECARTPRONUMMINUS",speCartProduct)
+
                 }
             },
+            //改到這----------------------------------------------------------------
             changeBuyNumInput(event){
                 if (event.target.value > this.productInfo.remaining) {
                     this.buyNum = this.productInfo.remaining

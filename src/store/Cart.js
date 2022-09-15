@@ -43,9 +43,14 @@ export default {
             // data[0].buyNum = state.cartList.find(e=>e.id==data[0].id).amount 
             state.productInfo.push(data[0])
         },
-        // CALPRICE(state){
-        //     let 
-        // }
+        CHANGECARTPRONUMPLUS(state,speCartProduct){
+            state.cartList.find(e=>e==speCartProduct).amount += 1
+            localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
+        },
+        CHANGECARTPRONUMMINUS(state,speCartProduct){
+            state.cartList.find(e=>e==speCartProduct).amount -= 1 
+            localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
+        },
     },
     
     state : {
