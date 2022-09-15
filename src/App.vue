@@ -29,7 +29,8 @@ export default {
       pageNow:1,
       productsShowNumInOnePage:4,
     })
-    // this.$store.dispatch("Cart/gettingProduct",JSON.parse(localStorage.getItem('cartProducts')) || [])
+    //掛載完成後立即取出localStorage內的購物車數據至vuex(Cart.js)中
+    this.$store.dispatch("Cart/gettingProduct",JSON.parse(localStorage.getItem('cartProducts')) || [])
   }
 }
 </script>
