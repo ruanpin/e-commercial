@@ -28,6 +28,7 @@
                     <button class="cart" @click="addingProducts"><i class="fa-solid fa-cart-shopping"></i>加入購物車</button>
                     <button class="buyNow">直接購買</button>
                 </div>
+                
             </div>
         </div>
         <div class="info">
@@ -81,7 +82,10 @@ import Info from './Info'
                 // 先判斷購物車有沒有同樣產品
                 if (this.cartList.find(e => e.id == cartProduct.id)){
                     // 如果購物車內同產品數量已>=商品庫存量則return
-                    if (this.cartList.find(e => e.id == cartProduct.id).amount>=this.product.remaining) return
+                    if (this.cartList.find(e => e.id == cartProduct.id).amount>=this.product.remaining) {
+                        alert("已超過可購買數量")
+                        return
+                    }
                     this.$store.dispatch("Cart/addingProduct",cartProduct)
                 } else if(!(this.cartList.find(e => e.id == cartProduct.id))) { 
                     //若購物車中無同產品則加入
