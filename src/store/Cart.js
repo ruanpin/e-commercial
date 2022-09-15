@@ -54,7 +54,6 @@ export default {
         DELETECARTPRODUCT(state,speCartProductID){
             // state.cartList.find(e=>e.id==speCartProductID)
             state.cartList = state.cartList.filter(element => element.id !== speCartProductID)
-
             localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
         }
     },

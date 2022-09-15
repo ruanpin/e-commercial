@@ -83,7 +83,8 @@ import {mapState} from 'vuex'
                 }
             },
             deleteCartProduct(productID){
-                this.$store.commit("Cart/DELETECARTPRODUCT",productID)                
+                this.$store.commit("Cart/DELETECARTPRODUCT",productID)
+                location.reload();
             }
         },
         computed:{
@@ -102,10 +103,11 @@ import {mapState} from 'vuex'
             }, 10);
         },
         // watch:{
-        //     'this.cartList'(){
-        //         this.cartList.forEach(e => {
-        //             this.$store.dispatch("Cart/getCartProductInfo",e.id)
-        //         })
+        //     'this.cartList':{
+        //         deep:true,
+        //         handler(){
+        //             console.log('changed')
+        //         }
         //     }
         // }
     }
