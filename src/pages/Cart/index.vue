@@ -87,8 +87,14 @@ import {mapState} from 'vuex'
                     this.$store.dispatch("Cart/getCartProductInfo",e.id)
                 })
             }, 10);
-            console.log(this.productInfo)
-        }
+        },
+        // watch:{
+        //     'this.cartList'(){
+        //         this.cartList.forEach(e => {
+        //             this.$store.dispatch("Cart/getCartProductInfo",e.id)
+        //         })
+        //     }
+        // }
     }
 </script>
 
