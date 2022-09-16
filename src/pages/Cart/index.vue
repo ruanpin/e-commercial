@@ -40,12 +40,18 @@
                 </div>
                 <div class="remaining">剩餘{{eachProduct.remaining}}件</div>
               </div>
-              <div class="title cart-product-infos">
+              <div class="title cart-product-infos proPrice">
                   $ {{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[5]}}{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[4]}}{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[3]}},{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[2]}}{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[1]}}{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[0]}}
             </div>
               <div class="title cart-product-infos">
                   <a class="delete" @click="deleteCartProduct(eachProduct.id)">刪除</a>
               </div>
+          </div>
+      </div>
+      <div class="checkout-panel">
+          <div class="account-area">
+              <div class="account">總金額 <span>$ 0</span></div>
+              <button class="checkout-btn">去買單</button>
           </div>
       </div>
   </div>
@@ -175,24 +181,6 @@ import {mapState} from 'vuex'
             padding:1.5rem;
             margin-top:1.5rem;
             background-color: $gbc-color;
-            // .left {
-            //     display:flex;
-            //     align-items: center;
-            //     .checkbox {
-            //         display:flex;
-            //         align-items: center;
-            //         margin-right:1.5em;
-            //     }
-            // }
-            // .right {
-            //     display:flex;
-            //     align-items: center;
-            //     width: 50%;
-            //     .title {
-            //         width: 25%;
-            //         text-align: center;
-            //     }
-            // }
         }
         .cart-panel {
             display:flex;
@@ -217,17 +205,44 @@ import {mapState} from 'vuex'
             .right {
                 .cart-product-infos {
                     color:black;
-                    // .amount-choose {
-                    //     display:flex;
-                    // }
+                    
                     .delete {
                         cursor:pointer;
                     }
+                }
+                .proPrice {
+                    color:rgb(208,1,27);
                 }
                 #amount-relative {
                     display:flex;
                     flex-direction: column;
                 }
+            }
+        }
+        .checkout-panel {
+            display:flex;
+            justify-content: flex-end;
+            background-color: $gbc-color;
+
+            .account-area {
+                display:flex;
+                align-items: center;
+                font-size: 1.2rem;
+                span {
+                    color:rgb(208,1,27);
+                    font-size: 1.4rem;
+                }
+
+            }
+            .checkout-btn {
+                min-width: 13rem;
+                height:3rem;
+                font-size: 1.2rem;
+                background-color: rgb(101,122,141);
+                color:#fff;
+                font-weight: 500;
+                margin-right:4rem;
+                margin-left:4rem;
             }
         }
     }
