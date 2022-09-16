@@ -35,7 +35,7 @@
               <div id="amount-relative" class="title cart-product-infos">
                 <div class="amount-choose">
                     <button class="minus" @click="changeBuyNumBtn('minus', eachProduct, cartList.find(e=>e.id==eachProduct.id))"><i class="fa-solid fa-minus" ></i></button>
-                    <input id="amount-input" class="buyNum-input" type="text" v-model="cartList.find(e=>e.id==eachProduct.id).amount" @change="changeBuyNumInput">
+                    <input id="amount-input" class="buyNum-input" type="text" v-model.lazy="cartList.find(e=>e.id==eachProduct.id).amount" @change="changeBuyNumInput($event, eachProduct, cartList.find(e=>e.id==eachProduct.id))">
                     <button class="plus" @click="changeBuyNumBtn('plus', eachProduct, cartList.find(e=>e.id==eachProduct.id))"><i class="fa-solid fa-plus"></i></button>
                 </div>
                 <div class="remaining">剩餘{{eachProduct.remaining}}件</div>
@@ -57,12 +57,14 @@ import {mapState} from 'vuex'
         name:'Cart',
         data(){
             return {
-                buyNum:1,
-                test:2
+                
             }
         },
         methods:{
-            changeBuyNumBtn(caltype,eachProduct, speCartProduct){
+            //caltype:計算方式，有plus和minus
+            //speCartProduct:觸發此更改數量函式時，要被修改數量的產品(cartList Array中物件)
+            //eachProduct: vueX產品Info列表中與被修改的產品相同ID的物件(productInfo Array中物件)(因在此元件中v-for出來的結構並不是直接以購物車中產品Array(state.cartList)為模板，而是以另一個產品Info Array(state.productInfo)為模板v-for出來的，因此需此參數再次進行比對確認)
+            changeBuyNumBtn(caltype, eachProduct, speCartProduct){
                 if(caltype=='plus') {
                     if (speCartProduct.amount >= eachProduct.remaining) return
                     this.$store.commit("Cart/CHANGECARTPRONUMPLUS",speCartProduct)
@@ -72,14 +74,15 @@ import {mapState} from 'vuex'
 
                 }
             },
-            //改到這---------------------------------------------------------------(vueX更新後模板不更新)-
-            changeBuyNumInput(event){
-                if (event.target.value > this.productInfo.remaining) {
-                    this.buyNum = this.productInfo.remaining
-                } else if(event.target.value < 1) {
-                    this.buyNum = 1
-                } else if( isNaN(new Number(event.target.value)) ){
-                    this.buyNum = 1
+            //speCartProduct:觸發此更改數量函式時，要被修改數量的產品(cartList Array中物件)
+            //eachProduct: vueX產品Info列表中與被修改的產品相同ID的物件(productInfo Array中物件)(因在此元件中v-for出來的結構並不是直接以購物車中產品Array(state.cartList)為模板，而是以另一個產品Info Array(state.productInfo)為模板v-for出來的，因此需此參數再次進行比對確認)
+            changeBuyNumInput($event, eachProduct, speCartProduct){
+                if (Number($event.target.value) > eachProduct.remaining) {
+                    this.$store.commit("Cart/CHANGECARTPRONUMINPUTREMAINING",eachProduct)
+                } else if (Number($event.target.value) < 1) {
+                    this.$store.commit("Cart/CHANGECARTPRONUMINPUTRSMALLTHAN0",eachProduct)                    
+                } else if (isNaN(Number($event.target.value))) {
+                    this.$store.commit("Cart/CHANGECARTPRONUMINPUTRSMALLTHAN0",eachProduct)                    
                 }
             },
             deleteCartProduct(productID){
@@ -205,6 +208,9 @@ import {mapState} from 'vuex'
                     // .amount-choose {
                     //     display:flex;
                     // }
+                    .delete {
+                        cursor:pointer;
+                    }
                 }
                 #amount-relative {
                     display:flex;

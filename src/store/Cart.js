@@ -43,10 +43,22 @@ export default {
         },
         CHANGECARTPRONUMPLUS(state,speCartProduct){
             state.cartList.find(e=>e==speCartProduct).amount += 1
+            //更新localStorage，保持一致性
             localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
         },
         CHANGECARTPRONUMMINUS(state,speCartProduct){
             state.cartList.find(e=>e==speCartProduct).amount -= 1 
+            //更新localStorage，保持一致性
+            localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
+        },
+        CHANGECARTPRONUMINPUTREMAINING(state,speCartProduct){
+            state.cartList.find(e=>e.id==speCartProduct.id).amount = speCartProduct.remaining
+            //更新localStorage，保持一致性
+            localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
+        },
+        CHANGECARTPRONUMINPUTRSMALLTHAN0(state,speCartProduct){
+            state.cartList.find(e=>e.id==speCartProduct.id).amount = 1
+            //更新localStorage，保持一致性
             localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
         },
         DELETECARTPRODUCT(state,speCartProductID){
