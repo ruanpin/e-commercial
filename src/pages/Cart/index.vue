@@ -18,7 +18,7 @@
       <div class="cart-panel" v-for="eachProduct in productInfo" :key="eachProduct.id">
           <div class="left">
                 <div class="checkbox">
-                    <input type="checkbox" id="allChecked">
+                    <input type="checkbox" id="allChecked" @change="checkhandler($event, cartList.find(e=>e.id==eachProduct.id), eachProduct.id)">
                 </div>
                 <div class="product">
                     <div class="img">
@@ -50,7 +50,7 @@
       </div>
       <div class="checkout-panel">
           <div class="account-area">
-              <div class="account">總金額 <span>$ 0</span></div>
+              <div class="account">總金額 <span>$ {{totalcheckedPrice}}</span></div>
               <button class="checkout-btn">去買單</button>
           </div>
       </div>
@@ -103,10 +103,37 @@ import {mapState} from 'vuex'
                 this.cartList.forEach(e => {
                     this.$store.dispatch("Cart/getCartProductInfo",e.id)
                 })
+            },
+            checkhandler($event, speCartProduct, ID){
+                // 更改vuex中指定產品勾選狀態
+                //因每次重新開啟購物車後不需要上次的勾選狀態，因此頁面呈現不會也不須與localStorage一致
+                let params = {
+                    checkState : $event.target.checked,
+                    id : speCartProduct.id
+                }
+                this.$store.commit("Cart/CHANGECHECKED",params)
             }
         },
         computed:{
             ...mapState('Cart',['cartList','productInfo']),
+            totalcheckedPrice(){
+                let checkPrice = 0
+
+                // let checkedCartList = this.cartList.filter(e=>{
+                //     e.check == true
+                // })
+                // console.log(checkedCartList)
+
+                // this.productInfo.forEach(e=>{
+                //     // console.log(e.price)
+                //     // console.log(e.id,Number(e.price.split(',')[0]+e.price.split(',')[1])+'')
+                //     if (e.id == checkedCartList.forEach(e=>e.id)){console.log(e.id,Number(e.price.split(',')[0]+e.price.split(',')[1])+'')}
+                // }) 
+                // return checkedCartList
+            }
+        },
+        watch:{
+
         },
         mounted(){
             setTimeout(() => {
@@ -115,6 +142,12 @@ import {mapState} from 'vuex'
                     this.$store.dispatch("Cart/getCartProductInfo",e.id)
                 })
             }, 10);
+            // setTimeout(()=>{
+            //     this.productInfo.forEach(e=>{
+            //         // console.log(e.price)
+            //         console.log(Number(e.price.split(',')[0]+e.price.split(',')[1])+'')
+            //     }) 
+            // },2000)
         },
         
     
@@ -223,7 +256,8 @@ import {mapState} from 'vuex'
             display:flex;
             justify-content: flex-end;
             background-color: $gbc-color;
-
+            padding:1.3em 0;
+            margin-top:1em;
             .account-area {
                 display:flex;
                 align-items: center;

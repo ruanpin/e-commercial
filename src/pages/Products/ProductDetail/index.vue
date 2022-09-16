@@ -77,7 +77,8 @@ import Info from './Info'
                 let cartProduct = {
                     id:this.$route.params.productID,
                     amount:this.buyNum,
-                    check:false
+                    check:false,
+                    price:this.productDetail[0].price
                 }
                 //避免購物車產品超過庫存量------------------------
                 // 先判斷購物車有沒有同樣產品

@@ -67,6 +67,11 @@ export default {
             state.productInfo = state.productInfo.filter(element => element.id !== speCartProductID)
             //更新localStorage，保持一致性
             localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
+        },
+        CHANGECHECKED(state,params){
+            //找出目標產品，更改check值，再更新localStorage
+            state.cartList.find(e=>e.id==params.id).check = params.checkState
+            localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
         }
     },
     
