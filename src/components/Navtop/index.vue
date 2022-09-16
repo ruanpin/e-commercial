@@ -113,7 +113,7 @@ i {
           text-align: center;
           z-index:10;
           font-size:1rem;
-          pointer-events: auto;
+          pointer-events: none;
         }
       }
       .member {
