@@ -53,6 +53,8 @@
 
 <script>
 import {mapState} from 'vuex'
+// import Vue from 'vue'
+
     export default {
         name:'Cart',
         data(){
@@ -86,7 +88,15 @@ import {mapState} from 'vuex'
                 }
             },
             deleteCartProduct(productID){
+                //發送刪除資訊至VueX中
                 this.$store.commit("Cart/DELETECARTPRODUCT",productID)
+                // location.reload()
+                // this.$forceUpdate();
+                
+                //刪除後重新撈購物車中產品的資訊(如圖片、庫存量、名稱等)
+                this.cartList.forEach(e => {
+                    this.$store.dispatch("Cart/getCartProductInfo",e.id)
+                })
             }
         },
         computed:{
@@ -100,6 +110,8 @@ import {mapState} from 'vuex'
                 })
             }, 10);
         },
+        
+    
     }
 </script>
 

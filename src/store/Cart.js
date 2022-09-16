@@ -64,7 +64,7 @@ export default {
         DELETECARTPRODUCT(state,speCartProductID){
             // 將要刪除的產品與cartList, productInfo比對過濾後刪除不再需要的產品
             state.cartList = state.cartList.filter(element => element.id !== speCartProductID)
-            state.productInfo = state.cartList.filter(element => element.id !== speCartProductID)
+            state.productInfo = state.productInfo.filter(element => element.id !== speCartProductID)
             //更新localStorage，保持一致性
             localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
         }
