@@ -39,8 +39,6 @@ export default {
             
             //判斷如已儲存過相同數據到state.productInfo則return
             if (state.productInfo.some(e => e.id == data[0].id)) return
-            // console.log()
-            // data[0].buyNum = state.cartList.find(e=>e.id==data[0].id).amount 
             state.productInfo.push(data[0])
         },
         CHANGECARTPRONUMPLUS(state,speCartProduct){
@@ -52,8 +50,10 @@ export default {
             localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
         },
         DELETECARTPRODUCT(state,speCartProductID){
-            // state.cartList.find(e=>e.id==speCartProductID)
+            // 將要刪除的產品與cartList, productInfo比對過濾後刪除不再需要的產品
             state.cartList = state.cartList.filter(element => element.id !== speCartProductID)
+            state.productInfo = state.cartList.filter(element => element.id !== speCartProductID)
+            //更新localStorage，保持一致性
             localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
         }
     },
@@ -64,6 +64,8 @@ export default {
     },
     
     getters : {
-    
+        // cartProducts(state){
+        //     return state.productInfo
+        // }
     },
 }

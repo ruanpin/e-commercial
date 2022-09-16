@@ -84,15 +84,10 @@ import {mapState} from 'vuex'
             },
             deleteCartProduct(productID){
                 this.$store.commit("Cart/DELETECARTPRODUCT",productID)
-                location.reload();
             }
         },
         computed:{
             ...mapState('Cart',['cartList','productInfo']),
-            price(){
-                return Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])
-
-            },
         },
         mounted(){
             setTimeout(() => {
@@ -102,14 +97,6 @@ import {mapState} from 'vuex'
                 })
             }, 10);
         },
-        // watch:{
-        //     'this.cartList':{
-        //         deep:true,
-        //         handler(){
-        //             console.log('changed')
-        //         }
-        //     }
-        // }
     }
 </script>
 
