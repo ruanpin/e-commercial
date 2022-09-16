@@ -32,6 +32,11 @@ export default {
         GETTINGPRODUCT(state, cartProduct){
             //將localStorage中的購物車數據拿出並存在state.cartList中
             state.cartList = cartProduct 
+            //重置勾選狀態為false
+            state.cartList.forEach(e=>{
+                e.check = false
+            })
+            localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
         },
         GETCARTPRODUCTINFO(state, cartProductInfo) {
             //將資訊存在state.productInfo陣列中

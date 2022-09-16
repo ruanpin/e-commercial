@@ -50,7 +50,7 @@
       </div>
       <div class="checkout-panel">
           <div class="account-area">
-              <div class="account">總金額 <span>$ {{totalcheckedPrice}}</span></div>
+              <div class="account">總金額 <span>$ {{finalTotalcheckedPrice}}</span></div>
               <button class="checkout-btn">去買單</button>
           </div>
       </div>
@@ -65,7 +65,7 @@ import {mapState} from 'vuex'
         name:'Cart',
         data(){
             return {
-                
+                totalcheckedPrice:0,
             }
         },
         methods:{
@@ -116,23 +116,36 @@ import {mapState} from 'vuex'
         },
         computed:{
             ...mapState('Cart',['cartList','productInfo']),
-            totalcheckedPrice(){
-                let checkPrice = 0
+            finalTotalcheckedPrice(){
+                let price
+                if(this.totalcheckedPrice>999){
+                    price = ((this.totalcheckedPrice+'').split('').reverse()[4])||''+((this.totalcheckedPrice+'').split('').reverse()[3])+','+((this.totalcheckedPrice+'').split('').reverse()[2])+((this.totalcheckedPrice+'').split('').reverse()[1])+((this.totalcheckedPrice+'').split('').reverse()[0])
+                }
+                if(this.totalcheckedPrice>9999){
+                    price = ((this.totalcheckedPrice+'').split('').reverse()[5])||''+((this.totalcheckedPrice+'').split('').reverse()[4])+((this.totalcheckedPrice+'').split('').reverse()[3])+','+((this.totalcheckedPrice+'').split('').reverse()[2])+((this.totalcheckedPrice+'').split('').reverse()[1])+((this.totalcheckedPrice+'').split('').reverse()[0])
+                }
+                if(this.totalcheckedPrice>99999){
+                    price = ((this.totalcheckedPrice+'').split('').reverse()[6])||''+((this.totalcheckedPrice+'').split('').reverse()[5])+((this.totalcheckedPrice+'').split('').reverse()[4])+((this.totalcheckedPrice+'').split('').reverse()[3])+','+((this.totalcheckedPrice+'').split('').reverse()[2])+((this.totalcheckedPrice+'').split('').reverse()[1])+((this.totalcheckedPrice+'').split('').reverse()[0])
+                }
+                if (this.totalcheckedPrice == 0) price = 0
 
-                // let checkedCartList = this.cartList.filter(e=>{
-                //     e.check == true
-                // })
-                // console.log(checkedCartList)
-
-                // this.productInfo.forEach(e=>{
-                //     // console.log(e.price)
-                //     // console.log(e.id,Number(e.price.split(',')[0]+e.price.split(',')[1])+'')
-                //     if (e.id == checkedCartList.forEach(e=>e.id)){console.log(e.id,Number(e.price.split(',')[0]+e.price.split(',')[1])+'')}
-                // }) 
-                // return checkedCartList
+                return price
             }
+            
         },
         watch:{
+            'cartList':{
+                deep:true,
+                handler(){
+                    let result = 0
+                    this.cartList.forEach(e=>{
+                        if (e.check) {
+                            result += Number(e.price.split(',')[0]+e.price.split(',')[1])*e.amount
+                        }
+                    })
+                    this.totalcheckedPrice = result
+                }
+            }
 
         },
         mounted(){
@@ -142,6 +155,9 @@ import {mapState} from 'vuex'
                     this.$store.dispatch("Cart/getCartProductInfo",e.id)
                 })
             }, 10);
+            
+            this.$store.dispatch("Cart/gettingProduct",JSON.parse(localStorage.getItem('cartProducts')) || [])
+            
             // setTimeout(()=>{
             //     this.productInfo.forEach(e=>{
             //         // console.log(e.price)
