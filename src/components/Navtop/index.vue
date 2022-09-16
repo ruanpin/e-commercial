@@ -44,7 +44,7 @@ import {mapState} from 'vuex'
             cartNum(){
               let totalNum = 0;
               this.cartList.forEach(e=>{
-                totalNum += e.amount
+                totalNum += Number(e.amount)
               })
               let num = totalNum==0?undefined:totalNum
               return num
