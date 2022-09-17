@@ -80,12 +80,18 @@ import Info from './Info'
                     check:false,
                     price:this.productDetail[0].price
                 }
+                let targetItem = this.cartList.find(e => e.id == cartProduct.id) ||[]
+                let availableQuantity = this.productDetail[0].remaining - targetItem.amount
                 //避免購物車產品超過庫存量------------------------
                 // 先判斷購物車有沒有同樣產品
                 if (this.cartList.find(e => e.id == cartProduct.id)){
                     // 如果購物車內同產品數量已>=商品庫存量則return
                     if (this.cartList.find(e => e.id == cartProduct.id).amount>=this.product.remaining) {
-                        alert("已超過可購買數量")
+                        alert(`超過可購買數量，購物車中已有 ${this.cartList.find(e => e.id == cartProduct.id).amount} 件`)
+                        return
+                    } else if (this.cartList.find(e => e.id == cartProduct.id).amount+this.buyNum>this.product.remaining) {
+                        // 如果購物車內同產品數量+本次購買數量已>商品庫存量則return
+                        alert(`超過可購買數量，購物車中已有 ${this.cartList.find(e => e.id == cartProduct.id).amount} 件，可再加入 ${availableQuantity} 件`)
                         return
                     }
                     this.$store.dispatch("Cart/addingProduct",cartProduct)
