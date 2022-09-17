@@ -3,7 +3,7 @@
       <div class="title-area">
             <div class="left">
                 <div class="checkbox">
-                    <input type="checkbox" id="allChecked" v-model="checkAll">
+                    <input type="checkbox" id="allChecked" v-model="checkAll" :disabled="!cartList.length">
                     <label for="allChecked">全選</label>
                 </div>
                 <div class="title">商品</div>
