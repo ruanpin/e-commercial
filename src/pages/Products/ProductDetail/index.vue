@@ -28,6 +28,7 @@
                     <button class="cart" @click="addingProducts"><i class="fa-solid fa-cart-shopping"></i>加入購物車</button>
                     <button class="buyNow">直接購買</button>
                 </div>
+                <div class="addingSuccessTip" v-show="isAddingSuccess"><div class="p"><i class="fa-regular fa-circle-check"></i>加入購物車成功</div></div>
                 
             </div>
         </div>
@@ -46,6 +47,7 @@ import Info from './Info'
             return {
                 buyNum:1,
                 currentIndex:0,
+                isAddingSuccess:false,
             }
         },
         components:{
@@ -73,6 +75,12 @@ import Info from './Info'
             changeCurIndex(clickedIndex){
                 this.currentIndex = clickedIndex;
             },
+            tipsTurnOn(){
+                this.isAddingSuccess = true
+                setTimeout(()=>{
+                    this.isAddingSuccess = false
+                },1500)
+            },
             addingProducts(){
                 let cartProduct = {
                     id:this.$route.params.productID,
@@ -95,13 +103,14 @@ import Info from './Info'
                         return
                     }
                     this.$store.dispatch("Cart/addingProduct",cartProduct)
+                    this.tipsTurnOn()
                 } else if(!(this.cartList.find(e => e.id == cartProduct.id))) { 
                     //若購物車中無同產品則加入
                     this.$store.dispatch("Cart/addingProduct",cartProduct)
+                    this.tipsTurnOn()
                 }
                 
-
-                // localStorage.setItem("todos", JSON.stringify(cartProduct))
+                
             }
         },
         computed:{
@@ -245,6 +254,27 @@ import Info from './Info'
                     .buyNow {
                         background-color: rgb(101,122,141);
                         color:#fff;
+                    }
+                }
+                .addingSuccessTip {
+                    position: absolute;
+                    width: 30vw;
+                    height: 30vh;
+                    background-color: rgba(87, 87, 87 ,0.75);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    transform: translate(-50%,-180%);
+                    pointer-events:none;
+                    .p {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        font-size: 1.2rem;
+                        i {
+                            font-size: 5rem;
+                            margin-bottom:1.2rem;
+                        }
                     }
                 }
             }

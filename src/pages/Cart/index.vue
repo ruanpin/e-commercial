@@ -177,13 +177,13 @@ import {mapState} from 'vuex'
 
 <style lang="scss" scoped>
     // 以下通用-----------------------
-    $gbc-color:rgb(175, 224, 226);
+    $gbc-color:rgb(245,245,245);
     button {
         min-width: 2.5em;
         height:2.5em;
         border:0;
         cursor: pointer;
-        
+        background-color: rgb(214, 214, 214);
     }
 
     input {
@@ -227,7 +227,7 @@ import {mapState} from 'vuex'
     .cart-container {
         display:flex;
         flex-direction: column;
-        background-color: rgb(174, 212, 158);
+        // background-color: rgb(245,245,245);
         .title-area {
             display:flex;
             align-items: center;
