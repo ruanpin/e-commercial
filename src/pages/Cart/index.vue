@@ -3,7 +3,7 @@
       <div class="title-area">
             <div class="left">
                 <div class="checkbox">
-                    <input type="checkbox" id="allChecked">
+                    <input type="checkbox" id="allChecked" v-model="checkAll">
                     <label for="allChecked">全選</label>
                 </div>
                 <div class="title">商品</div>
@@ -18,7 +18,7 @@
       <div class="cart-panel" v-for="eachProduct in productInfo" :key="eachProduct.id">
           <div class="left">
                 <div class="checkbox">
-                    <input type="checkbox" id="allChecked" @change="checkhandler($event, cartList.find(e=>e.id==eachProduct.id), eachProduct.id)">
+                    <input type="checkbox" id="allChecked" v-model="cartList.find(e=>e.id==eachProduct.id).check" @change="checkhandler($event, cartList.find(e=>e.id==eachProduct.id), eachProduct.id)">
                 </div>
                 <div class="product">
                     <div class="img">
@@ -112,24 +112,36 @@ import {mapState} from 'vuex'
                     id : speCartProduct.id
                 }
                 this.$store.commit("Cart/CHANGECHECKED",params)
-            }
+            },
         },
         computed:{
             ...mapState('Cart',['cartList','productInfo']),
             finalTotalcheckedPrice(){
-                let price
-                if(this.totalcheckedPrice>999){
+                let price 
+                if (this.totalcheckedPrice>99999) {
+                    price = ((this.totalcheckedPrice+'').split('').reverse()[6])||''+((this.totalcheckedPrice+'').split('').reverse()[5])+((this.totalcheckedPrice+'').split('').reverse()[4])+((this.totalcheckedPrice+'').split('').reverse()[3])+','+((this.totalcheckedPrice+'').split('').reverse()[2])+((this.totalcheckedPrice+'').split('').reverse()[1])+((this.totalcheckedPrice+'').split('').reverse()[0])
+                } else if(this.totalcheckedPrice>9999) {
+                    price = ((this.totalcheckedPrice+'').split('').reverse()[5])||''+((this.totalcheckedPrice+'').split('').reverse()[4])+((this.totalcheckedPrice+'').split('').reverse()[3])+','+((this.totalcheckedPrice+'').split('').reverse()[2])+((this.totalcheckedPrice+'').split('').reverse()[1])+((this.totalcheckedPrice+'').split('').reverse()[0])
+                } else if (this.totalcheckedPrice>999) {
                     price = ((this.totalcheckedPrice+'').split('').reverse()[4])||''+((this.totalcheckedPrice+'').split('').reverse()[3])+','+((this.totalcheckedPrice+'').split('').reverse()[2])+((this.totalcheckedPrice+'').split('').reverse()[1])+((this.totalcheckedPrice+'').split('').reverse()[0])
                 }
-                if(this.totalcheckedPrice>9999){
-                    price = ((this.totalcheckedPrice+'').split('').reverse()[5])||''+((this.totalcheckedPrice+'').split('').reverse()[4])+((this.totalcheckedPrice+'').split('').reverse()[3])+','+((this.totalcheckedPrice+'').split('').reverse()[2])+((this.totalcheckedPrice+'').split('').reverse()[1])+((this.totalcheckedPrice+'').split('').reverse()[0])
-                }
-                if(this.totalcheckedPrice>99999){
-                    price = ((this.totalcheckedPrice+'').split('').reverse()[6])||''+((this.totalcheckedPrice+'').split('').reverse()[5])+((this.totalcheckedPrice+'').split('').reverse()[4])+((this.totalcheckedPrice+'').split('').reverse()[3])+','+((this.totalcheckedPrice+'').split('').reverse()[2])+((this.totalcheckedPrice+'').split('').reverse()[1])+((this.totalcheckedPrice+'').split('').reverse()[0])
-                }
+                
                 if (this.totalcheckedPrice == 0) price = 0
 
-                return price
+                return price 
+            },
+            //判斷是否全選用變數
+            checkedProduct(){
+                return this.cartList.filter(e=>e.check == true)
+            },
+            //全選v-model綁定變數
+            checkAll:{
+                get(){
+                    return this.checkedProduct.length === this.cartList.length && (this.cartList.length > 0)
+                },
+                set(value){
+                    this.$store.commit("Cart/IFCHECKALL",value)
+                }
             }
             
         },
@@ -157,13 +169,6 @@ import {mapState} from 'vuex'
             }, 10);
             
             this.$store.dispatch("Cart/gettingProduct",JSON.parse(localStorage.getItem('cartProducts')) || [])
-            
-            // setTimeout(()=>{
-            //     this.productInfo.forEach(e=>{
-            //         // console.log(e.price)
-            //         console.log(Number(e.price.split(',')[0]+e.price.split(',')[1])+'')
-            //     }) 
-            // },2000)
         },
         
     

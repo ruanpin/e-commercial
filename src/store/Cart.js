@@ -77,6 +77,13 @@ export default {
             //找出目標產品，更改check值，再更新localStorage
             state.cartList.find(e=>e.id==params.id).check = params.checkState
             localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
+        },
+        IFCHECKALL(state, ifChecked){
+            // ifChecked: true or false
+            // 勾選全選按鈕時，將所有產品勾選狀態統一變為已勾選or未勾選
+            state.cartList.forEach(e=>{
+                e.check = ifChecked
+            })
         }
     },
     
