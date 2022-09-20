@@ -11,7 +11,9 @@
     </div>
     <div class="info-section">
       <div class="info-title">聯絡我們</div>
-      <div class="info"><i class="fa-solid fa-phone"></i> 電話: 02-12345678</div>
+      <div class="info iconDiv"><i class="fa-solid fa-phone"></i><div class="p">02-12345678</div></div>
+      <div class="info iconDiv"><i class="fa-regular fa-envelope"></i><div class="p">12345678@gmail.com</div></div>
+      <div class="info iconDiv"><i class="fa-solid fa-city"></i><div class="p">12345678@gmail.com</div></div>
     </div>
   </div>
 </template>
@@ -23,6 +25,12 @@
 </script>
 
 <style lang="scss" scoped>
+i {
+  margin-right:0.5rem;
+  // position: absolute;
+  // transform: translateY(20%);
+}
+
   .footer-container {
     display:flex;
     justify-content: flex-start;
@@ -40,6 +48,15 @@
         margin-bottom:1rem;
         color:rgb(163,138,122);
         font-weight: 700;
+      }
+      .iconDiv {
+        display:flex;
+        align-items: center;
+        margin-top:0.35rem;
+      }
+      .p {
+        position: absolute;
+        margin-left:2rem;
       }
     }
   }
