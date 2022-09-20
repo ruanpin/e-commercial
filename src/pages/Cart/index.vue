@@ -44,7 +44,7 @@
                   $ {{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[5]}}{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[4]}}{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[3]}},{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[2]}}{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[1]}}{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[0]}}
             </div>
               <div class="title cart-product-infos">
-                  <a class="delete" @click="deleteCartProduct(eachProduct.id)">刪除</a>
+                  <a class="delete" @click="deleteCartProduct(eachProduct)">刪除</a>
               </div>
           </div>
       </div>
@@ -93,20 +93,32 @@ import {mapState} from 'vuex'
                     this.$store.commit("Cart/CHANGECARTPRONUMINPUTRSMALLTHAN0",eachProduct)                    
                 }
             },
-            deleteCartProduct(productID){
-                //發送刪除資訊至VueX中
-                this.$store.commit("Cart/DELETECARTPRODUCT",productID)
+            deleteCartProduct(product){
+                
+                // if(confirm(`確定刪除嗎?`)) {
+                //     this.$store.commit("Cart/DELETECARTPRODUCT",product.id)
+
+                //     //刪除後重新撈購物車中產品的資訊(如圖片、庫存量、名稱等)
+                //     this.cartList.forEach(e => {
+                //     this.$store.dispatch("Cart/getCartProductInfo",e.id)
+                // })
+                // }
+                
                 // location.reload()
                 // this.$forceUpdate();
-                
-                //刪除後重新撈購物車中產品的資訊(如圖片、庫存量、名稱等)
+
+                //發送刪除資訊至VueX中
+                this.$store.commit("Cart/DELETECARTPRODUCT",product.id)
+                    //刪除後重新撈購物車中產品的資訊(如圖片、庫存量、名稱等)
                 this.cartList.forEach(e => {
                     this.$store.dispatch("Cart/getCartProductInfo",e.id)
                 })
+                
+                
+                
             },
             checkhandler($event, speCartProduct, ID){
                 // 更改vuex中指定產品勾選狀態
-                //因每次重新開啟購物車後不需要上次的勾選狀態，因此頁面呈現不會也不須與localStorage一致
                 let params = {
                     checkState : $event.target.checked,
                     id : speCartProduct.id
@@ -117,6 +129,7 @@ import {mapState} from 'vuex'
         computed:{
             ...mapState('Cart',['cartList','productInfo']),
             finalTotalcheckedPrice(){
+                //計算總金額
                 let price 
                 if (this.totalcheckedPrice>99999) {
                     price = ((this.totalcheckedPrice+'').split('').reverse()[6])||''+((this.totalcheckedPrice+'').split('').reverse()[5])+((this.totalcheckedPrice+'').split('').reverse()[4])+((this.totalcheckedPrice+'').split('').reverse()[3])+','+((this.totalcheckedPrice+'').split('').reverse()[2])+((this.totalcheckedPrice+'').split('').reverse()[1])+((this.totalcheckedPrice+'').split('').reverse()[0])
@@ -147,6 +160,7 @@ import {mapState} from 'vuex'
         },
         watch:{
             'cartList':{
+                //偵測cartList中產品勾選狀態是否改變
                 deep:true,
                 handler(){
                     let result = 0
