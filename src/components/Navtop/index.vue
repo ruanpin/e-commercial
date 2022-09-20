@@ -83,9 +83,9 @@ i {
         border-bottom: 2px transparent solid;
       }
       .router-link-active{
-        color:rgb(117, 177, 6);
-        border-bottom: 2px rgb(117, 177, 6) solid;
-        transition: 1s ease-in;
+        color:rgb(163,138,122);
+        border-bottom: 2px rgb(163,138,122) solid;
+        transition: 0.2s ease-in;
       }
       
     }

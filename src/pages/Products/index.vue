@@ -108,22 +108,23 @@ export default {
     width: 100%;
     .search-container {
       margin : 2em auto; 
-      text-align: center; 
+      display:flex;
+      justify-content: center;
       input {
         width: 20em;
         height: 3em;
         border : 0px solid black;
-        border-radius: 1em;
-        background-color: rgb(168, 206, 119);
+        border-radius: 5px;
+        background-color:rgb(101,122,141);
         padding:0 1em;
         &::placeholder {
-          color:rgb(36, 36, 36);
+          color:#fff;
         }
       }
       button {
         height: 3em;
         border : 0px solid black;
-        border-radius: 1em;
+        border-radius: 5px;
         margin-left:1.8em;
         background-color: rgba(0, 0, 0, 0.849);
         color:#fff;
@@ -142,7 +143,8 @@ export default {
         align-items: center;
         flex-direction: column;
         justify-content: center;
-        border:2px solid rgb(163,138,122);
+        // border:2px solid rgb(163,138,122);
+        background-color:rgb(245, 245, 245);
         border-radius: 5px;
         margin:0em 1%;
         // overflow: hidden;
