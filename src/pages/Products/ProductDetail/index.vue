@@ -26,7 +26,7 @@
                 </div>
                 <div class="cta-button">
                     <button class="cart" @click="addingProducts"><i class="fa-solid fa-cart-shopping"></i>加入購物車</button>
-                    <button class="buyNow">直接購買</button>
+                    <button class="buyNow" @click="buyProducts" >直接購買</button>
                 </div>
                 <div class="addingSuccessTip" v-show="isAddingSuccess"><div class="p"><i class="fa-regular fa-circle-check"></i>加入購物車成功</div></div>
                 
@@ -109,8 +109,44 @@ import Info from './Info'
                     this.$store.dispatch("Cart/addingProduct",cartProduct)
                     this.tipsTurnOn()
                 }
+            },
+            buyProducts(){
+                let targetProduct = {
+                    id:this.$route.params.productID,
+                    amount:this.buyNum,
+                    check:true,
+                    price:this.productDetail[0].price
+                }
+                let targetItem = this.cartList.find(e => e.id == targetProduct.id) ||[]
+                let availableQuantity = this.productDetail[0].remaining - targetItem.amount
+
+                if (this.cartList.find(e => e.id == targetProduct.id)) {
+                    if (this.cartList.find(e => e.id == targetProduct.id).amount>=this.product.remaining){
+                        alert(`超過可購買數量，購物車中已有 ${this.cartList.find(e => e.id == targetProduct.id).amount} 件`)
+                        return
+                    } else if (this.cartList.find(e => e.id == targetProduct.id).amount+this.buyNum>this.product.remaining) {
+                        // 如果購物車內同產品數量+本次購買數量已>商品庫存量則return
+                        alert(`購物車中已有 ${this.cartList.find(e => e.id == targetProduct.id).amount} 件，可再購買 ${availableQuantity} 件`)
+                        return
+                    }
+                    this.$store.commit("Cart/ADDINGPRODUCT",targetProduct)
+                    this.$router.push({
+                        name:'Cart',
+                        query:{
+                            targetProduct
+                        }
+                    })
+                } else if (!(this.cartList.find(e => e.id == targetProduct.id))) {
+                    this.$store.commit("Cart/ADDINGPRODUCT",targetProduct)
+                    this.$router.push({
+                        name:'Cart',
+                        query:{
+                            targetProduct
+                        }
+                    })
+                }
                 
-                
+
             }
         },
         computed:{

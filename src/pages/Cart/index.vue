@@ -167,8 +167,14 @@ import {mapState} from 'vuex'
                     this.$store.dispatch("Cart/getCartProductInfo",e.id)
                 })
             }, 10);
-            
+
             this.$store.dispatch("Cart/gettingProduct",JSON.parse(localStorage.getItem('cartProducts')) || [])
+
+            //針對要直接購買的產品更改其勾選狀態
+            if (this.$route.query.targetProduct) {
+                this.$store.commit("Cart/DIRECTLYBUY",this.$route.query.targetProduct)
+            }
+
         },
         
     

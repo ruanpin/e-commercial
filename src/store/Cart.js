@@ -21,6 +21,7 @@ export default {
     
     mutations : {
         ADDINGPRODUCT(state, cartProduct){
+            console.log(cartProduct)
             if (state.cartList.some(e => e.id == cartProduct.id ) ) {
                 state.cartList.find(e => e.id == cartProduct.id).amount += cartProduct.amount
             } else {
@@ -84,6 +85,13 @@ export default {
             state.cartList.forEach(e=>{
                 e.check = ifChecked
             })
+        },
+        DIRECTLYBUY(state, targetProduct){
+            //更改要被直接購買的產品勾選狀態為true
+            let target = state.cartList.find(e=>e.id==targetProduct.id)
+            target.check = targetProduct.check
+
+            localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
         }
     },
     
