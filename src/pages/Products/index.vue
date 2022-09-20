@@ -142,8 +142,8 @@ export default {
         align-items: center;
         flex-direction: column;
         justify-content: center;
-        border:2px solid rgb(168, 206, 119);
-        border-radius: 2em;
+        border:2px solid rgb(163,138,122);
+        border-radius: 5px;
         margin:0em 1%;
         // overflow: hidden;
         

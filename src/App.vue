@@ -69,11 +69,13 @@ $show-width:85%;
         }
 
         #footer-container {
-          background-color: rgb(151, 196, 214);
+          // background-color: rgb(151, 196, 214);
+          border-top:1.5px solid rgb(163,138,122);
           #footer {
             max-width: $max-show-width;
             width:$show-width;
             margin:1em auto;
+            margin-bottom:0rem;
           }
         }
       }

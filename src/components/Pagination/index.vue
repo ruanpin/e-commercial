@@ -92,7 +92,7 @@ export default {
         align-items: center;
         // 以下通用CSS--------------------
         .active {
-            background-color: skyblue;
+            background-color: rgb(163,138,122);
         }
         button {
             margin-right:1em;
