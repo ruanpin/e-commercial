@@ -99,6 +99,7 @@ export default {
             min-width:2.5em;
             height:2.5em;
             border: 0;
+            border-radius: 2px;
             cursor:pointer;
             // background-color: rgba(150, 156, 138, 0.712);
         }
