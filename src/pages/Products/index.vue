@@ -1,6 +1,7 @@
 <template>
   <div class="product-container">
     <div class="search-container">
+      <div class="search-icon"><div class="icon-container"><i class="fa-solid fa-magnifying-glass"></i></div></div>
       <input type="text" placeholder="搜尋..." name="q" v-model="searchInfo.keyword" ref="keywordInput" @keyup.enter="handleSearch">
       <button @click="handleSearch">搜尋</button>
     </div>
@@ -110,6 +111,15 @@ export default {
       margin : 2em auto; 
       display:flex;
       justify-content: center;
+      .search-icon {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        i {
+          font-size:1.6rem;
+          margin-right:0.3rem;
+        }
+      }
       input {
         width: 20em;
         height: 3em;

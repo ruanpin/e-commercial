@@ -235,7 +235,7 @@ import Info from './Info'
                             border:3px solid transparent;
                         }
                         .active {
-                            border:3px solid rgb(255, 75, 75);
+                            border:3px solid rgb(163,138,122);
                         }
                     }
                 }
