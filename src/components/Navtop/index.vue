@@ -55,36 +55,36 @@ import {mapState} from 'vuex'
 
 <style lang="scss" scoped>
 i {
-  font-size:1.7em;
+  font-size:1.5em;
   cursor:pointer;
 }
 
   .container {
     display:flex;
     justify-content: space-between;
-
+    
     .logo {
       display:flex;
       justify-content: space-around;
       align-items: center;
       width: 30%;     
-      margin-top:0.5em; 
+      // margin-top:0.5em; 
     }
     .pages-btn {
       display:flex;
       justify-content: space-around;
       align-items: center;
       width: 30%;
-      margin-top:0.5em;
+      // margin-top:0.5em;
       a {
         color:black;
-        font-weight: 700;
-        font-size: 1.5em;
+        font-weight: 600;
+        font-size: 1.35rem;
         border-bottom: 2px transparent solid;
       }
       .router-link-active{
-        color:rgb(163,138,122);
-        border-bottom: 2px rgb(163,138,122) solid;
+        color:rgb(148, 117, 97);
+        // border-bottom: 2px rgb(163,138,122) solid;
         transition: 0.2s ease-in;
       }
       
@@ -95,7 +95,7 @@ i {
       display:flex; 
       justify-content: center;
       align-items: center;
-      margin-top:0.5em;
+      // margin-top:0.5em;
       .cart {
         display:flex;
         justify-content: space-around;
@@ -104,15 +104,15 @@ i {
         .cartNum {
           color:#fff;
           position:absolute;
-          transform:translate(75%,-60%);
-          width: 1.2rem;
-          height: 1.2rem;
-          line-height: 1.2rem;
+          transform:translate(75%,-70%);
+          width: 1rem;
+          height: 1rem;
+          line-height: 1.05rem;
           background-color: rgb(208,1,27);
           border-radius: 50%;
           text-align: center;
           z-index:10;
-          font-size:1rem;
+          font-size:0.8rem;
           pointer-events: none;
         }
       }

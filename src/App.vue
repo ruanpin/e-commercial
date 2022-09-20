@@ -58,6 +58,9 @@ $show-width:85%;
             max-width: $max-show-width;
             width:$show-width;
             margin:0px auto;
+            padding:0.5rem;
+            padding-bottom:0.8rem;
+            background-color: rgb(205,217,182);
           }
         }
         
