@@ -123,12 +123,12 @@ export default {
       input {
         width: 20em;
         height: 3em;
-        border : 0px solid black;
+        border : 1.8px solid rgb(101,122,141);
         border-radius: 5px;
-        background-color:rgb(101,122,141);
+        background-color:rgb(250,250,250);
         padding:0 1em;
         &::placeholder {
-          color:#fff;
+          color:rgb(94, 94, 94);
         }
       }
       button {
@@ -136,7 +136,7 @@ export default {
         border : 0px solid black;
         border-radius: 5px;
         margin-left:1.8em;
-        background-color: rgba(0, 0, 0, 0.849);
+        background-color: rgba(101,122,141, 0.849);
         color:#fff;
         padding:0em 1.8em;
         cursor:pointer;
