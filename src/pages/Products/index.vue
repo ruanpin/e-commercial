@@ -154,7 +154,8 @@ export default {
         flex-direction: column;
         justify-content: center;
         // background-color:rgb(245, 245, 245);
-        background-color:rgba(205, 217, 182, 0.55);
+        // background-color:rgba(205, 217, 182, 0.55);
+        background-color:rgb(245,235,216);
         border-radius: 5px;
         margin:0em 1%;
         // overflow: hidden;

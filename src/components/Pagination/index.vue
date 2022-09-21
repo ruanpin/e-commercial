@@ -93,6 +93,7 @@ export default {
         // 以下通用CSS--------------------
         .active {
             background-color: rgb(163,142,135);
+            // background-color: rgb(245,235,216);
         }
         button {
             margin-right:1em;

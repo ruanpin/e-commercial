@@ -22,6 +22,10 @@
             <div class="swiper-button-next swiper-btn" slot="button-next"></div>
         </swiper>
     </div>
+    
+    <div class="home-intro">
+      
+    </div>
   </div>
 </template>
 
@@ -75,6 +79,7 @@ export default {
 
 <style lang="scss" scoped>
   .home-container {
+    //通用-------------以下----------------
     button {
       width: 12rem;
       height: 5rem;
@@ -87,17 +92,18 @@ export default {
       font-weight: 700;
       cursor:pointer;
     }
+    //通用--------------以上---------------
+
     .app-container {
       #mySwiper{
         width: 100%;
-        height: 98vh;
+        // height: 98vh;
+        height: 700px;
         background-color: rgb(184, 209, 201);
         .slide1 {
           button {
             transform: translate(460%,520%);
             background-color: rgb(245,235,216);
-            // color:rgb(77,95,44);
-            // background-color: rgb(156, 197, 90);
           }
         }
         .slide2 {
@@ -111,9 +117,9 @@ export default {
     }
     //swiper控制項----------------------------以下-----------
     .swiper-slide.swiper_slide_item{
-        height: 98vh;
+        // height: 98vh;
+        height: 700px;
         background-color:rgb(245,235,216);
-        // padding:1.5em;
 
     }
     .swiper-pagination-bullet-custom .swiper-pagination-bullet{
@@ -121,8 +127,8 @@ export default {
         height: 20px !important;
     }
     #mySwiper {
-        --swiper-navigation-color:rgb(95, 72, 33);
-        --swiper-pagination-color:rgb(95, 72, 33);
+        --swiper-navigation-color:white;
+        --swiper-pagination-color:white;
     }
     //swiper控制項----------------------------以上-----------
 
