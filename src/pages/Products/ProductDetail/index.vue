@@ -169,8 +169,8 @@ import Info from './Info'
 
 <style lang="scss" scoped>
     button {
-        min-width: 2em;
-        height:2em;
+        min-width: 2.2em;
+        height:2.2em;
         border:0;
         cursor: pointer;
         
@@ -266,6 +266,10 @@ import Info from './Info'
                     .amount-choose {
                         width: 20%;
                         display:flex;
+                        align-items: center;
+                        i {
+                            font-size:1.2rem;
+                        }
                     }
                     .remaining {
                         color:rgb(53, 53, 53);
