@@ -153,8 +153,8 @@ export default {
         align-items: center;
         flex-direction: column;
         justify-content: center;
-        // border:2px solid rgb(163,138,122);
-        background-color:rgb(245, 245, 245);
+        // background-color:rgb(245, 245, 245);
+        background-color:rgba(205, 217, 182, 0.55);
         border-radius: 5px;
         margin:0em 1%;
         // overflow: hidden;
@@ -179,7 +179,7 @@ export default {
           }
           .title {
             font-weight: 700;
-            font-size: 1.4em;
+            font-size: 1.25em;
           }
           .priceRemainingArea {
             display:flex;

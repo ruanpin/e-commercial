@@ -13,7 +13,7 @@
       <div class="info-title">聯絡我們</div>
       <div class="info iconDiv"><i class="fa-solid fa-phone"></i><div class="p">02-12345678</div></div>
       <div class="info iconDiv"><i class="fa-regular fa-envelope"></i><div class="p">12345678@gmail.com</div></div>
-      <div class="info iconDiv"><i class="fa-solid fa-city"></i><div class="p">12345678@gmail.com</div></div>
+      <div class="info iconDiv"><i class="fa-solid fa-city"></i><div class="p">110 台北市信義區市府路45號</div></div>
     </div>
   </div>
 </template>
