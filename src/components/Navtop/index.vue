@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="logo">logo</div> 
+    <div class="logo"><img src="/logo/logo.svg" alt=""></div>
     <ul class="pages-btn">
       <li><router-link to="/home">Home</router-link></li>
       <li @click="getAllProducts"><router-link to="/products">Products</router-link></li>
@@ -63,13 +63,16 @@ i {
     display:flex;
     justify-content: space-between;
     background-color: rgba(205, 217, 182, 0.692);
-    
     .logo {
       display:flex;
       justify-content: space-around;
       align-items: center;
-      width: 30%;     
-      // margin-top:0.5em; 
+      width: 30%;    
+      img {
+        width: 35%;
+        // height: 30%;
+        object-fit: cover;
+      }
     }
     .pages-btn {
       display:flex;
