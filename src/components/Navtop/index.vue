@@ -62,6 +62,7 @@ i {
   .container {
     display:flex;
     justify-content: space-between;
+    background-color: rgba(205, 217, 182, 0.692);
     
     .logo {
       display:flex;

@@ -60,7 +60,6 @@ $show-width:85%;
             margin:0px auto;
             padding:0.5rem;
             padding-bottom:0.8rem;
-            background-color: rgb(205,217,182);
           }
         }
         
