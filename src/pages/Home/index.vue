@@ -22,15 +22,31 @@
             <div class="swiper-button-next swiper-btn" slot="button-next"></div>
         </swiper>
     </div>
-    
-    <div class="home-intro">
-      
-    </div>
+    <div class="home-title">最新上市</div>
+    <ul class="showArea-container">
+      <li class="card-container" v-for="item in productsList" :key="item.id">
+        <div class="img-container">
+          <img :src="item.imgUrl" @click="showProductDetail(item.id)">
+        </div>
+        <div class="text-container">
+          <div class="title brief-info">{{item.name}}</div>
+          <div class="priceRemainingArea">
+            <div class="price brief-info">$ {{item.price}}</div>
+            <div class="remaining brief-info">剩餘{{item.remaining}}件</div>
+          </div>
+          <div class="info brief-info">{{item.info}}</div>
+        </div>
+      </li>
+    </ul>
+
   </div>
 </template>
 
 <script>
+import {mapState} from 'vuex'
+
 export default {
+  
     name:'Home',
     data(){
       return {
@@ -73,12 +89,20 @@ export default {
           path:'/products',
         })
       }
+    },
+    computed:{
+        // productsList : state => state.Search.productsList, //與下方相同
+        //...mapState('Search',{ //與下方相同
+        //productsList : 'productsList'
+        //}),
+      ...mapState('Search',['productsList','totalAmount'])
     }
 }
 </script>
 
 <style lang="scss" scoped>
   .home-container {
+    // width: 100%;
     //通用-------------以下----------------
     button {
       width: 12rem;
@@ -93,6 +117,23 @@ export default {
       cursor:pointer;
     }
     //通用--------------以上---------------
+
+    //swiper控制項----------------------------以下-----------
+    .swiper-slide.swiper_slide_item{
+        // height: 98vh;
+        height: 700px;
+        background-color:rgb(245,235,216);
+
+    }
+    .swiper-pagination-bullet-custom .swiper-pagination-bullet{
+        width: 20px !important;
+        height: 20px !important;
+    }
+    #mySwiper {
+        --swiper-navigation-color:white;
+        --swiper-pagination-color:white;
+    }
+    //swiper控制項----------------------------以上-----------
 
     .app-container {
       #mySwiper{
@@ -115,22 +156,78 @@ export default {
         }
       }
     }
-    //swiper控制項----------------------------以下-----------
-    .swiper-slide.swiper_slide_item{
-        // height: 98vh;
-        height: 700px;
-        background-color:rgb(245,235,216);
+    .home-title {
+      font-size:1.6rem;
+      text-align: center;
+      margin:1rem 0;
+      margin-top:3rem;
+      padding:1.2rem;
+      background-color: rgb(148,117,97);
+      font-weight: 700;
+      color:#fff;
+    }
+    .showArea-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      width: 100%;
+      .card-container {
+        max-width: 23%;
+        min-height: 13em;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        // background-color:rgb(245, 245, 245);
+        background-color:rgba(205, 217, 182, 0.55);
+        // background-color:rgb(245,235,216);
+        border-radius: 5px;
+        margin:0em 1%;
+        
+        .img-container {
+          width: 90%;
+          height: 60%;
+          margin:1.5em;
+          img {
+            width: 100%;
+            cursor: pointer;
+          }
+        }
+        .text-container {
+          display:flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 90%;
+          margin-bottom:1.2em;
+          .brief-info {
+            margin-bottom:0.3em;
+          }
+          .title {
+            font-weight: 700;
+            font-size: 1.25em;
+          }
+          .priceRemainingArea {
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            .price {
+              color:rgb(208,1,27);
+              font-size: 1.3em;
+            }
+            .remaining {
+              color:rgb(53, 53, 53);
+            }
+          }
+          .info {
+            color:rgb(53, 53, 53);
+            margin-top:0.6em;
+          }
+        }
+      }
+      
+    }
 
-    }
-    .swiper-pagination-bullet-custom .swiper-pagination-bullet{
-        width: 20px !important;
-        height: 20px !important;
-    }
-    #mySwiper {
-        --swiper-navigation-color:white;
-        --swiper-pagination-color:white;
-    }
-    //swiper控制項----------------------------以上-----------
 
   }
 </style>
