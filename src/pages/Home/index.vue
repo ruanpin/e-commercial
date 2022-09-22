@@ -38,6 +38,11 @@
         </div>
       </li>
     </ul>
+    <ul class="insta-container">
+      <li class="img-container" v-for="post in postList" :key="post.id">
+        <img class="img-IG" :src="post.media_url" alt="">
+      </li>
+    </ul>
 
   </div>
 </template>
@@ -103,13 +108,19 @@ export default {
         //...mapState('Search',{ //與下方相同
         //productsList : 'productsList'
         //}),
-      ...mapState('Search',['promoteList'])
+      ...mapState('Search',['promoteList']),
+      ...mapState('Insta',['postList'])
     },
     mounted(){
       //往資料庫撈新品
       this.$store.dispatch("Search/getPromoteProducts",{
         promote:true
       })
+      //拿IG貼文
+      this.$store.dispatch("Insta/gettingPostsIG",JSON.parse(localStorage.getItem('InstaPosts')) || [])
+      if (this.postList.length) return
+      this.$store.dispatch("Insta/getPostsIG")
+      
     }
 }
 </script>
@@ -135,6 +146,7 @@ export default {
     //swiper控制項----------------------------以下-----------
     .swiper-slide.swiper_slide_item{
         // height: 98vh;
+        max-width: 1345px;
         height: 700px;
         background-color:rgb(245,235,216);
 
@@ -152,6 +164,7 @@ export default {
     .app-container {
       #mySwiper{
         width: 100%;
+        max-width: 1345px;
         // height: 98vh;
         height: 700px;
         background-color: rgb(184, 209, 201);
@@ -240,6 +253,12 @@ export default {
         }
       }
       
+    }
+    .insta-container{
+      width: 25%;
+      .img-IG {
+        width: 100%;
+      }
     }
 
 

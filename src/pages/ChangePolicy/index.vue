@@ -1,5 +1,5 @@
 <template>
-  <div class="change-container">0</div>
+  <div class="change-container">ChangePolicy</div>
 </template>
 
 <script>

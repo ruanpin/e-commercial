@@ -1,5 +1,5 @@
 <template>
-  <div class="PrivacyPolicy-container">0</div>
+  <div class="PrivacyPolicy-container">PrivacyPolicy</div>
 </template>
 
 <script>

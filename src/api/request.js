@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const requests = axios.create({
-    baseURL:'/api',
+    baseURL:'https://graph.instagram.com/me/media',
     timeout:5000,
 })
 

@@ -44,8 +44,6 @@
 <style lang="scss" scoped>
 i {
   margin-right:0.5rem;
-  // position: absolute;
-  // transform: translateY(20%);
 }
 .goPage {
   cursor:pointer;
