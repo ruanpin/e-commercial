@@ -24,7 +24,7 @@
     </div>
     <div class="home-title">最新上市</div>
     <ul class="showArea-container">
-      <li class="card-container" v-for="item in productsList" :key="item.id">
+      <li class="card-container" v-for="item in promoteList" :key="item.id">
         <div class="img-container">
           <img :src="item.imgUrl" @click="showProductDetail(item.id)">
         </div>
@@ -88,6 +88,14 @@ export default {
         this.$router.push({
           path:'/products',
         })
+      },
+      showProductDetail(productID){
+        this.$router.push({
+          name:'ProductDetail',
+          params:{
+            productID
+          }
+        }).catch(err => {});
       }
     },
     computed:{
@@ -95,7 +103,13 @@ export default {
         //...mapState('Search',{ //與下方相同
         //productsList : 'productsList'
         //}),
-      ...mapState('Search',['productsList','totalAmount'])
+      ...mapState('Search',['promoteList'])
+    },
+    mounted(){
+      //往資料庫撈新品
+      this.$store.dispatch("Search/getPromoteProducts",{
+        promote:true
+      })
     }
 }
 </script>

@@ -67,3 +67,17 @@ Mock.mock('/mock/productDetail','post',function(options){
     //回傳Data
     return {code:200, data:filterData}
 })
+
+//撈promotion products，返回新品
+Mock.mock('/mock/promotionProduct','get',function(options){
+    // 將傳過來的params抓出來
+    let reqParams = JSON.parse(options.body).promote
+    
+    //參數與數據進行比對，只拿出new:true的產品
+    let filterData = products.filter((data)=>{
+        return data.new == reqParams
+    });
+
+    //回傳Data
+    return {code:200, data:filterData}
+})

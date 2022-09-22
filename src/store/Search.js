@@ -1,4 +1,4 @@
-import {reqGetProducts, reqPostProducts} from '../api'
+import {reqPostProducts, reqGetPromoteProducts} from '../api'
 
 export default {
     namespaced:true,
@@ -15,6 +15,14 @@ export default {
             if (result.code === 200) {
                 commit('GETPRODUCTS', result)
             }
+        },
+
+        //撈promote products
+        async getPromoteProducts({commit},searchInfo){
+            let result = await reqGetPromoteProducts(searchInfo)
+            if (result.code === 200) {
+                commit('GETPROMOTEPRODUCTS', result)
+            }
         }
     },
     
@@ -24,12 +32,18 @@ export default {
 
             state.productsList = data;
             state.totalAmount = amount;
+        },
+        GETPROMOTEPRODUCTS(state, result){
+            let {data} = result
+
+            state.promoteList = data
         }
     },
     
     state : {
         productsList:[],
         totalAmount:0,
+        promoteList:[]
     },
     
     getters : {
