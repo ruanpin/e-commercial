@@ -5,6 +5,9 @@ import ProductDetail from '../pages/Products/ProductDetail'
 import About from '../pages/About'
 import Cart from '../pages/Cart'
 import Member from '../pages/Member'
+import ChangePolicy from '../pages/ChangePolicy'
+import Maintain from '../pages/Maintain'
+import PrivacyPolicy from '../pages/PrivacyPolicy'
 
 
 
@@ -43,6 +46,21 @@ export default new VueRouter({
             name:'Member',
             path:'/member',
             component:Member,
+        },
+        {
+            name:'ChangePolicy',
+            path:'/changePolicy',
+            component:ChangePolicy,
+        },
+        {
+            name:'Maintain',
+            path:'/maintain',
+            component:Maintain,
+        },
+        {
+            name:'PrivacyPolicy',
+            path:'/privacyPolicy',
+            component:PrivacyPolicy,
         },
         {
             // Landing page設為Home component

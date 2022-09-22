@@ -2,12 +2,12 @@
   <div class="footer-container">
     <div class="info-section">
       <div class="info-title">購物須知</div>
-      <div class="info">退換貨政策</div>
-      <div class="info">隱私權政策</div>
+      <div class="info"><span class="goPage" @click="goChangePolicy">退換貨政策</span></div>
+      <div class="info"><span class="goPage" @click="goPrivacyPolicy">隱私權政策</span></div>
     </div>
     <div class="info-section">
       <div class="info-title">保養須知</div>
-      <div class="info">礦石保養</div>
+      <div class="info"><span class="goPage" @click="goMaintain">礦石保養</span></div>
     </div>
     <div class="info-section">
       <div class="info-title">聯絡我們</div>
@@ -21,6 +21,23 @@
 <script>
     export default {
         name:'Footer',
+        methods:{
+          goChangePolicy(){
+            this.$router.push({
+              name:'ChangePolicy'
+            })
+          },
+          goPrivacyPolicy(){
+            this.$router.push({
+              name:'PrivacyPolicy'
+            })
+          },
+          goMaintain(){
+            this.$router.push({
+              name:'Maintain'
+            })
+          }
+        },
     }
 </script>
 
@@ -29,6 +46,9 @@ i {
   margin-right:0.5rem;
   // position: absolute;
   // transform: translateY(20%);
+}
+.goPage {
+  cursor:pointer;
 }
 
   .footer-container {
