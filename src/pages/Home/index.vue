@@ -174,7 +174,7 @@ export default {
       font-size:1.6rem;
       text-align: center;
       margin:1rem 0;
-      margin-top:3rem;
+      margin-top:4rem;
       padding:1.2rem;
       background-color: rgb(148,117,97);
       font-weight: 700;
@@ -196,7 +196,7 @@ export default {
         background-color:rgba(205, 217, 182, 0.55);
         // background-color:rgb(245,235,216);
         border-radius: 5px;
-        margin:0em 1%;
+        margin:1rem 13.5% 1.5rem 13.5%;
         
         .img-container {
           width: 90%;
