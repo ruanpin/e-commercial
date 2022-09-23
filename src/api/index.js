@@ -12,4 +12,4 @@ export const reqPostProductDetail = (productID) => mockRequests.post('/productDe
 
 export const reqGetPromoteProducts = (params) => mockRequests.get('/promotionProduct',{data:params})
 
-export const reqGetIGPosts = (params) => InstaRequest.get(`?fields=id,media_type,media_url,thumbnail_url&access_token=${instaToken}`)
+export const reqGetIGPosts = () => InstaRequest.get(`?fields=id,media_type,media_url,permalink&access_token=${instaToken}`)

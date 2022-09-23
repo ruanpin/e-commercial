@@ -8,7 +8,6 @@ export default {
         async getPostsIG({commit},searchInfo) {
             let result = await reqGetIGPosts(searchInfo)
             commit('GETPOSTSIG',result)
-            console.log('執行')
         },
         gettingPostsIG({commit},localStorageData){
             commit('GETTINGPOSTSIG',localStorageData)
@@ -20,6 +19,7 @@ export default {
             let {data} = result
 
             state.postList = data;
+            //拿到貼文資料後存在localStorage，避免重複請求同一個API太多次
             localStorage.setItem("InstaPosts", JSON.stringify(state.postList))
 
         },

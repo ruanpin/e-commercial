@@ -12,7 +12,7 @@ requests.interceptors.request.use((config)=>{
 requests.interceptors.response.use((res)=>{
     return res.data;
 },(error)=>{
-    return Promise.reject(new Error('failure'))
+    return Promise.reject(new Error('instagram access failed.'))
 })
 
 export default requests;

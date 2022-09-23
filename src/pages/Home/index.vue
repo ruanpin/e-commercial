@@ -32,15 +32,16 @@
           <div class="title brief-info">{{item.name}}</div>
           <div class="priceRemainingArea">
             <div class="price brief-info">$ {{item.price}}</div>
-            <div class="remaining brief-info">剩餘{{item.remaining}}件</div>
+            <!-- <div class="remaining brief-info">剩餘{{item.remaining}}件</div> -->
           </div>
           <div class="info brief-info">{{item.info}}</div>
         </div>
       </li>
     </ul>
+    <div class="title-BG"><div class="home-title IG-color">instagram 最新貼文</div></div>
     <ul class="insta-container">
       <li class="img-container" v-for="post in postList" :key="post.id">
-        <img class="img-IG" :src="post.media_url" alt="">
+        <a :href="post.permalink"><img class="img-IG" :src="post.media_url" alt="Photos from IG"></a>
       </li>
     </ul>
 
@@ -101,7 +102,7 @@ export default {
             productID
           }
         }).catch(err => {});
-      }
+      },
     },
     computed:{
         // productsList : state => state.Search.productsList, //與下方相同
@@ -189,10 +190,22 @@ export default {
       margin:1rem 0;
       margin-top:4rem;
       padding:1.2rem;
-      background-color: rgb(148,117,97);
+      background-color: rgb(184, 156, 137);
       font-weight: 700;
       color:#fff;
     }
+    // .IG-color{
+    //   color: transparent;  
+    //   background: -webkit-radial-gradient(30% 107%, circle, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    //   background: -o-radial-gradient(30% 107%, circle, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    //   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    //   background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    //   background-clip: text;
+    //   -webkit-background-clip: text;
+    // }
+    // .title-BG {
+    //   background-color: rgb(158, 167, 145);
+    // }
     .showArea-container {
       display: flex;
       flex-wrap: wrap;
@@ -228,6 +241,7 @@ export default {
           margin-bottom:1.2em;
           .brief-info {
             margin-bottom:0.3em;
+            // text-align: center;
           }
           .title {
             font-weight: 700;
@@ -255,7 +269,16 @@ export default {
       
     }
     .insta-container{
-      width: 25%;
+      // width: 25%;
+      display:flex;
+      justify-content: center;
+      .img-container {
+        width: 23%;
+        margin:0 0.2rem;
+        // display:flex;
+      //   justify-content: center;
+      //   align-items: center;
+      }
       .img-IG {
         width: 100%;
       }
