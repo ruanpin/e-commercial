@@ -22,7 +22,7 @@
             <div class="swiper-button-next swiper-btn" slot="button-next"></div>
         </swiper>
     </div>
-    <div class="home-title">最新上市</div>
+    <div class="home-title"><i class="fa-solid fa-champagne-glasses title-icon"></i>最新上市</div>
     <ul class="showArea-container">
       <li class="card-container" v-for="item in promoteList" :key="item.id">
         <div class="img-container">
@@ -38,7 +38,7 @@
         </div>
       </li>
     </ul>
-    <div class="title-BG"><div class="home-title IG-color">instagram 最新貼文</div></div>
+    <div class="title-BG"><div class="home-title"><i class="fa-brands fa-instagram IG-color"></i>instagram 最新貼文</div></div>
     <ul class="insta-container">
       <li class="img-container" v-for="post in postList" :key="post.id">
         <a :href="post.permalink"><img class="img-IG" :src="post.media_url" alt="Photos from IG"></a>
@@ -193,16 +193,23 @@ export default {
       background-color: rgb(184, 156, 137);
       font-weight: 700;
       color:#fff;
+      .title-icon {
+        margin-right:1rem;
+        color:#fff;
+      }
     }
-    // .IG-color{
-    //   color: transparent;  
-    //   background: -webkit-radial-gradient(30% 107%, circle, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    //   background: -o-radial-gradient(30% 107%, circle, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    //   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    //   background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    //   background-clip: text;
-    //   -webkit-background-clip: text;
-    // }
+    .IG-color{
+      color: transparent;  
+      background: -webkit-radial-gradient(30% 107%, circle, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      background: -o-radial-gradient(30% 107%, circle, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      margin-right:1rem;
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
     // .title-BG {
     //   background-color: rgb(158, 167, 145);
     // }
