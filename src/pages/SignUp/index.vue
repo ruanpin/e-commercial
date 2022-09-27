@@ -2,8 +2,8 @@
   <div class="member-container">
     <div class="form-section">
       <div class="container">
-        <form ref="form" class="contact-form" action="http://localhost:5000/signIn" method="POST" >
-          <p>歡迎回來！</p>
+        <form ref="form" class="contact-form" action="http://localhost:5000/signUp" method="POST" >
+          <p>歡迎！建立您的帳號</p>
           <label>帳號<br><input type="text" placeholder="請輸入帳號" name="username" ref="nameInput" value="" @blur="checkValue"></label>
           <span class="warning" v-show="isNameWarningShow">this is required</span><br>
 
@@ -11,12 +11,12 @@
           <span class="warning" v-show="isEmailWarningShow">this is required</span><br>
 
 
-          <input type="submit" value="登入" @click="handleSubmit">
+          <input type="submit" value="註冊" @click="handleSubmit">
           <p class="warning sendingWarning" v-show="isSendingWarningShow">請填寫上方資訊</p><br>
         </form>
       </div>
-      <div class="signup">
-        <p>沒有帳號嗎?<span class="signup-Btn" @click="goSignUp">註冊</span></p>
+      <div class="signin">
+        <p>有帳號了嗎?<span class="signin-Btn" @click="goSignIn"> 返回登入</span></p>
       </div>
       <transition name="formMsgShow"> 
           <div v-show="FormMsg">{{FormMsg}}</div> 
@@ -27,7 +27,7 @@
 
 <script>
 export default {
-    name:'Member',
+    name:'SignUp',
     data(){
       return {
         isshow:false,
@@ -107,12 +107,11 @@ export default {
                 
                     
       },
-      goSignUp(){
+      goSignIn(){
         this.$router.push({
-          name:'SignUp'
+          name:'Member'
         })
       }
-
     }
 }
 </script>
@@ -187,9 +186,9 @@ export default {
           }
         }
       }
-      .signup {
+      .signin {
         padding : 2rem;
-        .signup-Btn {
+        .signin-Btn {
           cursor:pointer;
           color:blue;
         }
