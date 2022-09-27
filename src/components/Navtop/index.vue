@@ -8,7 +8,7 @@
     </ul>
     <div class="users-area">
       <div class="cart"><i class="fa-solid fa-cart-shopping" @click="toggle('cart')"></i><div class="cartNum" v-show="cartList.length">{{cartNum}}</div></div>
-      <!-- <div class="member"><i class="fa-solid fa-user-gear" @click="toggle('member')"></i></div> -->
+      <div class="member"><i class="fa-solid fa-user-gear" @click="toggle('member')"></i></div>
     </div>
   </div>
 </template>
