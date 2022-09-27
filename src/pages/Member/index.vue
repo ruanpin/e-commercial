@@ -2,7 +2,7 @@
   <div class="member-container">
     <div class="form-section">
       <div class="container">
-        <form method="POST" action="http://127.0.0.1:5000/signUp" class="contact-form">
+        <form ref="form" class="contact-form" action="http://localhost:5000/signUp" method="POST" >
           <p>歡迎！建立您的帳號</p>
           <label>帳號<br><input type="text" placeholder="請輸入帳號" name="username" ref="nameInput" value="" @blur="checkValue"></label>
           <span class="warning" v-show="isNameWarningShow">this is required</span><br>
@@ -59,16 +59,31 @@ export default {
           }
         }
       },
+      // preventDe(e){
+      //   e.preventDefault();
+      // },
       handleSubmit(e){
         if (this.$refs.nameInput.value && this.$refs.passwordInput.value) {
           this.FormMsg = ''
           // e.preventDefault(); //未開Server時需要，否則會跳轉
-          this.FormMsg = 'Thank you for contacting, I will reply to you as soon as possible !'
+          // this.FormMsg = 'Thank you for contacting, I will reply to you as soon as possible !'
           setTimeout(() => {
             this.$refs.nameInput.value = ""
             this.$refs.passwordInput.value = ""
           }, 10);
+          // this.$refs.form.addEventListener('submit', (e)=>{
+          //     e.preventDefault();
+          // });
+          // let signUpInfo = {
+          //   userame:this.$refs.nameInput.value,
+          //   password:this.$refs.passwordInput.value
+          // }
+          // this.$store.dispatch('Member/postSignUp',signUpInfo)
           this.isSendingWarningShow = false
+          // console.log(e)
+          // this.$router.push({
+          //   name:'About'
+          // })
         } else {
           e.preventDefault();
 

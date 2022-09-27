@@ -1,5 +1,6 @@
 import mockRequests from './mock'
 import InstaRequest from './request'
+import localDBRequest from './member'
 
 //引入in.s ta相關api使用參數
 import {instaToken} from '../utils/InstaToken'
@@ -13,3 +14,5 @@ export const reqPostProductDetail = (productID) => mockRequests.post('/productDe
 export const reqGetPromoteProducts = (params) => mockRequests.get('/promotionProduct',{data:params})
 
 export const reqGetIGPosts = () => InstaRequest.get(`?fields=id,media_type,media_url,permalink&access_token=${instaToken}`)
+
+export const reqPostSignUp = (params) => localDBRequest.post('/signUp',{username:params.username,password:params.password})
