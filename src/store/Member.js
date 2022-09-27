@@ -9,7 +9,6 @@ export default {
             // let {username, password} = signUpInfo
             // console.log('14654165456',signUpInfo)
             let result = await reqPostSignUp(signUpInfo)
-            console.log(result,'result')
 
             commit('POSTSIGNUP',result)
         },
@@ -17,12 +16,12 @@ export default {
     
     mutations : {
         POSTSIGNUP(state, result){
-            console.log(result.data.msg,result.data.msg == '註冊成功')
             if (result.data.msg == '註冊成功') {
                 state.msg = result.data.msg
             }
-            console.log(state.msg)
-            
+        },
+        RESETMSG(state){
+            state.msg = ''
         }
     
 

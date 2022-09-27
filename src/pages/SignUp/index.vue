@@ -38,6 +38,17 @@ export default {
         isSendingWarningShow:false,
       }
     },
+    watch:{
+      '$store.state.Member.msg':{
+        immediate:true,
+        handler(newValue, oldValue){
+          //若成功則跳轉
+          if (newValue == '註冊成功') this.goSignUpDone();
+          //跳轉後訊息回歸undefined
+          this.$store.commit('Member/RESETMSG')
+        }
+      }
+    },
     methods:{
       checkValue(e){
         // 失去焦點時判斷input內是否有值-------------------
@@ -71,8 +82,7 @@ export default {
       handleSubmit(e){
         if (this.$refs.nameInput.value && this.$refs.passwordInput.value) {
           this.FormMsg = ''
-          e.preventDefault(); //未開Server時需要，否則會跳轉
-          // this.FormMsg = 'Thank you for contacting, I will reply to you as soon as possible !'
+          e.preventDefault(); 
           
           let signUpInfo = {
             username:this.$refs.nameInput.value,
@@ -80,13 +90,11 @@ export default {
           }
 
           this.$store.dispatch('Member/postSignUp',signUpInfo)
-          setTimeout(() => {
-            this.$refs.nameInput.value = ""
-            this.$refs.passwordInput.value = ""
-          }, 10);
+          // setTimeout(() => {
+          //   this.$refs.nameInput.value = ""
+          //   this.$refs.passwordInput.value = ""
+          // }, 10);
           this.isSendingWarningShow = false
-          //若成功則跳轉
-          if (this.msg == '註冊成功') this.goSignUpDone();
 
         } else {
           e.preventDefault();
@@ -120,17 +128,7 @@ export default {
           name:'Member'
         })
       },
-      // test(){
-      //     let signUpInfo = {
-      //       userame:this.$refs.nameInput.value,
-      //       password:this.$refs.passwordInput.value
-      //     }
-      //     this.$store.dispatch('Member/postSignUp',signUpInfo)
-      // }
     },
-    computed:{
-      ...mapState('Member',['msg'])
-    }
 }
 </script>
 
