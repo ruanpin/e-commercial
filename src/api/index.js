@@ -1,3 +1,6 @@
+import axios from 'axios'
+
+
 import mockRequests from './mock'
 import InstaRequest from './request'
 import localDBRequest from './member'
@@ -15,4 +18,8 @@ export const reqGetPromoteProducts = (params) => mockRequests.get('/promotionPro
 
 export const reqGetIGPosts = () => InstaRequest.get(`?fields=id,media_type,media_url,permalink&access_token=${instaToken}`)
 
-export const reqPostSignUp = (params) => localDBRequest.post('/signUp',{username:params.username,password:params.password})
+export const reqPostSignUp = (params) => axios.post('http://localhost:8080/member/signUp',
+{
+    username: params.username,
+    password: params.password
+});

@@ -6,6 +6,7 @@ import About from '../pages/About'
 import Cart from '../pages/Cart'
 import Member from '../pages/Member'
 import SignUp from '../pages/SignUp'
+import SignUpDone from '../pages/SignUpDone'
 import ChangePolicy from '../pages/ChangePolicy'
 import Maintain from '../pages/Maintain'
 import PrivacyPolicy from '../pages/PrivacyPolicy'
@@ -52,6 +53,11 @@ export default new VueRouter({
             name:'SignUp',
             path:'/signUp',
             component:SignUp,
+        },
+        {
+            name:'SignUpDone',
+            path:'/signUpDone',
+            component:SignUpDone,
         },
         {
             name:'ChangePolicy',

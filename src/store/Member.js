@@ -7,31 +7,29 @@ export default {
         //
         async postSignUp({commit},signUpInfo) {
             // let {username, password} = signUpInfo
+            // console.log('14654165456',signUpInfo)
             let result = await reqPostSignUp(signUpInfo)
-            debugger;
-            console.log(result)
-            // commit('GETPOSTSIG',result)
+            console.log(result,'result')
+
+            commit('POSTSIGNUP',result)
         },
-        // gettingPostsIG({commit},localStorageData){
-        //     commit('GETTINGPOSTSIG',localStorageData)
-        // }
     },
     
     mutations : {
-        // GETPOSTSIG(state, result){
-        //     let {data} = result
-
-        //     state.postList = data;
-        //     //拿到貼文資料後存在localStorage，避免重複請求同一個API太多次
-        //     localStorage.setItem("InstaPosts", JSON.stringify(state.postList))
-
-        // },
+        POSTSIGNUP(state, result){
+            console.log(result.data.msg,result.data.msg == '註冊成功')
+            if (result.data.msg == '註冊成功') {
+                state.msg = result.data.msg
+            }
+            console.log(state.msg)
+            
+        }
     
 
     },
     
     state : {
-
+        msg : ''
     },
     
     getters : {

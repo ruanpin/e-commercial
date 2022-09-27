@@ -1,11 +1,29 @@
 import axios from 'axios'
+import qs from 'qs'
 
+// let params = new URLSearchParams()
+// params.append('username','faank')
+
+// let data = {
+//     'username':'faank'
+// }
 //連接本機註冊or登入系統的Server
 const requests = axios.create({
-    baseURL:'http://localhost:5000',
+    baseURL:'http://localhost:8080',
     timeout:5000,
-    'Content-Type':"multipart/form-data"
+    // headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    // params: {
+    //     ID: 12345
+    //   },
+    // data: {
+    //     ID: 456789
+    // },
+    
+    
+    
 })
+// console.log(username)
+
 
 requests.interceptors.request.use((config)=>{
     return config;

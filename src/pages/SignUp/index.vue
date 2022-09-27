@@ -2,7 +2,7 @@
   <div class="member-container">
     <div class="form-section">
       <div class="container">
-        <form ref="form" class="contact-form" action="http://localhost:5000/signUp" method="POST" >
+        <form ref="form" class="contact-form">
           <p>歡迎！建立您的帳號</p>
           <label>帳號<br><input type="text" placeholder="請輸入帳號" name="username" ref="nameInput" value="" @blur="checkValue"></label>
           <span class="warning" v-show="isNameWarningShow">this is required</span><br>
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
     name:'SignUp',
     data(){
@@ -62,24 +63,31 @@ export default {
           }
         }
       },
-      // preventDe(e){
-      //   e.preventDefault();
-      // },
+      goSignUpDone(){
+        this.$router.push({
+          name:'SignUpDone'
+        })
+      },
       handleSubmit(e){
         if (this.$refs.nameInput.value && this.$refs.passwordInput.value) {
           this.FormMsg = ''
-          // e.preventDefault(); //未開Server時需要，否則會跳轉
+          e.preventDefault(); //未開Server時需要，否則會跳轉
           // this.FormMsg = 'Thank you for contacting, I will reply to you as soon as possible !'
+          
+          let signUpInfo = {
+            username:this.$refs.nameInput.value,
+            password:this.$refs.passwordInput.value
+          }
+
+          this.$store.dispatch('Member/postSignUp',signUpInfo)
           setTimeout(() => {
             this.$refs.nameInput.value = ""
             this.$refs.passwordInput.value = ""
           }, 10);
-          // let signUpInfo = {
-          //   userame:this.$refs.nameInput.value,
-          //   password:this.$refs.passwordInput.value
-          // }
-          // this.$store.dispatch('Member/postSignUp',signUpInfo)
           this.isSendingWarningShow = false
+          //若成功則跳轉
+          if (this.msg == '註冊成功') this.goSignUpDone();
+
         } else {
           e.preventDefault();
 
@@ -111,7 +119,17 @@ export default {
         this.$router.push({
           name:'Member'
         })
-      }
+      },
+      // test(){
+      //     let signUpInfo = {
+      //       userame:this.$refs.nameInput.value,
+      //       password:this.$refs.passwordInput.value
+      //     }
+      //     this.$store.dispatch('Member/postSignUp',signUpInfo)
+      // }
+    },
+    computed:{
+      ...mapState('Member',['msg'])
     }
 }
 </script>
