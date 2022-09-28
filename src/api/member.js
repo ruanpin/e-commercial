@@ -1,12 +1,6 @@
 import axios from 'axios'
-import qs from 'qs'
+// import qs from 'qs'
 
-// let params = new URLSearchParams()
-// params.append('username','faank')
-
-// let data = {
-//     'username':'faank'
-// }
 //連接本機註冊or登入系統的Server
 const requests = axios.create({
     baseURL:'http://localhost:8080',
@@ -18,11 +12,8 @@ const requests = axios.create({
     // data: {
     //     ID: 456789
     // },
-    
-    
-    
 })
-// console.log(username)
+
 
 
 requests.interceptors.request.use((config)=>{

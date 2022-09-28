@@ -12,15 +12,15 @@
 
 
           <input type="submit" value="註冊" @click="handleSubmit">
-          <p class="warning sendingWarning" v-show="isSendingWarningShow">請填寫上方資訊</p><br>
+          <p class="warning sendingWarning" v-show="isSendingWarningShow">{{tips}}</p><br>
         </form>
       </div>
       <div class="signin">
         <p>有帳號了嗎?<span class="signin-Btn" @click="goSignIn"> 返回登入</span></p>
       </div>
-      <transition name="formMsgShow"> 
+      <!-- <transition name="formMsgShow"> 
           <div v-show="FormMsg">{{FormMsg}}</div> 
-      </transition>
+      </transition> -->
     </div>
   </div>
 </template>
@@ -31,21 +31,28 @@ export default {
     name:'SignUp',
     data(){
       return {
-        isshow:false,
+        // isshow:false,
         FormMsg:'',
         isNameWarningShow:false,
         isEmailWarningShow:false,
         isSendingWarningShow:false,
+        tips:'',
       }
     },
     watch:{
-      '$store.state.Member.msg':{
+      '$store.state.Member.success':{
         immediate:true,
         handler(newValue, oldValue){
           //若成功則跳轉
-          if (newValue == '註冊成功') this.goSignUpDone();
-          //跳轉後訊息回歸undefined
-          this.$store.commit('Member/RESETMSG')
+          if (newValue == true) {
+            this.goSignUpDone();
+            //跳轉後訊息回歸undefined
+            this.$store.commit('Member/RESETMSG')
+          } else if (newValue == false) {
+            this.tips = this.$store.state.Member.msg
+            this.isSendingWarningShow = true
+          }
+          
         }
       }
     },
@@ -88,7 +95,7 @@ export default {
             username:this.$refs.nameInput.value,
             password:this.$refs.passwordInput.value
           }
-
+          //發送請求到localhost:5000加到資料庫完成註冊
           this.$store.dispatch('Member/postSignUp',signUpInfo)
           // setTimeout(() => {
           //   this.$refs.nameInput.value = ""
@@ -104,6 +111,7 @@ export default {
             this.$refs.nameInput.focus();
             this.isNameWarningShow = true
             this.isEmailWarningShow = true
+            this.tips = '請填寫上方資訊'
           } else {
             if (!this.$refs.nameInput.value) {
               // 若有input值為空時，讓warning字樣出現
@@ -115,6 +123,7 @@ export default {
               this.isEmailWarningShow = true
               this.$refs.passwordInput.focus(); 
             }
+            this.tips = '請填寫上方資訊'
           }
 
           this.isSendingWarningShow = true;
@@ -128,6 +137,7 @@ export default {
           name:'Member'
         })
       },
+
     },
 }
 </script>
@@ -161,7 +171,7 @@ export default {
             position : absolute;
             bottom:1.5em;
             left:50%;
-            transform: translateX(-50%);
+            transform: translate(-50%,35%);
           }
           p {
             text-align: center;

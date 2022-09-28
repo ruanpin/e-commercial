@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 
 import mockRequests from './mock'
 import InstaRequest from './request'
@@ -18,8 +16,13 @@ export const reqGetPromoteProducts = (params) => mockRequests.get('/promotionPro
 
 export const reqGetIGPosts = () => InstaRequest.get(`?fields=id,media_type,media_url,permalink&access_token=${instaToken}`)
 
-export const reqPostSignUp = (params) => axios.post('http://localhost:8080/member/signUp',
-{
-    username: params.username,
-    password: params.password
-});
+//使用instance發請求
+export const reqPostSignUp = params => localDBRequest.post('/member/signUp',params);
+// 下方為使用axios直接發請求
+//使用axios創建出來的instance發請求給後端後，回來的資料如result.msg
+//但直接使用axios發請求給後端，回來的資料如result.data.msg，需再加上.data才能取得
+// export const reqPostSignUp = (params) => axios.post('http://localhost:8080/member/signUp',
+// {
+//     username: params.username,
+//     password: params.password
+// });
