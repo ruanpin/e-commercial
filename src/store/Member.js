@@ -14,6 +14,8 @@ export default {
             let result = await reqPostSignIn(signInInfo)
             if (result.login_success) {
                 commit('POSTSIGNIN',result)
+            } else if (!result.login_success) {
+                commit('POSTSIGNINERROR',result)
             }
             
         }
@@ -34,6 +36,16 @@ export default {
         POSTSIGNIN(state, result) {
             //取得token
             state.token = result.token
+            state.login_success = result.login_success
+            
+        },
+        POSTSIGNINERROR(state,result){
+            state.login_msg = result.login_msg
+            state.login_success = result.login_success
+        },
+        RESETINFO(state){
+            state.login_msg = ''
+            state.login_success = ''
         },
         LOGOUT(state){
             state.token = ''
@@ -47,6 +59,8 @@ export default {
         msg : '',
         success:'',
         token:'',
+        login_msg:'',
+        login_success:''
     },
     
     getters : {

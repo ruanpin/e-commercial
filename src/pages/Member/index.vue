@@ -43,8 +43,16 @@ export default {
         immediate:true,
         handler(newValue, oldValue){
           if (this.$store.state.Member.token) {
+            this.$store.commit('Member/RESETINFO')
             this.goLogin()
           }
+        }
+      },
+      '$store.state.Member.login_msg':{
+        immediate:true,
+        handler(newValue, oldValue){
+          this.tips = newValue;
+          this.isSendingWarningShow = true
         }
       }
     },
@@ -93,7 +101,13 @@ export default {
           //   this.$refs.nameInput.value = ""
           //   this.$refs.passwordInput.value = ""
           // }, 10);
-          this.isSendingWarningShow = false
+          if (this.$store.state.Member.login_success == false) {
+            this.isSendingWarningShow = true
+            this.tips = this.$store.state.Member.login_msg
+          } else {
+            this.isSendingWarningShow = false
+          }
+          
 
         } else {
           e.preventDefault();
@@ -131,6 +145,9 @@ export default {
       },
 
     },
+    mounted(){
+      this.tips = ''
+    }
 }
 </script>
 
