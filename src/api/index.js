@@ -29,3 +29,5 @@ export const reqPostSignUp = params => localDBRequest.post('/member/signUp',para
 
 export const reqPostSignIn = params => localDBRequest.post('/member/signIn',params);
 
+export const reqPostBuy = params => localDBRequest.post('/member/buyAction',params);
+

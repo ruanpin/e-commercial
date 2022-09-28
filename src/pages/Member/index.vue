@@ -31,7 +31,6 @@ export default {
     name:'SignUp',
     data(){
       return {
-        FormMsg:'',
         isNameWarningShow:false,
         isPasswordWarningShow:false,
         isSendingWarningShow:false,
@@ -145,9 +144,6 @@ export default {
       },
 
     },
-    // mounted(){
-    //   this.tips = ''
-    // },
     beforeDestroy(){
       this.isNameWarningShow=false;
       this.isPasswordWarningShow=false;

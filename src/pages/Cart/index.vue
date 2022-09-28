@@ -51,7 +51,7 @@
       <div class="checkout-panel">
           <div class="account-area">
               <div class="account">總金額 <span>$ {{finalTotalcheckedPrice}}</span></div>
-              <button class="checkout-btn">去買單</button>
+              <button class="checkout-btn" @click="buyAction">去買單</button>
           </div>
       </div>
   </div>
@@ -125,6 +125,9 @@ import {mapState} from 'vuex'
                 }
                 this.$store.commit("Cart/CHANGECHECKED",params)
             },
+            buyAction(){
+                this.$store.dispatch("Cart/reqBuyAction",this.cartList)
+            }
         },
         computed:{
             ...mapState('Cart',['cartList','productInfo']),

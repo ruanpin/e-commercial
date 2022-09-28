@@ -1,4 +1,4 @@
-import {reqPostProductDetail} from '../api'
+import {reqPostProductDetail, reqPostBuy} from '../api'
 
 export default {
     namespaced:true,
@@ -16,6 +16,10 @@ export default {
             if (result.code === 200) {
                 commit('GETCARTPRODUCTINFO', result)
             }
+        },
+        async reqBuyAction({commit},cartList){
+            let result = await reqPostBuy(cartList)
+            console.log(result)
         }
     },
     
