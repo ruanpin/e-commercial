@@ -11,7 +11,7 @@
           <span class="warning" v-show="isPasswordWarningShow">this is required</span><br>
 
 
-          <input type="submit" value="註冊" @click="handleSubmit">
+          <input type="submit" value="登入" @click="handleSubmit">
           <p class="warning sendingWarning" v-show="isSendingWarningShow">{{tips}}</p><br>
         </form>
       </div>
@@ -39,19 +39,12 @@ export default {
       }
     },
     watch:{
-      '$store.state.Member.success':{
+      '$store.state.Member.token':{
         immediate:true,
         handler(newValue, oldValue){
-          //若成功則跳轉
-          if (newValue == true) {
-            this.goSignUpDone();
-            //跳轉後訊息回歸undefined
-            this.$store.commit('Member/RESETMSG')
-          } else if (newValue == false) {
-            this.tips = this.$store.state.Member.msg
-            this.isSendingWarningShow = true
+          if (this.$store.state.Member.token) {
+            this.goLogin()
           }
-          
         }
       }
     },
@@ -80,9 +73,9 @@ export default {
           }
         }
       },
-      goSignUpDone(){
+      goLogin(){
         this.$router.push({
-          name:'SignUpDone'
+          name:'Home'
         })
       },
       handleSubmit(e){

@@ -9,6 +9,7 @@
     <div class="users-area">
       <div class="cart"><i class="fa-solid fa-cart-shopping" @click="toggle('cart')"></i><div class="cartNum" v-show="cartList.length">{{cartNum}}</div></div>
       <div class="member"><i class="fa-solid fa-user-gear" @click="toggle('member')"></i></div>
+      <div class="log-out" v-show="isLogOutShow" @click="logOut">登出 </div>
     </div>
   </div>
 </template>
@@ -18,6 +19,11 @@ import {mapState} from 'vuex'
 
     export default {
         name:'Navtop',
+        data(){
+          return {
+            isLogOutShow:false
+          }
+        },
         methods:{
           toggle(page){
             if (page == 'member') {
@@ -37,6 +43,9 @@ import {mapState} from 'vuex'
               pageNow:1,
               productsShowNumInOnePage:4,
             })
+          },
+          logOut (){
+            this.$store.commit("Member/LOGOUT")
           }
         },
         computed:{
@@ -49,6 +58,15 @@ import {mapState} from 'vuex'
               let num = totalNum==0?undefined:totalNum
               return num
             }
+        },
+        watch:{
+          '$store.state.Member.token'(newValue){
+            if (newValue) {
+              this.isLogOutShow = true
+            } else {
+              this.isLogOutShow = false
+            }
+          }
         }
     }
 </script>
@@ -124,7 +142,12 @@ i {
         display:flex;
         justify-content: space-around;
         align-items: center;
-      }        
+      }
+      .log-out {
+        cursor:pointer;
+        margin-left:1rem;
+        
+      } 
     }
   }
 </style>

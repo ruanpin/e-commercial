@@ -12,7 +12,10 @@ export default {
         },
         async postSignIn({commit}, signInInfo) {
             let result = await reqPostSignIn(signInInfo)
-            // commit('POSTSIGNIN',result)
+            if (result.login_success) {
+                commit('POSTSIGNIN',result)
+            }
+            
         }
     },
     
@@ -29,7 +32,12 @@ export default {
 
         },
         POSTSIGNIN(state, result) {
-            
+            //取得token
+            state.token = result.token
+        },
+        LOGOUT(state){
+            state.token = ''
+
         }
     
 
@@ -37,7 +45,8 @@ export default {
     
     state : {
         msg : '',
-        success:''
+        success:'',
+        token:'',
     },
     
     getters : {
