@@ -2,57 +2,39 @@
   <div class="member-container">
     <div class="form-section">
       <div class="container">
-        <form ref="form" class="contact-form">
-          <p>歡迎！建立您的帳號</p>
+        <form ref="form" class="contact-form" action="http://localhost:5000/signIn" method="POST" >
+          <p>歡迎回來！</p>
           <label>帳號<br><input type="text" placeholder="請輸入帳號" name="username" ref="nameInput" value="" @blur="checkValue"></label>
           <span class="warning" v-show="isNameWarningShow">this is required</span><br>
 
           <label>密碼<br><input type="password" placeholder="請輸入密碼" name="password" ref="passwordInput" value="" @blur="checkValue"></label>
-          <span class="warning" v-show="isPasswordWarningShow">this is required</span><br>
+          <span class="warning" v-show="isEmailWarningShow">this is required</span><br>
 
 
-          <input type="submit" value="註冊" @click="handleSubmit">
-          <p class="warning sendingWarning" v-show="isSendingWarningShow">{{tips}}</p><br>
+          <input type="submit" value="登入" @click="handleSubmit">
+          <p class="warning sendingWarning" v-show="isSendingWarningShow">請填寫上方資訊</p><br>
         </form>
       </div>
-      <div class="signin">
-        <p>有帳號了嗎?<span class="signin-Btn" @click="goSignIn"> 返回登入</span></p>
+      <div class="signup">
+        <p>沒有帳號嗎?<span class="signup-Btn" @click="goSignUp">註冊</span></p>
       </div>
-      <!-- <transition name="formMsgShow"> 
+      <transition name="formMsgShow"> 
           <div v-show="FormMsg">{{FormMsg}}</div> 
-      </transition> -->
+      </transition>
     </div>
   </div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
 export default {
-    name:'SignUp',
+    name:'Member',
     data(){
       return {
+        isshow:false,
         FormMsg:'',
         isNameWarningShow:false,
-        isPasswordWarningShow:false,
+        isEmailWarningShow:false,
         isSendingWarningShow:false,
-        tips:'',
-      }
-    },
-    watch:{
-      '$store.state.Member.success':{
-        immediate:true,
-        handler(newValue, oldValue){
-          //若成功則跳轉
-          if (newValue == true) {
-            this.goSignUpDone();
-            //跳轉後訊息回歸undefined
-            this.$store.commit('Member/RESETMSG')
-          } else if (newValue == false) {
-            this.tips = this.$store.state.Member.msg
-            this.isSendingWarningShow = true
-          }
-          
-        }
       }
     },
     methods:{
@@ -74,34 +56,30 @@ export default {
         // 判斷此次失去焦點事件是哪個input
         if (e.target === this.$refs.passwordInput) {
           if (this.$refs.passwordInput.value){ //該input有值時，讓warning字樣消失
-              this.isPasswordWarningShow = false
+              this.isEmailWarningShow = false
           } else { //該input值為空時，讓warning字樣出現
-              this.isPasswordWarningShow = true
+              this.isEmailWarningShow = true
           }
         }
       },
-      goSignUpDone(){
-        this.$router.push({
-          name:'SignUpDone'
-        })
-      },
+      // preventDe(e){
+      //   e.preventDefault();
+      // },
       handleSubmit(e){
         if (this.$refs.nameInput.value && this.$refs.passwordInput.value) {
           this.FormMsg = ''
-          e.preventDefault(); 
-          
-          let signUpInfo = {
-            username:this.$refs.nameInput.value,
-            password:this.$refs.passwordInput.value
-          }
-          //發送請求到localhost:5000加到資料庫完成註冊
-          this.$store.dispatch('Member/postSignUp',signUpInfo)
-          // setTimeout(() => {
-          //   this.$refs.nameInput.value = ""
-          //   this.$refs.passwordInput.value = ""
-          // }, 10);
+          // e.preventDefault(); //未開Server時需要，否則會跳轉
+          // this.FormMsg = 'Thank you for contacting, I will reply to you as soon as possible !'
+          setTimeout(() => {
+            this.$refs.nameInput.value = ""
+            this.$refs.passwordInput.value = ""
+          }, 10);
+          // let signUpInfo = {
+          //   userame:this.$refs.nameInput.value,
+          //   password:this.$refs.passwordInput.value
+          // }
+          // this.$store.dispatch('Member/postSignUp',signUpInfo)
           this.isSendingWarningShow = false
-
         } else {
           e.preventDefault();
 
@@ -109,8 +87,7 @@ export default {
             // 若Name 和 email input值皆為空，則Name input 獲取焦點
             this.$refs.nameInput.focus();
             this.isNameWarningShow = true
-            this.isPasswordWarningShow = true
-            this.tips = '請填寫上方資訊'
+            this.isEmailWarningShow = true
           } else {
             if (!this.$refs.nameInput.value) {
               // 若有input值為空時，讓warning字樣出現
@@ -119,10 +96,9 @@ export default {
             }
             if (!this.$refs.passwordInput.value) {
               // 若有input值為空時，讓warning字樣出現
-              this.isPasswordWarningShow = true
+              this.isEmailWarningShow = true
               this.$refs.passwordInput.focus(); 
             }
-            this.tips = '請填寫上方資訊'
           }
 
           this.isSendingWarningShow = true;
@@ -131,13 +107,13 @@ export default {
                 
                     
       },
-      goSignIn(){
+      goSignUp(){
         this.$router.push({
-          name:'Member'
+          name:'SignUp'
         })
-      },
+      }
 
-    },
+    }
 }
 </script>
 
@@ -170,7 +146,7 @@ export default {
             position : absolute;
             bottom:1.5em;
             left:50%;
-            transform: translate(-50%,35%);
+            transform: translateX(-50%);
           }
           p {
             text-align: center;
@@ -211,9 +187,9 @@ export default {
           }
         }
       }
-      .signin {
+      .signup {
         padding : 2rem;
-        .signin-Btn {
+        .signup-Btn {
           cursor:pointer;
           color:blue;
         }

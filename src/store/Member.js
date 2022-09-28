@@ -1,4 +1,4 @@
-import {reqPostSignUp} from '../api'
+import {reqPostSignUp, reqPostSignIn} from '../api'
 
 export default {
     namespaced:true,
@@ -10,6 +10,10 @@ export default {
             let result = await reqPostSignUp(signUpInfo)
             commit('POSTSIGNUP',result)
         },
+        async postSignIn({commit}, signInInfo) {
+            let result = await reqPostSignIn(signInInfo)
+            // commit('POSTSIGNIN',result)
+        }
     },
     
     mutations : {
@@ -23,6 +27,9 @@ export default {
             state.msg = ''
             state.success = ''
 
+        },
+        POSTSIGNIN(state, result) {
+            
         }
     
 

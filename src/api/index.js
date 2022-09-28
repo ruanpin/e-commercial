@@ -26,3 +26,6 @@ export const reqPostSignUp = params => localDBRequest.post('/member/signUp',para
 //     username: params.username,
 //     password: params.password
 // });
+
+export const reqPostSignIn = params => localDBRequest.post('/member/signIn',params);
+
