@@ -146,7 +146,8 @@ i {
       .log-out {
         cursor:pointer;
         margin-left:1rem;
-        
+        position:absolute;
+        transform:translateX(190%);
       } 
     }
   }
