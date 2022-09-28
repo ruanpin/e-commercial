@@ -1,4 +1,6 @@
 import axios from 'axios'
+import nprogress from 'nprogress'
+import 'nprogress/nprogress.css'
 // import qs from 'qs'
 
 //連接本機註冊or登入系統的Server
@@ -17,12 +19,15 @@ const requests = axios.create({
 
 
 requests.interceptors.request.use((config)=>{
+    nprogress.start();
     return config;
 })
 
 requests.interceptors.response.use((res)=>{
+    nprogress.done();
     return res.data;
 },(error)=>{
+    nprogress.done();
     return Promise.reject(new Error('DB in localhost access failed.'))
 })
 

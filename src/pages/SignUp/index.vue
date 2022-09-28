@@ -138,6 +138,13 @@ export default {
       },
 
     },
+    beforeDestroy(){
+      this.isNameWarningShow=false;
+      this.isPasswordWarningShow=false;
+      this.isSendingWarningShow=false;
+      this.tips='';
+      this.$store.commit('Member/RESETMSG')
+    }
 }
 </script>
 

@@ -145,8 +145,15 @@ export default {
       },
 
     },
-    mounted(){
-      this.tips = ''
+    // mounted(){
+    //   this.tips = ''
+    // },
+    beforeDestroy(){
+      this.isNameWarningShow=false;
+      this.isPasswordWarningShow=false;
+      this.isSendingWarningShow=false;
+      this.tips='';
+      this.$store.commit('Member/RESETINFO')
     }
 }
 </script>
