@@ -2,7 +2,6 @@
   <div class="cart-container">
       <p class="page-title"><span>結帳</span></p>
       <div class="title-area">
-          
             <div class="left">
                 <div class="title">商品</div>
             </div>

@@ -31,3 +31,5 @@ export const reqPostSignIn = params => localDBRequest.post('/member/signIn',para
 
 export const reqPostBuy = params => localDBRequest.post('/member/buyAction',params);
 
+export const reqGetOrderHistory = params => localDBRequest.post('/member/getOrderHistory',params);
+
