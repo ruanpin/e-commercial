@@ -1,4 +1,4 @@
-import {reqPostSignUp, reqPostSignIn} from '../api'
+import {reqPostSignUp, reqPostSignIn, reqPostBuy} from '../api'
 
 export default {
     namespaced:true,
@@ -18,7 +18,12 @@ export default {
                 commit('POSTSIGNINERROR',result)
             }
             
-        }
+        },
+        async reqBuyAction({commit},buyInfo){
+            console.log(buyInfo)
+            let result = await reqPostBuy(buyInfo)
+            console.log(result)
+        },
     },
     
     mutations : {
@@ -60,7 +65,7 @@ export default {
         success:'',
         token:'',
         login_msg:'',
-        login_success:''
+        login_success:'',
     },
     
     getters : {

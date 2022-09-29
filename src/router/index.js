@@ -4,6 +4,7 @@ import Products from '../pages/Products'
 import ProductDetail from '../pages/Products/ProductDetail'
 import About from '../pages/About'
 import Cart from '../pages/Cart'
+import Order from '../pages/Order'
 import Member from '../pages/Member'
 import SignUp from '../pages/SignUp'
 import SignUpDone from '../pages/SignUpDone'
@@ -43,6 +44,11 @@ export default new VueRouter({
             name:'Cart',
             path:'/cart',
             component:Cart,
+        },
+        {
+            name:'Order',
+            path:'/order',
+            component:Order,
         },
         {
             name:'Member',

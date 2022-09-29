@@ -1,5 +1,6 @@
 <template>
   <div class="cart-container">
+        <p class="page-title"><span>購物車</span></p>
       <div class="title-area">
             <div class="left">
                 <div class="checkbox">
@@ -51,7 +52,7 @@
       <div class="checkout-panel">
           <div class="account-area">
               <div class="account">總金額 <span>$ {{finalTotalcheckedPrice}}</span></div>
-              <button class="checkout-btn" @click="buyAction">去買單</button>
+              <button class="checkout-btn" @click="goOrder">去買單</button>
           </div>
       </div>
   </div>
@@ -125,8 +126,15 @@ import {mapState} from 'vuex'
                 }
                 this.$store.commit("Cart/CHANGECHECKED",params)
             },
-            buyAction(){
-                this.$store.dispatch("Cart/reqBuyAction",this.cartList)
+            goOrder(){
+                let newCartList = this.cartList.filter( e => e.check == true)
+                this.$router.push({
+                    name:'Order',
+                    params:{
+                        buyList:newCartList,
+                        totalPrice:this.finalTotalcheckedPrice
+                    }
+                })
             }
         },
         computed:{
@@ -201,6 +209,17 @@ import {mapState} from 'vuex'
 <style lang="scss" scoped>
     // 以下通用-----------------------
     $gbc-color:rgb(245,245,245);
+    .page-title {
+        margin-top:0.4rem;
+        span {
+            color:#fff;
+            border-radius: 5px;
+            padding:0.6rem;
+            background-color: rgb(163,138,122);
+            font-size:1.35rem;
+            font-weight: 500;
+        }
+    }
     button {
         min-width: 2.5em;
         height:2.5em;

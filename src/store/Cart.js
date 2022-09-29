@@ -1,4 +1,4 @@
-import {reqPostProductDetail, reqPostBuy} from '../api'
+import {reqPostProductDetail} from '../api'
 
 export default {
     namespaced:true,
@@ -17,10 +17,7 @@ export default {
                 commit('GETCARTPRODUCTINFO', result)
             }
         },
-        async reqBuyAction({commit},cartList){
-            let result = await reqPostBuy(cartList)
-            console.log(result)
-        }
+
     },
     
     mutations : {
@@ -89,6 +86,7 @@ export default {
             state.cartList.forEach(e=>{
                 e.check = ifChecked
             })
+            localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
         },
         DIRECTLYBUY(state, targetProduct){
             //更改要被直接購買的產品勾選狀態為true

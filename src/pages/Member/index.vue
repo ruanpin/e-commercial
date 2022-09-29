@@ -42,7 +42,9 @@ export default {
         immediate:true,
         handler(newValue, oldValue){
           if (this.$store.state.Member.token) {
+            //重置登入訊息
             this.$store.commit('Member/RESETINFO')
+            // this.$store.state.Member.memberCartList
             this.goLogin()
           }
         }
@@ -92,7 +94,8 @@ export default {
           
           let signUpInfo = {
             username:this.$refs.nameInput.value,
-            password:this.$refs.passwordInput.value
+            password:this.$refs.passwordInput.value,
+            // cartList:this.$store.state.Cart.cartList
           }
           //發送請求到localhost:5000撈資料庫完成登入
           this.$store.dispatch('Member/postSignIn',signUpInfo)
