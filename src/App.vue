@@ -31,6 +31,10 @@ export default {
     })
     //掛載完成後立即取出localStorage內的購物車數據至vuex(Cart.js)中
     this.$store.dispatch("Cart/gettingProduct",JSON.parse(localStorage.getItem('cartProducts')) || [])
+    //掛載完成後取出token(登入資訊)
+    this.$store.commit("Member/GETTINGTOKEN",JSON.parse(localStorage.getItem('to')) || '')
+
+
   }
 }
 </script>

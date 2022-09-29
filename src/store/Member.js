@@ -60,6 +60,9 @@ export default {
         },
         REQBUYACTION(state,result){
             state.order_success = result.order_success
+        },
+        GETTINGTOKEN(state, token){
+            state.token = token
         }
     
 
