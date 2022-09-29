@@ -48,14 +48,20 @@
 <script>
     export default {
         name:'Order',
-        methods:{
-            buyAction(){
-                if (this.$store.state.Member.token) {
-                    alert('請先登入')
+        watch:{
+            '$store.state.Member.order_success'(newValue){
+                if (newValue) {
+                    this.$store.state.Member.order_success=false
+                    this.$store.commit('Cart/ORDERDONERESET',this.$route.params.buyList)
                     this.$router.push({
-                        name:'Member'
+                        name:'OrderDone'
                     })
                 }
+            }
+        },
+        methods:{
+            buyAction(){
+                
                 let buyInfo = {
                     token:this.$store.state.Member.token,
                     buyList:this.$route.params.buyList,

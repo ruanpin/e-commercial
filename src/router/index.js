@@ -5,6 +5,7 @@ import ProductDetail from '../pages/Products/ProductDetail'
 import About from '../pages/About'
 import Cart from '../pages/Cart'
 import Order from '../pages/Order'
+import OrderDone from '../pages/OrderDone'
 import Member from '../pages/Member'
 import SignUp from '../pages/SignUp'
 import SignUpDone from '../pages/SignUpDone'
@@ -49,6 +50,11 @@ export default new VueRouter({
             name:'Order',
             path:'/order',
             component:Order,
+        },
+        {
+            name:'OrderDone',
+            path:'/orderDone',
+            component:OrderDone,
         },
         {
             name:'Member',

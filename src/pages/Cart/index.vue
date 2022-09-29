@@ -54,6 +54,7 @@
               <div class="account">總金額 <span>$ {{finalTotalcheckedPrice}}</span></div>
               <button class="checkout-btn" @click="goOrder">去買單</button>
           </div>
+          <div class="warn" v-show="isWarn">*請勾選至少一項</div>
       </div>
   </div>
 </template>
@@ -67,6 +68,7 @@ import {mapState} from 'vuex'
         data(){
             return {
                 totalcheckedPrice:0,
+                isWarn:false,
             }
         },
         methods:{
@@ -128,13 +130,27 @@ import {mapState} from 'vuex'
             },
             goOrder(){
                 let newCartList = this.cartList.filter( e => e.check == true)
-                this.$router.push({
-                    name:'Order',
-                    params:{
-                        buyList:newCartList,
-                        totalPrice:this.finalTotalcheckedPrice
+                if (!newCartList.length) {
+                    this.isWarn = true
+                    
+                } else {
+                    if (!this.$store.state.Member.token) {
+                        alert('請先登入')
+                        this.$router.push({
+                            name:'Member'
+                        })  
+                    } else {
+                        this.$router.push({
+                            name:'Order',
+                            params:{
+                                buyList:newCartList,
+                                totalPrice:this.finalTotalcheckedPrice
+                            }
+                        })
                     }
-                })
+                }
+                
+                
             }
         },
         computed:{
@@ -340,6 +356,11 @@ import {mapState} from 'vuex'
                 font-weight: 500;
                 margin-right:4rem;
                 margin-left:4rem;
+            }
+            .warn {
+                position:absolute;
+                transform:translate(-90%,-110%);
+                color:rgb(220,53,69);
             }
         }
     }

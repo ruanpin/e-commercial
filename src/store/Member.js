@@ -20,9 +20,10 @@ export default {
             
         },
         async reqBuyAction({commit},buyInfo){
-            console.log(buyInfo)
             let result = await reqPostBuy(buyInfo)
-            console.log(result)
+            if (result.order_success) {
+                commit('REQBUYACTION',result)
+            }
         },
     },
     
@@ -55,6 +56,9 @@ export default {
         LOGOUT(state){
             state.token = ''
 
+        },
+        REQBUYACTION(state,result){
+            state.order_success = result.order_success
         }
     
 
@@ -66,6 +70,7 @@ export default {
         token:'',
         login_msg:'',
         login_success:'',
+        order_success:false,
     },
     
     getters : {
