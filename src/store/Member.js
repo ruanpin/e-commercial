@@ -44,6 +44,7 @@ export default {
             state.token = result.token
             state.login_success = result.login_success
             
+            localStorage.setItem("to", JSON.stringify(state.token))
         },
         POSTSIGNINERROR(state,result){
             state.login_msg = result.login_msg
@@ -55,7 +56,7 @@ export default {
         },
         LOGOUT(state){
             state.token = ''
-
+            localStorage.setItem("to", JSON.stringify(state.token))
         },
         REQBUYACTION(state,result){
             state.order_success = result.order_success

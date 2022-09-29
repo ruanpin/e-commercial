@@ -7,6 +7,7 @@ import Cart from '../pages/Cart'
 import Order from '../pages/Order'
 import OrderDone from '../pages/OrderDone'
 import Member from '../pages/Member'
+import MemberInfo from '../pages/MemberInfo'
 import SignUp from '../pages/SignUp'
 import SignUpDone from '../pages/SignUpDone'
 import ChangePolicy from '../pages/ChangePolicy'
@@ -17,7 +18,7 @@ import PrivacyPolicy from '../pages/PrivacyPolicy'
 
 
 
-export default new VueRouter({
+const router = new VueRouter({
     routes:[
         {
             name:'Home',
@@ -50,6 +51,7 @@ export default new VueRouter({
             name:'Order',
             path:'/order',
             component:Order,
+            meta:{isAuth:true}
         },
         {
             name:'OrderDone',
@@ -60,6 +62,12 @@ export default new VueRouter({
             name:'Member',
             path:'/member',
             component:Member,
+        },
+        {
+            name:'MemberInfo',
+            path:'memberInfo',
+            component:MemberInfo,
+            meta:{isAuth:true}
         },
         {
             name:'SignUp',
@@ -97,3 +105,17 @@ export default new VueRouter({
         return { x: 0 , y:0}
     }
 })
+
+router.beforeEach((to, from, next)=>{
+    if(to.meta.isAuth){
+        if (localStorage.getItem('to')){
+            next()
+        } else {
+            alert('請先登入')
+        }
+    } else{
+        next()
+    }
+})
+
+export default router

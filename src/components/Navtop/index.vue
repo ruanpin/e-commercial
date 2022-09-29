@@ -46,6 +46,9 @@ import {mapState} from 'vuex'
           },
           logOut (){
             this.$store.commit("Member/LOGOUT")
+            this.$router.push({
+              name:'Member'
+            })
           }
         },
         computed:{

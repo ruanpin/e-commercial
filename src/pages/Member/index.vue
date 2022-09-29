@@ -84,7 +84,7 @@ export default {
       },
       goLogin(){
         this.$router.push({
-          name:'Home'
+          name:'MemberInfo'
         })
       },
       handleSubmit(e){
