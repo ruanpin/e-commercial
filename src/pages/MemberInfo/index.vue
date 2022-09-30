@@ -39,6 +39,14 @@
                     </div>
                 </div>
             </div>
+            <div class="checkout-panel">
+                <div class="account-area">
+                    <div class="account">總金額 <span>$ {{order.totalPrice}}</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="msg" v-show="!targetOrders.length">
+            目前無訂單
         </div>
     </div>
 </template>
@@ -64,6 +72,9 @@ export default {
 
     .title {
         color:rgb(153,153,153);
+    }
+    .menu-title {
+        font-size:1.4rem;
     }
     .left {
         display:flex;
@@ -152,19 +163,24 @@ export default {
                     display:flex;
                     justify-content: flex-end;
                     background-color: $gbc-color;
-                    padding:1.3em 0;
-                    margin-top:1em;
+                    padding:1.3em ;
+                    margin-top:0.2em;
                     .account-area {
                         display:flex;
                         align-items: center;
                         font-size: 1.2rem;
+                        margin-right:13rem;
                         span {
                             color:rgb(208,1,27);
-                            font-size: 1.4rem;
+                            font-size: 1.2rem;
                         }
 
                     }
                 }
+            }
+            .msg {
+                margin-top:2rem;
+                font-size:1.2rem;
             }
         
         
