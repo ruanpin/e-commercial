@@ -27,9 +27,22 @@ export const reqPostSignUp = params => localDBRequest.post('/member/signUp',para
 //     password: params.password
 // });
 
+
+
+// 後端express用get且request.query接收，
+// 且後端路由為app.get('/getOrderHistory',async function(request, response)時:
+// export const reqGetOrderHistory = token => localDBRequest.get('/member/getOrderHistory',{params:{token}});
+
+// 後端express用get且request.params接收，
+// 且後端路由為app.get('/getOrderHistory/:token',async function(request, response)時:
+// export const reqGetOrderHistory = token => localDBRequest.get(`/member/getOrderHistory/${token}`);
+
+// 後端express用post且request.body接收:
+// export const reqGetOrderHistory = token => localDBRequest.get('/member/getOrderHistory', {token});
+
 export const reqPostSignIn = params => localDBRequest.post('/member/signIn',params);
 
 export const reqPostBuy = params => localDBRequest.post('/member/buyAction',params);
 
-export const reqGetOrderHistory = params => localDBRequest.post('/member/getOrderHistory',params);
+export const reqGetOrderHistory = token => localDBRequest.post(`/member/getOrderHistory`, {token});
 

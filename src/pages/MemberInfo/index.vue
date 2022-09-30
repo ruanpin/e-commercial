@@ -44,10 +44,14 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
     name:'MemberInfo',
     mounted(){
         this.$store.dispatch('MemberInfo/getOrder',this.$store.state.Member.token)
+    },
+    computed:{
+        ...mapState('MemberInfo',['targetOrders'])
     }
     
 }

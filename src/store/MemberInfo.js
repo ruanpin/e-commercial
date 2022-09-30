@@ -4,29 +4,27 @@ export default {
     namespaced:true,
 
     actions : {
-        //拿IG貼文
-        // async getPostsIG({commit},searchInfo) {
-        //     let result = await reqGetIGPosts(searchInfo)
-        //     commit('GETPOSTSIG',result)
-        // },
+        //連線localhost:5000撈資料庫訂單資料
         async getOrder({commit},token){
             let result = await reqGetOrderHistory(token)
+            if (result.getOrders_success) {
+                commit('GETORDER',result)
+            }
+            
         }
     },
     
     mutations : {
-        // GETPOSTSIG(state, result){
-        //     let {data} = result
-
-        //     state.postList = data;
-        //     //拿到貼文資料後存在localStorage，避免重複請求同一個API太多次
-        //     localStorage.setItem("InstaPosts", JSON.stringify(state.postList))
-
-        // },
+        //先暫存在state.targetOrders中以便使用
+        GETORDER(state, result){
+            let {targetOrders} = result
+            // console.log(targetOrders)
+            state.targetOrders = targetOrders
+        }       
     },
     
     state : {
-        // postList:[]
+        targetOrders:[]
     },
     
     getters : {
