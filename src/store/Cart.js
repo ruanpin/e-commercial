@@ -10,19 +10,10 @@ export default {
         gettingProduct({commit},cartProduct) {
             commit('GETTINGPRODUCT', cartProduct)            
         },
-        async getCartProductInfo({commit},cartProductID){
-            //從 MOCK Server撈購物車中產品的資訊
-            let result = await reqPostProductDetail(cartProductID)
-            if (result.code === 200) {
-                commit('GETCARTPRODUCTINFO', result)
-            }
-        },
-
     },
     
     mutations : {
         ADDINGPRODUCT(state, cartProduct){
-            console.log(cartProduct)
             if (state.cartList.some(e => e.id == cartProduct.id ) ) {
                 state.cartList.find(e => e.id == cartProduct.id).amount += cartProduct.amount
             } else {
@@ -59,7 +50,7 @@ export default {
             localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
         },
         CHANGECARTPRONUMINPUTREMAINING(state,speCartProduct){
-            state.cartList.find(e=>e.id==speCartProduct.id).amount = speCartProduct.remaining
+            state.cartList.find(e=>e.id==speCartProduct.id).amount = Number(speCartProduct.remaining)
             //更新localStorage，保持一致性
             localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
         },
@@ -68,10 +59,14 @@ export default {
             //更新localStorage，保持一致性
             localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
         },
+        CHANGECARTPRONUMINPUTINRANGE(state,params){
+            let {amount, eachProduct} = params
+            state.cartList.find(e=>e.id==eachProduct.id).amount = amount
+            localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
+        },
         DELETECARTPRODUCT(state,speCartProductID){
-            // 將要刪除的產品與cartList, productInfo比對過濾後刪除不再需要的產品
+            // 刪除cartList中產品
             state.cartList = state.cartList.filter(element => element.id !== speCartProductID)
-            state.productInfo = state.productInfo.filter(element => element.id !== speCartProductID)
             //更新localStorage，保持一致性
             localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
         },

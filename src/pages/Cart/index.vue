@@ -16,10 +16,10 @@
                 <div class="title">刪除</div>
             </div>
       </div>
-      <div class="cart-panel" v-for="eachProduct in productInfo" :key="eachProduct.id">
+      <div class="cart-panel" v-for="eachProduct in cartList" :key="eachProduct.id">
           <div class="left">
                 <div class="checkbox">
-                    <input type="checkbox" id="allChecked" v-model="cartList.find(e=>e.id==eachProduct.id).check" @change="checkhandler($event, cartList.find(e=>e.id==eachProduct.id), eachProduct.id)">
+                    <input type="checkbox" id="allChecked" v-model="eachProduct.check" @change="checkhandler($event, eachProduct.id)">
                 </div>
                 <div class="product">
                     <div class="img">
@@ -35,14 +35,14 @@
               <div class="title cart-product-infos">$ {{eachProduct.price}}</div>
               <div id="amount-relative" class="title cart-product-infos">
                 <div class="amount-choose">
-                    <button class="minus" @click="changeBuyNumBtn('minus', eachProduct, cartList.find(e=>e.id==eachProduct.id))"><i class="fa-solid fa-minus" ></i></button>
-                    <input id="amount-input" class="buyNum-input" type="text" v-model.lazy="cartList.find(e=>e.id==eachProduct.id).amount" @change="changeBuyNumInput($event, eachProduct, cartList.find(e=>e.id==eachProduct.id))">
-                    <button class="plus" @click="changeBuyNumBtn('plus', eachProduct, cartList.find(e=>e.id==eachProduct.id))"><i class="fa-solid fa-plus"></i></button>
+                    <button class="minus" @click="changeBuyNumBtn('minus', eachProduct)"><i class="fa-solid fa-minus" ></i></button>
+                    <input id="amount-input" class="buyNum-input" type="text" v-model.lazy="eachProduct.amount" @change="changeBuyNumInput($event, eachProduct)">
+                    <button class="plus" @click="changeBuyNumBtn('plus', eachProduct)"><i class="fa-solid fa-plus"></i></button>
                 </div>
                 <div class="remaining">剩餘{{eachProduct.remaining}}件</div>
               </div>
               <div class="title cart-product-infos proPrice">
-                  $ {{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[5]}}{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[4]}}{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[3]}},{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[2]}}{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[1]}}{{(cartList.find(e=>e.id==eachProduct.id).amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[0]}}
+                  $ {{(eachProduct.amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[5]}}{{(eachProduct.amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[4]}}{{(eachProduct.amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[3]}},{{(eachProduct.amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[2]}}{{(eachProduct.amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[1]}}{{(eachProduct.amount*Number(eachProduct.price.split(',')[0]+eachProduct.price.split(',')[1])+'').split("").reverse()[0]}}
             </div>
               <div class="title cart-product-infos">
                   <a class="delete" @click="deleteCartProduct(eachProduct)">刪除</a>
@@ -73,58 +73,44 @@ import {mapState} from 'vuex'
         },
         methods:{
             //caltype:計算方式，有plus和minus
-            //speCartProduct:觸發此更改數量函式時，要被修改數量的產品(cartList Array中物件)
-            //eachProduct: vueX產品Info列表中與被修改的產品相同ID的物件(productInfo Array中物件)(因在此元件中v-for出來的結構並不是直接以購物車中產品Array(state.cartList)為模板，而是以另一個產品Info Array(state.productInfo)為模板v-for出來的，因此需此參數再次進行比對確認)
-            changeBuyNumBtn(caltype, eachProduct, speCartProduct){
+            changeBuyNumBtn(caltype, eachProduct){
                 if(caltype=='plus') {
-                    if (speCartProduct.amount >= eachProduct.remaining) return
-                    this.$store.commit("Cart/CHANGECARTPRONUMPLUS",speCartProduct)
+                    if (eachProduct.amount >= eachProduct.remaining) return
+                    this.$store.commit("Cart/CHANGECARTPRONUMPLUS",eachProduct)
                 } else {
-                    if(speCartProduct.amount == 1) return
-                    this.$store.commit("Cart/CHANGECARTPRONUMMINUS",speCartProduct)
+                    if(eachProduct.amount == 1) return
+                    this.$store.commit("Cart/CHANGECARTPRONUMMINUS",eachProduct)
 
                 }
             },
-            //speCartProduct:觸發此更改數量函式時，要被修改數量的產品(cartList Array中物件)
-            //eachProduct: vueX產品Info列表中與被修改的產品相同ID的物件(productInfo Array中物件)(因在此元件中v-for出來的結構並不是直接以購物車中產品Array(state.cartList)為模板，而是以另一個產品Info Array(state.productInfo)為模板v-for出來的，因此需此參數再次進行比對確認)
-            changeBuyNumInput($event, eachProduct, speCartProduct){
+            changeBuyNumInput($event, eachProduct){
                 if (Number($event.target.value) > eachProduct.remaining) {
                     this.$store.commit("Cart/CHANGECARTPRONUMINPUTREMAINING",eachProduct)
                 } else if (Number($event.target.value) < 1) {
                     this.$store.commit("Cart/CHANGECARTPRONUMINPUTRSMALLTHAN0",eachProduct)                    
                 } else if (isNaN(Number($event.target.value))) {
                     this.$store.commit("Cart/CHANGECARTPRONUMINPUTRSMALLTHAN0",eachProduct)                    
+                } else {
+                    let params = {
+                        amount:Number($event.target.value),
+                        eachProduct,
+                    }
+                    this.$store.commit("Cart/CHANGECARTPRONUMINPUTINRANGE",params)
                 }
             },
             deleteCartProduct(product){
-                
-                // if(confirm(`確定刪除嗎?`)) {
-                //     this.$store.commit("Cart/DELETECARTPRODUCT",product.id)
-
-                //     //刪除後重新撈購物車中產品的資訊(如圖片、庫存量、名稱等)
-                //     this.cartList.forEach(e => {
-                //     this.$store.dispatch("Cart/getCartProductInfo",e.id)
-                // })
-                // }
-                
                 // location.reload()
                 // this.$forceUpdate();
 
                 //發送刪除資訊至VueX中
                 this.$store.commit("Cart/DELETECARTPRODUCT",product.id)
-                    //刪除後重新撈購物車中產品的資訊(如圖片、庫存量、名稱等)
-                this.cartList.forEach(e => {
-                    this.$store.dispatch("Cart/getCartProductInfo",e.id)
-                })
-                
-                
-                
+
             },
-            checkhandler($event, speCartProduct, ID){
+            checkhandler($event, ID){
                 // 更改vuex中指定產品勾選狀態
                 let params = {
                     checkState : $event.target.checked,
-                    id : speCartProduct.id
+                    id : ID
                 }
                 this.$store.commit("Cart/CHANGECHECKED",params)
             },
@@ -154,7 +140,7 @@ import {mapState} from 'vuex'
             }
         },
         computed:{
-            ...mapState('Cart',['cartList','productInfo']),
+            ...mapState('Cart',['cartList']),
             finalTotalcheckedPrice(){
                 //計算總金額
                 let price 
@@ -202,15 +188,7 @@ import {mapState} from 'vuex'
 
         },
         mounted(){
-            setTimeout(() => {
-                //撈購物車中產品的資訊(如圖片、庫存量、名稱等)
-                this.cartList.forEach(e => {
-                    this.$store.dispatch("Cart/getCartProductInfo",e.id)
-                })
-            }, 10);
-
             this.$store.dispatch("Cart/gettingProduct",JSON.parse(localStorage.getItem('cartProducts')) || [])
-
             //針對要直接購買的產品更改其勾選狀態
             if (this.$route.query.targetProduct) {
                 this.$store.commit("Cart/DIRECTLYBUY",this.$route.query.targetProduct)

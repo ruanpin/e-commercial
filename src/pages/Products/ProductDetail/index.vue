@@ -89,7 +89,7 @@ import Info from './Info'
                     price:this.productDetail[0].price,
                     imgUrl:this.productDetail[0].imgUrl,
                     name:this.productDetail[0].name,
-
+                    remaining:this.productDetail[0].remaining,
                 }
                 let targetItem = this.cartList.find(e => e.id == cartProduct.id) ||[]
                 let availableQuantity = this.productDetail[0].remaining - targetItem.amount
