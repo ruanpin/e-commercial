@@ -118,7 +118,10 @@ import Info from './Info'
                     id:this.$route.params.productID,
                     amount:this.buyNum,
                     check:true,
-                    price:this.productDetail[0].price
+                    price:this.productDetail[0].price,
+                    imgUrl:this.productDetail[0].imgUrl,
+                    name:this.productDetail[0].name,
+                    remaining:this.productDetail[0].remaining,
                 }
                 let targetItem = this.cartList.find(e => e.id == targetProduct.id) ||[]
                 let availableQuantity = this.productDetail[0].remaining - targetItem.amount
