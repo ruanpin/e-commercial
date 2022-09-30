@@ -4,7 +4,7 @@
             <div class="menu-title">我的訂單</div>
         </div>
         <div class="orders">
-            <p class="page-title"><span>結帳</span></p>
+            <p class="page-title"><span>訂單編號{{}}</span></p>
             <div class="title-area">
                     <div class="left">
                         <div class="title">商品</div>
@@ -92,14 +92,14 @@ export default {
                 flex-direction: column;
                 // background-color: rgb(245,245,245);
                 .page-title {
-                    margin-top:0.4rem;
+                    margin-top:1.3rem;
                     span {
-                        color:#fff;
+                        // color:#fff;
                         border-radius: 5px;
-                        padding:0.6rem;
-                        background-color: rgb(163,138,122);
-                        font-size:1.35rem;
-                        font-weight: 500;
+                        // padding:0.6rem;
+                        // background-color: rgb(163,138,122);
+                        font-size:1.3rem;
+                        // font-weight: 500;
                     }
                 }
                 .title-area {

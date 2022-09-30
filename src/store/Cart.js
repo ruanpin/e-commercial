@@ -96,27 +96,27 @@ export default {
             localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
         },
         ORDERDONERESET(state,buyList){
+            // 先把目標ID取出
             let targetID = []
             buyList.forEach(e=>{
                 targetID.push(e.id)
             })
-            let newCarList = []
+
             //重置cartList
             targetID.forEach(target_id=>{
-                state.cartList.forEach(e=>{
-                    if (target_id != e.id) newCarList.push(e)
+                let target = state.cartList.findIndex(e => {
+                    target_id = e.id
                 })
+                if (target) state.cartList.splice(target,1)
             })
-            state.cartList = newCarList
 
-            //infoList 也需重置
-            let newInfoList = []
+            // //infoList 也需重置
             targetID.forEach(target_id=>{
-                state.productInfo.forEach(e=>{
-                    if (target_id != e.id) newInfoList.push(e)
+                let target = state.productInfo.findIndex(e => {
+                    target_id = e.id
                 })
+                if (target) state.productInfo.splice(target,1)
             })
-            state.productInfo = newInfoList
 
             //最後同步localStorage
             localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
