@@ -105,14 +105,6 @@ export default {
                 if (target) state.cartList.splice(target,1)
             })
 
-            // //infoList 也需重置
-            targetID.forEach(target_id=>{
-                let target = state.productInfo.findIndex(e => {
-                    target_id = e.id
-                })
-                if (target) state.productInfo.splice(target,1)
-            })
-
             //最後同步localStorage
             localStorage.setItem("cartProducts", JSON.stringify(state.cartList))
         }
