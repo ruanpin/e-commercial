@@ -3,8 +3,8 @@
         <div class="list">
             <div class="menu-title">我的訂單</div>
         </div>
-        <div class="orders">
-            <p class="page-title"><span>訂單編號{{}}</span></p>
+        <div class="orders" v-for="order in targetOrders" :key="order._id">
+            <p class="page-title"><span>訂單編號: {{order._id}}</span></p>
             <div class="title-area">
                     <div class="left">
                         <div class="title">商品</div>
@@ -15,7 +15,7 @@
                         <div class="title">總計</div>
                     </div>
             </div>
-            <div class="cart-panel" v-for="eachProduct in $route.params.buyList" :key="eachProduct.id">
+            <div class="cart-panel" v-for="eachProduct in order.buyList" :key="eachProduct._id">
                 <div class="left">
                         <div class="product">
                             <div class="img">
@@ -48,7 +48,9 @@ import {mapState} from 'vuex'
 export default {
     name:'MemberInfo',
     mounted(){
-        this.$store.dispatch('MemberInfo/getOrder',this.$store.state.Member.token)
+        this.$nextTick(()=>{
+            this.$store.dispatch('MemberInfo/getOrder',this.$store.state.Member.token)
+        })
     },
     computed:{
         ...mapState('MemberInfo',['targetOrders'])
@@ -88,6 +90,7 @@ export default {
         display:flex;
         flex-direction: column;
             .orders {
+                margin-top : 2.5rem;
                 display:flex;
                 flex-direction: column;
                 // background-color: rgb(245,245,245);

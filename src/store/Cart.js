@@ -120,12 +120,9 @@ export default {
     
     state : {
         cartList:[],
-        productInfo:[]
     },
     
     getters : {
-        // cartProducts(state){
-        //     return state.productInfo
-        // }
+
     },
 }

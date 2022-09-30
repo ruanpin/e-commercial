@@ -65,7 +65,7 @@ const router = new VueRouter({
         },
         {
             name:'MemberInfo',
-            path:'memberInfo',
+            path:'/memberInfo',
             component:MemberInfo,
             meta:{isAuth:true}
         },
