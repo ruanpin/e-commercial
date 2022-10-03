@@ -112,6 +112,7 @@ router.beforeEach((to, from, next)=>{
             next()
         } else {
             alert('請先登入')
+            next({ name: 'Member' })
         }
     } else{
         next()

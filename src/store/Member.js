@@ -55,8 +55,8 @@ export default {
             state.login_success = ''
         },
         LOGOUT(state){
-            state.token = ''
-            localStorage.setItem("to", JSON.stringify(state.token))
+            state.token = null
+            localStorage.removeItem("to")
         },
         REQBUYACTION(state,result){
             state.order_success = result.order_success
