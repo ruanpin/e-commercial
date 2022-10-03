@@ -26,13 +26,13 @@
     <ul class="showArea-container">
       <li class="card-container" v-for="item in promoteList" :key="item.id">
         <div class="img-container">
+          <span :class="{newProduct:item.new==true}" v-show="item.new">NEW ARRIVAL</span>
           <img :src="item.imgUrl" @click="showProductDetail(item.id)">
         </div>
         <div class="text-container">
           <div class="title brief-info">{{item.name}}</div>
           <div class="priceRemainingArea">
             <div class="price brief-info">$ {{item.price}}</div>
-            <!-- <div class="remaining brief-info">剩餘{{item.remaining}}件</div> -->
           </div>
           <div class="info brief-info">{{item.info}}</div>
         </div>
@@ -235,6 +235,14 @@ export default {
           width: 90%;
           height: 60%;
           margin:1.5em;
+          .newProduct {
+            position:absolute;
+            transform: translateY(30%);
+            padding : 0.5rem;
+            background-color: rgb(245,235,216);
+            font-weight: 700;
+            opacity: 0.9;
+          }
           img {
             width: 100%;
             cursor: pointer;

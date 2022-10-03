@@ -10,6 +10,7 @@
     <ul class="showArea-container" v-show="$route.path == '/products'">
       <li class="card-container" v-for="item in productsList" :key="item.id">
         <div class="img-container">
+          <span :class="{newProduct:item.new==true}" v-show="item.new">NEW ARRIVAL</span>          
           <img :src="item.imgUrl" @click="showProductDetail(item.id)">
         </div>
         <div class="text-container">
@@ -164,6 +165,14 @@ export default {
           width: 90%;
           height: 60%;
           margin:1.5em;
+          .newProduct {
+            position:absolute;
+            transform: translateY(30%);
+            padding : 0.5rem;
+            background-color: rgb(228,234,215);
+            font-weight: 700;
+            opacity: 0.9;
+          }
           img {
             width: 100%;
             cursor: pointer;
