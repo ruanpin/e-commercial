@@ -109,7 +109,6 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next)=>{
-    console.log(from.path)
     if(to.meta.isAuth){
         if (localStorage.getItem('to')){
             next()

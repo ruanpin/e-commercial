@@ -1,16 +1,25 @@
 <template>
-  <div class="SignUpDone-container">已註冊成功<br> 3秒後返回登入頁</div>
+  <div class="SignUpDone-container">已註冊成功<br> 2秒後返回登入頁</div>
 </template>
 
 <script>
 export default {
     name:"SignUpDone",
+    data(){
+        return {
+            goBack:null
+        }
+    },
     mounted(){
-        setTimeout(()=>{
+        this.goBack = setTimeout(()=>{
             this.$router.push({
                 name:'Member'
             })
-        },3000)
+        },2000)
+    },
+    beforeDestroy(){
+        clearTimeout(this.goBack)
+        this.goBack = null
     }
 }
 </script>

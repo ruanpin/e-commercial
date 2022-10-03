@@ -1,16 +1,25 @@
 <template>
-  <div class="OrderDone-container">訂單完成<br> 3秒後返回主頁</div>
+  <div class="OrderDone-container">訂單完成<br> 2秒後返回主頁</div>
 </template>
 
 <script>
 export default {
     name:"OrderDone",
+    data(){
+        return {
+            goBack:null
+        }
+    },
     mounted(){
-        setTimeout(()=>{
+        this.goBack = setTimeout(()=>{
             this.$router.push({
                 name:'Home'
             })
-        },3000)
+        },2000)
+    },
+    beforeDestroy(){
+        clearTimeout(this.goBack)
+        this.goBack = null
     }
 }
 </script>
