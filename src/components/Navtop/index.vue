@@ -120,10 +120,6 @@ i {
       display:flex; 
       justify-content: center;
       align-items: center;
-      // margin-top:0.5em;
-      div {
-        // margin-right :1rem;
-      }
       .cart {
         display:flex;
         justify-content: space-around;
