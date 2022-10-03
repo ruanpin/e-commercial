@@ -8,7 +8,7 @@
     </ul>
     <div class="users-area">
       <div class="cart"><i class="fa-solid fa-cart-shopping" @click="toggle('cart')"></i><div class="cartNum" v-show="cartList.length">{{cartNum}}</div></div>
-      <div class="member"><i class="fa-solid fa-user-gear" @click="toggle('member')"></i></div>
+      <div class="member"><i class="fa-solid fa-user" @click="toggle('member')" :class="{login:isLogOutShow}"></i></div>
       <div class="log-out" v-show="isLogOutShow" @click="logOut">登出 </div>
     </div>
   </div>
@@ -121,6 +121,9 @@ i {
       justify-content: center;
       align-items: center;
       // margin-top:0.5em;
+      div {
+        // margin-right :1rem;
+      }
       .cart {
         display:flex;
         justify-content: space-around;
@@ -146,11 +149,15 @@ i {
         justify-content: space-around;
         align-items: center;
       }
+      .login {
+        color:rgb(163,142,135);
+      }
       .log-out {
         cursor:pointer;
         margin-left:1rem;
         position:absolute;
         transform:translateX(190%);
+        font-weight: 700;
       } 
     }
   }

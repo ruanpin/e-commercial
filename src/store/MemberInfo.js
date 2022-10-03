@@ -19,7 +19,7 @@ export default {
         GETORDER(state, result){
             let {targetOrders} = result
             // console.log(targetOrders)
-            state.targetOrders = targetOrders
+            state.targetOrders = targetOrders.reverse()
         }       
     },
     
