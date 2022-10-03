@@ -25,10 +25,11 @@ export default {
     },
     methods:{
       showItem(){
-        // console.log(window.pageYOffset)
+        console.log(window.pageYOffset)
         //170
         if (window.pageYOffset > 100) {
           this.isAboutShow = true
+          window.removeEventListener('scroll',this.showItem)
         }
       }
     },
