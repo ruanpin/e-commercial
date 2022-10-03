@@ -312,14 +312,16 @@ import Info from './Info'
                     align-items: center;
                     transform: translate(-50%,-180%);
                     pointer-events:none;
+                    color:#fff;
                     .p {
                         display: flex;
                         flex-direction: column;
                         align-items: center;
-                        font-size: 1.2rem;
+                        font-size: 1.45rem;
                         i {
                             font-size: 5rem;
                             margin-bottom:1.2rem;
+                            color:rgb(245,235,216);
                         }
                     }
                 }
