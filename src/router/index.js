@@ -57,6 +57,7 @@ const router = new VueRouter({
             name:'OrderDone',
             path:'/orderDone',
             component:OrderDone,
+            meta:{isTipPage:true}
         },
         {
             name:'Member',
@@ -78,6 +79,7 @@ const router = new VueRouter({
             name:'SignUpDone',
             path:'/signUpDone',
             component:SignUpDone,
+            meta:{isTipPage:true}
         },
         {
             name:'ChangePolicy',
@@ -107,6 +109,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next)=>{
+    console.log(from.path)
     if(to.meta.isAuth){
         if (localStorage.getItem('to')){
             next()
@@ -114,7 +117,13 @@ router.beforeEach((to, from, next)=>{
             alert('請先登入')
             next({ name: 'Member' })
         }
-    } else{
+    } else if (to.meta.isTipPage) {
+        if (from.path =='/signUp' || from.path == '/order'){
+            next()
+        } else {
+            next({name:'Home'})
+        }
+    } else {
         next()
     }
 })
