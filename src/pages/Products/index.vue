@@ -30,6 +30,7 @@
     </div>
 
     <div class="product-detail" >
+      <button class="returnPage" v-show="!($route.path == '/products')" @click="returnPage">上一頁</button>
       <router-view></router-view>
     </div>
 
@@ -93,6 +94,9 @@ export default {
           }
         }).catch(err => {});
         //此處不發請求，只傳遞productID到$route屬性中，再交由ProductDetail component掛載完成後發請求(為解決重新整理後數據清空問題)
+      },
+      returnPage(){
+        this.$router.go(-1);
       }
     },
     computed:{
@@ -106,6 +110,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  button {
+    height: 3em;
+    border : 0px solid black;
+    border-radius: 5px;
+    margin-left:1.8em;
+    background-color: rgba(101,122,141, 0.849);
+    color:#fff;
+    padding:0em 1.8em;
+    cursor:pointer;
+  }
+
   .product-container{
     width: 100%;
     .search-container {
@@ -132,16 +147,7 @@ export default {
           color:rgb(94, 94, 94);
         }
       }
-      button {
-        height: 3em;
-        border : 0px solid black;
-        border-radius: 5px;
-        margin-left:1.8em;
-        background-color: rgba(101,122,141, 0.849);
-        color:#fff;
-        padding:0em 1.8em;
-        cursor:pointer;
-      }
+
     }
     .showArea-container {
       display: flex;
@@ -223,6 +229,12 @@ export default {
       }
       p {
         text-align: center;
+      }
+    }
+    .product-detail {
+      .returnPage {
+        position: absolute;
+        transform: translateY(-180%);
       }
     }
   }
