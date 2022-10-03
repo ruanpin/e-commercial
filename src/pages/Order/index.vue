@@ -2,8 +2,11 @@
   <div class="cart-container">
         <div class="flowChart">
             <p class="page-title"><span @click="goPrePage" :style="{cursor:pointer,backgroundColor: white, color:brown}">購物車</span></p>
-            <p class="page-title space"><span :style="{backgroundColor: white, color:brown}">>></span></p>
+            <p class="page-title space"><span :style="{cursor:cdefault,backgroundColor: white, color:brown}">>></span></p>
             <p class="page-title"><span>結帳</span></p>
+            <p class="page-title space"><span :style="{cursor:cdefault,backgroundColor: white, color:brown}">>></span></p>
+            <p class="page-title"><span :style="{cursor:cdefault,backgroundColor: white, color:brown}">訂單完成</span></p>
+
         </div>
       
       <div class="title-area">
@@ -56,7 +59,8 @@
             return {
                 white:'rgb(255,255,255)',
                 brown:'rgb(163,138,122)',
-                pointer:'pointer'
+                pointer:'pointer',
+                cdefault:'default'
             }
         },
         watch:{
@@ -92,6 +96,7 @@
     $gbc-color:rgb(245,245,245);
     .flowChart {
         display:flex;
+        justify-content: center;
         .page-title {
             font-size:1rem;
             font-weight: 700;
