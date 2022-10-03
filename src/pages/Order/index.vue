@@ -1,6 +1,11 @@
 <template>
   <div class="cart-container">
-      <p class="page-title"><span>結帳</span></p>
+        <div class="flowChart">
+            <p class="page-title"><span @click="goPrePage" :style="{cursor:pointer,backgroundColor: white, color:brown}">購物車</span></p>
+            <p class="page-title space"><span :style="{backgroundColor: white, color:brown}">>></span></p>
+            <p class="page-title"><span>結帳</span></p>
+        </div>
+      
       <div class="title-area">
             <div class="left">
                 <div class="title">商品</div>
@@ -47,6 +52,13 @@
 <script>
     export default {
         name:'Order',
+        data(){
+            return {
+                white:'rgb(255,255,255)',
+                brown:'rgb(163,138,122)',
+                pointer:'pointer'
+            }
+        },
         watch:{
             '$store.state.Member.order_success'(newValue){
                 if (newValue) {
@@ -67,6 +79,9 @@
                     totalPrice:this.$route.params.totalPrice,
                 }
                 this.$store.dispatch('Member/reqBuyAction',buyInfo)
+            },
+            goPrePage(){
+                this.$router.go(-1)
             }
         }
     }
@@ -75,10 +90,15 @@
 <style lang="scss" scoped>
     // 以下通用-----------------------
     $gbc-color:rgb(245,245,245);
-    .page-title {
-        font-size:1.5rem;
-        font-weight: 700;
+    .flowChart {
+        display:flex;
+        .page-title {
+            font-size:1rem;
+            font-weight: 700;
+            margin-right:2rem;
+        }
     }
+    
     button {
         min-width: 2.5em;
         height:2.5em;

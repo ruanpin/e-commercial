@@ -1,6 +1,10 @@
 <template>
   <div class="cart-container">
-        <p class="page-title"><span>購物車</span></p>
+        <div class="flowChart">
+            <p class="page-title"><span>購物車</span></p>
+            <p class="page-title space"><span :style="{backgroundColor: white, color:brown}">>></span></p>
+            <p class="page-title"><span :style="{backgroundColor: white, color:brown}">結帳</span></p>
+        </div>
       <div class="title-area">
             <div class="left">
                 <div class="checkbox">
@@ -69,6 +73,9 @@ import {mapState} from 'vuex'
             return {
                 totalcheckedPrice:0,
                 isWarn:false,
+                white:'rgb(255,255,255)',
+                brown:'rgb(163,138,122)',
+                pointer:'pointer'
             }
         },
         methods:{
@@ -203,6 +210,14 @@ import {mapState} from 'vuex'
 <style lang="scss" scoped>
     // 以下通用-----------------------
     $gbc-color:rgb(245,245,245);
+    .flowChart {
+        display:flex;
+        .page-title {
+            font-size:1rem;
+            font-weight: 700;
+            margin-right:2rem;
+        }
+    }
     .page-title {
         margin-top:0.4rem;
         span {
