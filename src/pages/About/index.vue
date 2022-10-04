@@ -1,6 +1,9 @@
 <template>
   <div class="about-container">
-    <img src="/about/about.jpg">
+    <transition name="showup" appear>
+      <img src="/about/about.jpg" >
+    </transition>
+    
     <transition name="showup">
       <div class="text" v-show="isAboutShow">
         <h1>品牌簡介</h1>
@@ -25,8 +28,6 @@ export default {
     },
     methods:{
       showItem(){
-        // console.log(window.pageYOffset)
-        //170
         if (window.pageYOffset > 100) {
           this.isAboutShow = true
           window.removeEventListener('scroll',this.showItem)
