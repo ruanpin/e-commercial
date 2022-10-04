@@ -4,10 +4,10 @@
       <div class="container">
         <form ref="form" class="contact-form">
           <p>歡迎！建立您的帳號</p>
-          <label>帳號<br><input type="text" placeholder="請輸入帳號" name="username" ref="nameInput" value="" @blur="checkValue"></label>
+          <label>帳號<br><input type="text" placeholder="設定帳號" name="username" ref="nameInput" value="" @blur="checkValue"></label>
           <span class="warning" v-show="isNameWarningShow">this is required</span><br>
 
-          <label>密碼<br><input type="password" placeholder="請輸入密碼" name="password" ref="passwordInput" value="" @blur="checkValue"></label>
+          <label>密碼<br><input type="password" placeholder="設定密碼" name="password" ref="passwordInput" value="" @blur="checkValue"></label>
           <span class="warning" v-show="isPasswordWarningShow">this is required</span><br>
 
 
