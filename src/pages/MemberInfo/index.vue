@@ -5,6 +5,7 @@
         </div>
         <div class="orders" v-for="order in targetOrders" :key="order._id">
             <p class="page-title"><span>訂單編號: {{order._id}}</span></p>
+            <p class="page-title" id="orderDate"><span>日期: {{`${new Date(order.date).getFullYear()}-${new Date(order.date).getMonth()+1}-${new Date(order.date).getDate()}　${new Date(order.date).getHours()}:${new Date(order.date).getMinutes()}`}}</span></p>
             <div class="title-area">
                     <div class="left">
                         <div class="title">商品</div>
@@ -61,7 +62,14 @@ export default {
         })
     },
     computed:{
-        ...mapState('MemberInfo',['targetOrders'])
+        ...mapState('MemberInfo',['targetOrders']),
+        // orderDate(){
+        //     let year = this.order.date.getFullYear()
+        //     let month = this.order.date.getMonth()
+        //     let date = this.order.date.getDate()
+            
+        //     return year
+        // }
     }
     
 }
@@ -107,6 +115,7 @@ export default {
                 // background-color: rgb(245,245,245);
                 .page-title {
                     margin-top:1.3rem;
+                    
                     span {
                         // color:#fff;
                         border-radius: 5px;
@@ -184,5 +193,8 @@ export default {
             }
         
         
+    }
+    #orderDate {
+        color:rgb(77, 77, 77);
     }
 </style>
