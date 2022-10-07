@@ -22,7 +22,7 @@
             <div class="swiper-button-next swiper-btn" slot="button-next"></div>
         </swiper>
     </div>
-    <div class="home-title"><i class="fa-solid fa-champagne-glasses title-icon"></i>最新上市</div>
+    <div class="home-title"><i class="fa-solid fa-champagne-glasses title-icon"></i><p>最新上市</p></div>
     <ul class="showArea-container">
       <li class="card-container" v-for="item in promoteList" :key="item.id">
         <div class="img-container">
@@ -38,7 +38,7 @@
         </div>
       </li>
     </ul>
-    <div class="title-BG"><div class="home-title"><i class="fa-brands fa-instagram IG-color"></i>instagram 最新貼文</div></div>
+    <div class="home-title"><i class="fa-brands fa-instagram IG-color"></i><p>instagram 最新貼文</p></div>
     <ul class="insta-container">
       <li class="img-container" v-for="post in postList" :key="post.id">
         <a :href="post.permalink"><img class="img-IG" :src="post.media_url" alt="Photos from IG"></a>
@@ -185,30 +185,33 @@ export default {
       }
     }
     .home-title {
+      display:flex;
+      justify-content: center;
       font-size:1.6rem;
-      text-align: center;
+      align-items: center;
       margin:1rem 0;
       margin-top:4rem;
-      padding:1.2rem;
+      padding:1rem;
       background-color: rgb(184, 156, 137);
       font-weight: 700;
       color:#fff;
       .title-icon {
         margin-right:1rem;
         color:#fff;
+        font-size: 2.2rem;
       }
     }
     .IG-color{
       color: transparent;  
       background: -webkit-radial-gradient(30% 107%, circle, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
       background: -o-radial-gradient(30% 107%, circle, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      background: radial-gradient(circle at 30% 107%, #cac156 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
       background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
       background-clip: text;
       -webkit-background-clip: text;
       margin-right:1rem;
       font-weight: 700;
-      font-size: 1.8rem;
+      font-size: 2.3rem;
     }
     // .title-BG {
     //   background-color: rgb(158, 167, 145);

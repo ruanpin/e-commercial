@@ -83,6 +83,7 @@ i {
   .container {
     display:flex;
     justify-content: space-between;
+    align-items: center;
     background-color: rgba(205, 217, 182, 0.692);
     .logo {
       display:flex;
@@ -90,7 +91,7 @@ i {
       align-items: center;
       width: 30%;    
       img {
-        width: 35%;
+        width: 31%;
         // height: 30%;
         object-fit: cover;
       }
