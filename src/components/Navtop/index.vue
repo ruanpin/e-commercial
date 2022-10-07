@@ -3,7 +3,7 @@
     <div class="logo"><img src="/logo/logo.svg" alt=""></div>
     <ul class="pages-btn">
       <li><router-link to="/home">Home</router-link></li>
-      <li @click="getAllProducts"><router-link to="/products">Products</router-link></li>
+      <li><router-link to="/products">Products</router-link></li>
       <li><router-link to="/about">About</router-link></li>
     </ul>
     <div class="users-area">
@@ -36,13 +36,6 @@ import {mapState} from 'vuex'
               })
             }
             
-          },
-          getAllProducts(){
-            this.$store.dispatch("Search/postProducts",{
-              keyword:'',
-              pageNow:1,
-              productsShowNumInOnePage:4,
-            })
           },
           logOut (){
             this.$store.commit("Member/LOGOUT")

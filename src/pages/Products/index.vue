@@ -105,6 +105,13 @@ export default {
         //productsList : 'productsList'
         //}),
       ...mapState('Search',['productsList','totalAmount'])
+    },
+    mounted(){
+      this.$store.dispatch("Search/postProducts",{
+        keyword:'',
+        pageNow:1,
+        productsShowNumInOnePage:4,
+      })
     }
 }
 </script>
