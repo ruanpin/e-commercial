@@ -6,6 +6,7 @@
 為虛構的礦石品牌 Crystal 打造的購物網站。網站使用者為消費者，消費者可在前台網站享受流暢的購物體驗、查看該品牌Instagram最新貼文及活動資訊、註冊/登入會員、並可在後台進行查詢會員訂單等多功能體驗。
 
 ## 目錄結構說明
+```
 |-- e-commercial
     |-- .gitignore
     |-- babel.config.js
@@ -171,7 +172,7 @@
         |   |-- Search.js
         |-- utils
             |-- InstaToken.js
-
+```
 
 
 ## 功能
