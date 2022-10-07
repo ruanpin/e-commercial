@@ -184,6 +184,18 @@
     <li>登入/註冊頁 - 進行註冊/登入功能、登入後可在後台查看歷史訂單 </li>
 </ul>
 
+## 使用技術和第三方套件
+
+<ul>
+    <li>Vue - Function Components + Hooks </li>
+    <li>Vue Router - Web App 路由管理 </li>
+    <li>VueX - 狀態統一管理 </li>
+    <li>Axios - 發送AJAX請求串接後端API </li>
+    <li>Mock.js - 攔截AJAX請求，模擬數據生成器，協助前端開發與後端進度分離 </li>
+    <li>Swiper - Carousel 輪播圖組件 </li>
+    <li>nprogress - AJAX請求進度條 </li>
+</ul>
+
 
 ## 如何執行
 
@@ -201,14 +213,3 @@ npm install
 npm run serve 
 ```
 
-## 使用技術和第三方套件
-
-<ul>
-    <li>Vue - Function Components + Hooks </li>
-    <li>Vue Router - Web App 路由管理 </li>
-    <li>VueX - 狀態統一管理 </li>
-    <li>Axios - 發送AJAX請求串接後端API </li>
-    <li>Mock.js - 攔截AJAX請求，模擬數據生成器，協助前端開發與後端進度分離 </li>
-    <li>Swiper - Carousel 輪播圖組件 </li>
-    <li>nprogress - AJAX請求進度條 </li>
-</ul>
