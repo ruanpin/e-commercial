@@ -6,188 +6,172 @@
 為虛構的礦石品牌 Crystal 打造的購物網站。網站使用者為消費者，消費者可在前台網站享受流暢的購物體驗、查看該品牌Instagram最新貼文及活動資訊、註冊/登入會員、並可在後台進行查詢會員訂單等多功能體驗。
 
 ## 目錄結構說明
-e-commercial
-├── public
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── manifest.json
-│   └── robots.txt
-├── src
-│   ├── API
-│   │   ├── fetchAPI.js
-│   │   ├── imgurAPI.js
-│   │   └── WEBAPI.js
-│   ├── components
-│   │   ├── App
-│   │   │   ├── App.js
-│   │   │   └── App.test.js
-│   │   ├── common
-│   │   │   ├── Counter.js
-│   │   │   ├── Dropdown.js
-│   │   │   ├── EachErrorMessage.js
-│   │   │   ├── Errormessage.js
-│   │   │   ├── IconMark.js
-│   │   │   ├── index.css
-│   │   │   ├── Item.js
-│   │   │   ├── Loading.js
-│   │   │   ├── PageBtn.js
-│   │   │   ├── PopModal.js
-│   │   │   └── ProductsSectionTiTleContent.js
-│   │   ├── Footer
-│   │   │   ├── Footer.js
-│   │   │   └── index.js
-│   │   ├── Header
-│   │   │   ├── Header.js
-│   │   │   └── index.js
-│   │   ├── img
-│   │   │   ├── banner
-│   │   │   ├── homePhoto
-│   │   │   ├── icon
-│   │   │   └── product
-│   │   ├── routes
-│   │   │   └── ProtectedRoutes.js
-│   │   └── Style
-│   │       └── style.js
-│   ├── context.js
-│   ├── hooks
-│   │   ├── carts
-│   │   │   ├── shipping
-│   │   │   ├── useAddCartItems.js
-│   │   │   ├── useCartApi.js
-│   │   │   ├── useCount.js
-│   │   │   ├── useDebounce.js
-│   │   │   ├── useGetSingleProduct.js
-│   │   │   ├── useRecommendsApi.js
-│   │   │   ├── useScroll.js
-│   │   │   ├── useShipping.js
-│   │   │   └── useShippingApi.js
-│   │   ├── common
-│   │   │   ├── useHeader.js
-│   │   │   └── usePagination.js
-│   │   ├── discountHooks
-│   │   │   ├── useDiscount.js
-│   │   │   └── useEditDiscount.js
-│   │   ├── orders
-│   │   │   ├── useFIndAllOrder.js
-│   │   │   └── useOneOrder.js
-│   │   ├── paginationHooks
-│   │   │   └── usePagination.js
-│   │   ├── productHooks
-│   │   │   ├── useAddProduct.js
-│   │   │   ├── useAdminProducts.js
-│   │   │   ├── useAdminRestoreProducts.js
-│   │   │   ├── useCategory.js
-│   │   │   ├── useFindHotProducts.js
-│   │   │   ├── useFindNewProducts.js
-│   │   │   ├── useFindProducts.js
-│   │   │   ├── useFindRecommendProducts.js
-│   │   │   ├── useHotProducts.js
-│   │   │   ├── useSearchProducts.js
-│   │   │   └── useUpdateProduct.js
-│   │   └── user
-│   │       ├── useLogin.js
-│   │       ├── useRegister.js
-│   │       ├── useSingleTransaction.js
-│   │       ├── useTransaction.js
-│   │       ├── useUpadtePassword.js
-│   │       ├── useUpdateUserInfo.js
-│   │       └── useUser.js
-│   ├── index.css
-│   ├── index.js
-│   ├── normalize.css
-│   ├── pages
-│   │   ├── AddProductPage
-│   │   │   ├── AddProductPage.js
-│   │   │   └── index.js
-│   │   ├── Admin
-│   │   │   ├── components
-│   │   │   ├── index.js
-│   │   │   └── OrderPage.js
-│   │   ├── AdminProductsPage
-│   │   │   ├── AdminProductsPage.js
-│   │   │   ├── components
-│   │   │   └── index.js
-│   │   ├── AdminProductsRestorePage
-│   │   │   ├── AdminProductsRestorePage.js
-│   │   │   ├── components
-│   │   │   └── index.js
-│   │   ├── CartPage
-│   │   │   ├── CartPage.js
-│   │   │   ├── component
-│   │   │   └── index.js
-│   │   ├── discountPages
-│   │   │   ├── DiscountEditPage.js
-│   │   │   ├── DiscountsPage.js
-│   │   │   ├── index.js
-│   │   │   ├── inputItem.js
-│   │   │   └── TdContext.js
-│   │   ├── FaqPage
-│   │   │   ├── FaqItems.js
-│   │   │   ├── FaqPage.js
-│   │   │   └── index.js
-│   │   ├── HomePage
-│   │   │   ├── components
-│   │   │   ├── HomePage.js
-│   │   │   └── index.js
-│   │   ├── HotProductsPage
-│   │   │   ├── components
-│   │   │   ├── HotProductsPage.js
-│   │   │   └── index.js
-│   │   ├── LoginPage
-│   │   │   ├── components
-│   │   │   ├── index.js
-│   │   │   └── LoginPage.js
-│   │   ├── NewProductsPage
-│   │   │   ├── components
-│   │   │   ├── index.js
-│   │   │   └── NewProductsPage.js
-│   │   ├── OrderWholeListPagePage
-│   │   │   ├── components
-│   │   │   ├── index.js
-│   │   │   └── OrderWholeListPage.js
-│   │   ├── ProductsPage
-│   │   │   ├── components
-│   │   │   ├── index.js
-│   │   │   └── ProductsPage.js
-│   │   ├── RegisterPage
-│   │   │   ├── components
-│   │   │   ├── index.js
-│   │   │   └── RegisterPage.js
-│   │   ├── SearchPage
-│   │   │   ├── components
-│   │   │   ├── index.js
-│   │   │   └── SearchPage.js
-│   │   ├── SingleProductPage
-│   │   │   ├── index.js
-│   │   │   ├── SingleProduct.js
-│   │   │   └── SingleProductPage.js
-│   │   ├── SingleTransactionPage
-│   │   │   ├── index.js
-│   │   │   └── SingleTransactionPage.js
-│   │   ├── TransactionPage
-│   │   │   ├── index.js
-│   │   │   └── TransactionPage.js
-│   │   ├── UpdateProductPage
-│   │   │   ├── index.js
-│   │   │   ├── old.js
-│   │   │   └── UpdateProductPage.js
-│   │   └── UserPage
-│   │       ├── components
-│   │       ├── index.js
-│   │       └── UserPage.js
-│   ├── reportWebVitals.js
-│   ├── setupTests.js
-│   └── utils.js
+|-- e-commercial
+    |-- .gitignore
+    |-- babel.config.js
+    |-- jsconfig.json
+    |-- package-lock.json
+    |-- package.json
+    |-- README.md
+    |-- vue.config.js
+    |-- dist
+    |   |-- favicon.ico
+    |   |-- index.html
+    |   |-- css
+    |   |   |-- app.807fce01.css
+    |   |   |-- cssReset.css
+    |   |-- fontAwesome
+    |   |   |-- css
+    |   |   |   |-- all.css
+    |   |   |   |-- all.min.css
+    |   |   |   |-- brands.css
+    |   |   |   |-- brands.min.css
+    |   |   |   |-- fontawesome.css
+    |   |   |   |-- fontawesome.min.css
+    |   |   |   |-- regular.css
+    |   |   |   |-- regular.min.css
+    |   |   |   |-- solid.css
+    |   |   |   |-- solid.min.css
+    |   |   |   |-- svg-with-js.css
+    |   |   |   |-- svg-with-js.min.css
+    |   |   |   |-- v4-font-face.css
+    |   |   |   |-- v4-font-face.min.css
+    |   |   |   |-- v4-shims.css
+    |   |   |   |-- v4-shims.min.css
+    |   |   |   |-- v5-font-face.css
+    |   |   |   |-- v5-font-face.min.css
+    |   |   |-- webfonts
+    |   |       |-- fa-brands-400.ttf
+    |   |       |-- fa-brands-400.woff2
+    |   |       |-- fa-regular-400.ttf
+    |   |       |-- fa-regular-400.woff2
+    |   |       |-- fa-solid-900.ttf
+    |   |       |-- fa-solid-900.woff2
+    |   |       |-- fa-v4compatibility.ttf
+    |   |       |-- fa-v4compatibility.woff2
+    |   |-- home
+    |   |   |-- banner1.png
+    |   |   |-- banner2.png
+    |   |-- images
+    |   |   |-- product1.png
+    |   |   |-- product2.png
+    |   |   |-- product3.png
+    |   |   |-- product4.png
+    |   |-- js
+    |   |   |-- app.15ae2406.js
+    |   |   |-- app.15ae2406.js.map
+    |   |   |-- chunk-vendors.a44a6ea9.js
+    |   |   |-- chunk-vendors.a44a6ea9.js.map
+    |   |-- logo
+    |       |-- logo.svg
+    |-- public
+    |   |-- favicon.ico
+    |   |-- index.html
+    |   |-- about
+    |   |   |-- about.jpg
+    |   |-- css
+    |   |   |-- cssReset.css
+    |   |-- fontAwesome
+    |   |   |-- css
+    |   |   |   |-- all.css
+    |   |   |   |-- all.min.css
+    |   |   |   |-- brands.css
+    |   |   |   |-- brands.min.css
+    |   |   |   |-- fontawesome.css
+    |   |   |   |-- fontawesome.min.css
+    |   |   |   |-- regular.css
+    |   |   |   |-- regular.min.css
+    |   |   |   |-- solid.css
+    |   |   |   |-- solid.min.css
+    |   |   |   |-- svg-with-js.css
+    |   |   |   |-- svg-with-js.min.css
+    |   |   |   |-- v4-font-face.css
+    |   |   |   |-- v4-font-face.min.css
+    |   |   |   |-- v4-shims.css
+    |   |   |   |-- v4-shims.min.css
+    |   |   |   |-- v5-font-face.css
+    |   |   |   |-- v5-font-face.min.css
+    |   |   |-- webfonts
+    |   |       |-- fa-brands-400.ttf
+    |   |       |-- fa-brands-400.woff2
+    |   |       |-- fa-regular-400.ttf
+    |   |       |-- fa-regular-400.woff2
+    |   |       |-- fa-solid-900.ttf
+    |   |       |-- fa-solid-900.woff2
+    |   |       |-- fa-v4compatibility.ttf
+    |   |       |-- fa-v4compatibility.woff2
+    |   |-- home
+    |   |   |-- banner1.png
+    |   |   |-- banner2.png
+    |   |-- images
+    |   |   |-- product1.png
+    |   |   |-- product2.png
+    |   |   |-- product3.png
+    |   |   |-- product4.png
+    |   |-- logo
+    |       |-- logo.svg
+    |-- src
+        |-- App.vue
+        |-- main.js
+        |-- api
+        |   |-- index.js
+        |   |-- member.js
+        |   |-- mock.js
+        |   |-- request.js
+        |-- assets
+        |   |-- logo.png
+        |-- components
+        |   |-- Footer
+        |   |   |-- index.vue
+        |   |-- Navtop
+        |   |   |-- index.vue
+        |   |-- Pagination
+        |       |-- index.vue
+        |-- mock
+        |   |-- mockServer.js
+        |   |-- products.json
+        |-- pages
+        |   |-- About
+        |   |   |-- index.vue
+        |   |-- Cart
+        |   |   |-- index.vue
+        |   |-- ChangePolicy
+        |   |   |-- index.vue
+        |   |-- Home
+        |   |   |-- index.vue
+        |   |-- Maintain
+        |   |   |-- index.vue
+        |   |-- Member
+        |   |   |-- index.vue
+        |   |-- MemberInfo
+        |   |   |-- index.vue
+        |   |-- Order
+        |   |   |-- index.vue
+        |   |-- OrderDone
+        |   |   |-- index.vue
+        |   |-- PrivacyPolicy
+        |   |   |-- index.vue
+        |   |-- Products
+        |   |   |-- index.vue
+        |   |   |-- ProductDetail
+        |   |       |-- index.vue
+        |   |-- SignUp
+        |   |   |-- index.vue
+        |   |-- SignUpDone
+        |       |-- index.vue
+        |-- router
+        |   |-- index.js
+        |-- store
+        |   |-- Cart.js
+        |   |-- index.js
+        |   |-- Insta.js
+        |   |-- Member.js
+        |   |-- MemberInfo.js
+        |   |-- ProductDetail.js
+        |   |-- Search.js
+        |-- utils
+            |-- InstaToken.js
 
-
-├── src
-├── .gitignore
-├── babel.config.js
-├── jsconfig.json
-├── package-lock.json
-├── package.json
-├── README.md
-└── vue.config.js
 
 
 ## 功能
