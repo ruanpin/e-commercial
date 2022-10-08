@@ -20,7 +20,7 @@
 ## 使用技術和第三方套件
 
 <ul>
-    <li>Vue - Function Components + Hooks </li>
+    <li>Vue - Modern front end frameworks </li>
     <li>Vue Router - Web App 路由管理 </li>
     <li>VueX - 狀態統一管理 </li>
     <li>Axios - 發送AJAX請求串接後端API </li>
