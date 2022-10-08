@@ -215,7 +215,7 @@
 
 注意：如在其他電腦上執行，將無法獲取Instagram貼文，因Instagram相關Token並未上傳至此repo
 
-注意：此專案需先至 https://github.com/ruanpin/easyServer 網址clone後端專案及安裝MongoDB(v6.0.1)，並先執行資料庫及該後端專案才可正確執行前端註冊/登入/訂單建立/訂單查詢等功能。
+注意：此專案需先至 https://github.com/ruanpin/easyServer clone後端及安裝MongoDB(v6.0.1)，並執行資料庫及後端專案，即可執行前端註冊/登入/訂單建立/訂單查詢等功能。
 
 ###安裝此專案需要的第三方套件
 ```
