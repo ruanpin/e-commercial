@@ -198,6 +198,8 @@
     <li>Mock.js - 攔截AJAX請求，模擬數據生成器，協助前端開發與後端進度分離 </li>
     <li>Swiper - Carousel 輪播圖組件 </li>
     <li>nprogress - AJAX請求進度條 </li>
+    <li>fontAwesome - 圖標 </li>
+    
 </ul>
 
 
