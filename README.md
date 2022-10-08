@@ -5,11 +5,15 @@
 這是一個使用Vue建立的電子商務前端專案，再搭配簡易後端及資料庫來完成資料的增刪查改等功能。
 為虛構的礦石品牌 Crystal 打造的購物網站。網站使用者為消費者，消費者可在前台網站享受流暢的購物體驗、查看該品牌Instagram最新貼文及活動資訊、註冊/登入會員、並可在後台進行查詢會員訂單等多功能體驗。
 
+僅提供作品集使用，不做任何商業性質用途
+
 
 > <a href="https://www.ruanpin23.com/#/portfolioShow">Crystal 購物網站</a>
 
 ![購物頁預覽](./public/screenshot/電商Product.PNG)
+
 ![商品頁預覽](./public/screenshot/電商ProductDetail.PNG)
+
 ![購物車預覽](./public/screenshot/電商Cart.PNG)
 
 
