@@ -34,6 +34,7 @@
     <li>Vue Router - Web App 路由管理 </li>
     <li>VueX - 狀態統一管理 </li>
     <li>Axios - 發送AJAX請求串接後端API </li>
+    <li>SCSS - Css Preprocessor </li>
     <li>Mock.js - 攔截AJAX請求，模擬數據生成器，協助前端開發與後端進度分離 </li>
     <li>Swiper - Carousel 輪播圖組件 </li>
     <li>nprogress - AJAX請求進度條 </li>
