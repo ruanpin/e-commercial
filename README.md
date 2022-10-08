@@ -8,6 +8,29 @@
 
 > <a href="https://www.ruanpin23.com/#/portfolioShow">Crystal 購物網站</a>
 
+## 功能
+<ul>
+    <li>首頁 - 最新促銷活動(Banner)、最新上架產品、官方Instagram最新貼文 </li>
+    <li>產品選購頁 - 可以關鍵字搜尋想要的產品、並加入購物車或馬上購買結帳 </li>
+    <li>關於頁 - 官方背景敘述 </li>
+    <li>購物車/結帳頁 - 可勾選欲結帳商品、登入會員後可進行結帳並完成該筆訂單 </li>
+    <li>登入/註冊頁 - 進行註冊/登入功能、登入後可在後台查看歷史訂單 </li>
+</ul>
+
+## 使用技術和第三方套件
+
+<ul>
+    <li>Vue - Function Components + Hooks </li>
+    <li>Vue Router - Web App 路由管理 </li>
+    <li>VueX - 狀態統一管理 </li>
+    <li>Axios - 發送AJAX請求串接後端API </li>
+    <li>Mock.js - 攔截AJAX請求，模擬數據生成器，協助前端開發與後端進度分離 </li>
+    <li>Swiper - Carousel 輪播圖組件 </li>
+    <li>nprogress - AJAX請求進度條 </li>
+    <li>fontAwesome - 圖標 </li>
+    
+</ul>
+
 
 ## 目錄結構說明
 ```
@@ -177,31 +200,6 @@
         |-- utils
             |-- InstaToken.js
 ```
-
-
-## 功能
-<ul>
-    <li>首頁 - 最新促銷活動(Banner)、最新上架產品、官方Instagram最新貼文 </li>
-    <li>產品選購頁 - 可以關鍵字搜尋想要的產品、並加入購物車或馬上購買結帳 </li>
-    <li>關於頁 - 官方背景敘述 </li>
-    <li>購物車/結帳頁 - 可勾選欲結帳商品、登入會員後可進行結帳並完成該筆訂單 </li>
-    <li>登入/註冊頁 - 進行註冊/登入功能、登入後可在後台查看歷史訂單 </li>
-</ul>
-
-## 使用技術和第三方套件
-
-<ul>
-    <li>Vue - Function Components + Hooks </li>
-    <li>Vue Router - Web App 路由管理 </li>
-    <li>VueX - 狀態統一管理 </li>
-    <li>Axios - 發送AJAX請求串接後端API </li>
-    <li>Mock.js - 攔截AJAX請求，模擬數據生成器，協助前端開發與後端進度分離 </li>
-    <li>Swiper - Carousel 輪播圖組件 </li>
-    <li>nprogress - AJAX請求進度條 </li>
-    <li>fontAwesome - 圖標 </li>
-    
-</ul>
-
 
 ## 如何執行
 
