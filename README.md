@@ -8,7 +8,9 @@
 
 > <a href="https://www.ruanpin23.com/#/portfolioShow">Crystal 購物網站</a>
 
-![](./public/screenshot/電商Product.PNG)
+![購物頁預覽](./public/screenshot/電商Product.PNG)
+![商品頁預覽](./public/screenshot/電商ProductDetail.PNG)
+![購物車預覽](./public/screenshot/電商Cart.PNG)
 
 
 ## 功能
