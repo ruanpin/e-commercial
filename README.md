@@ -8,6 +8,9 @@
 
 > <a href="https://www.ruanpin23.com/#/portfolioShow">Crystal 購物網站</a>
 
+![](./public/screenshot/電商Product.PNG)
+
+
 ## 功能
 <ul>
     <li>首頁 - 最新促銷活動(Banner)、最新上架產品、官方Instagram最新貼文 </li>
