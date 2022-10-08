@@ -16,6 +16,7 @@
 
 ![購物車預覽](./public/screenshot/電商Cart.PNG)
 
+此前端專案的後端Github : https://github.com/ruanpin/easyServer
 
 ## 功能
 <ul>
