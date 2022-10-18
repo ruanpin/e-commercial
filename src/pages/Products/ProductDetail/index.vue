@@ -64,7 +64,8 @@ import Info from './Info'
                 }
             },
             changeBuyNumInput(event){
-                if (event.target.value > this.product.remaining) {
+                console.log(this.product)
+                if (new Number(event.target.value) > new Number(this.product.remaining)) {
                     this.buyNum = this.product.remaining
                 } else if(event.target.value < 1) {
                     this.buyNum = 1
